@@ -5,12 +5,13 @@ import javax.measure.Unit;
 import si.uom.quantity.Density;
 
 /**
- * {@code DensityAmount} class.
+ * {@code DensityAmount} class represents {@link Quantity} of type {@link Density}.
  *
  * @author Denis Murashev
+ *
  * @since Measure 0.1
  */
-public class DensityAmount extends QuantityImpl<Density> {
+public class DensityAmount extends QuantityImpl<Density> implements Density {
 
 	/**
 	 * @param number number

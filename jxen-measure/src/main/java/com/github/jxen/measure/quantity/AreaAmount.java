@@ -5,12 +5,13 @@ import javax.measure.Unit;
 import javax.measure.quantity.Area;
 
 /**
- * {@code AngleAmount} class represents {@link Quantity} of type {@link Area}.
+ * {@code AreaAmount} class represents {@link Quantity} of type {@link Area}.
  *
  * @author Denis Murashev
+ *
  * @since Measure 0.1
  */
-public class AreaAmount extends QuantityImpl<Area> {
+public class AreaAmount extends QuantityImpl<Area> implements Area {
 
 	/**
 	 * @param number value

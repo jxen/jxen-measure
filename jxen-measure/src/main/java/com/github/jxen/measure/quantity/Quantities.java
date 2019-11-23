@@ -11,6 +11,7 @@ import javax.measure.spi.SystemOfUnits;
  * {@code Quantities} class is responsible for management of {@link Quantity} entinies.
  *
  * @author Denis Murashev
+ *
  * @since Measure 0.1
  */
 public final class Quantities {

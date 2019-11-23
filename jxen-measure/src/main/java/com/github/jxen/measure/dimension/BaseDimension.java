@@ -7,24 +7,39 @@ import javax.measure.Dimension;
 enum BaseDimension implements Dimension {
 
 	/**
-	 * Length.
+	 * Length (L)
 	 */
 	LENGTH,
 
 	/**
-	 * Mass.
+	 * Mass (M).
 	 */
 	MASS,
 
 	/**
-	 * Time.
+	 * Time (T).
 	 */
 	TIME,
 
 	/**
-	 * Currency.
+	 * Electric current (I).
 	 */
-	CURRENCY;
+	ELECTRIC_CURRENT,
+
+	/**
+	 * Temperature dimension (\Theta \u0398).
+	 */
+	TEMPERATURE,
+
+	/**
+	 * Amount of substance (N).
+	 */
+	AMOUNT_OF_SUBSTANCE,
+
+	/**
+	 * Luminous intensity (J).
+	 */
+	LUMINOUS_INTENSITY;
 
 	private final Map<Dimension, Integer> base = new HashMap<>();
 

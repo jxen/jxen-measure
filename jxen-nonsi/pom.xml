@@ -4,18 +4,17 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.github.jxen.sdk</groupId>
-		<artifactId>jxen-parent</artifactId>
-		<version>1</version>
+		<artifactId>jxen-measure-parent</artifactId>
+		<version>0.2-SNAPSHOT</version>
 	</parent>
 	<artifactId>jxen-nonsi</artifactId>
 	<packaging>jar</packaging>
-	<version>0.1</version>
-	<name>Java Xenon Measure Extension for Non SI units</name>
+	<name>Java Xenon JSR 385 (javax.measure) Non SI Units</name>
+	<description>Java Xenon JSR 385 (javax.measure) Implementation Non SI Units Support Project</description>
 	<dependencies>
 		<dependency>
 			<groupId>com.github.jxen.sdk</groupId>
 			<artifactId>jxen-measure</artifactId>
-			<version>0.1</version>
 		</dependency>
 	</dependencies>
 </project>

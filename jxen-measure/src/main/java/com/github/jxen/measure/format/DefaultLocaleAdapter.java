@@ -3,11 +3,10 @@ package com.github.jxen.measure.format;
 class DefaultLocaleAdapter implements LocaleAdapter {
 
 	@Override
-	public String getSuffix(Number number) {
-		double value = Math.abs(number.doubleValue());
-		if (value == 1) {
-			return "";
+	public String name(String name, Number number) {
+		if (Math.abs(number.doubleValue()) <= 1) {
+			return name;
 		}
-		return ".plural";
+		return name + ".plural";
 	}
 }

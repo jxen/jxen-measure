@@ -17,6 +17,7 @@ import javax.measure.format.UnitFormat;
  * {@code MeasureUnitFormat} class is extension of {@link UnitFormat}.
  *
  * @author Denis Murashev
+ *
  * @since Measure 0.1
  */
 public abstract class MeasureUnitFormat implements UnitFormat {
@@ -46,7 +47,6 @@ public abstract class MeasureUnitFormat implements UnitFormat {
 			}
 			return appendable.append(unit.getSymbol());
 		} catch (IOException e) {
-			// TODO Fix exception type
 			throw new MeasurementException(e);
 		}
 	}
@@ -67,7 +67,6 @@ public abstract class MeasureUnitFormat implements UnitFormat {
 		try {
 			return appendable.append(getString(value, unit));
 		} catch (IOException e) {
-			// TODO Fix exception type
 			throw new MeasurementException(e);
 		}
 	}
@@ -101,33 +100,9 @@ public abstract class MeasureUnitFormat implements UnitFormat {
 		throw new UnsupportedOperationException(ERROR_NOT_IMPLEMENTED);
 	}
 
-	/**
-	 * @return {@link LocaleAdapter} for current unit format
-	 */
-	protected abstract LocaleAdapter getAdapter();
+	abstract UnitNameHelper.Formatter getFormatter(List<ResourceBundle> bundles);
 
 	private String getString(Number value, AbstractUnit<?> unit) {
-		int index = unit.getName().indexOf(":");
-		String unitKey = "unit.";
-		if (index == -1) {
-			return getString(unitKey + unit.getName() + getAdapter().getSuffix(value));
-		}
-		String prefix = getString("prefix." + unit.getName().substring(0, index));
-		String name = getString(unitKey + unit.getName().substring(index + 1) + getAdapter().getSuffix(value));
-		return prefix + name;
-	}
-
-	private String getString(String key) {
-		for (ResourceBundle bundle : bundles) {
-			if (bundle.containsKey(key)) {
-				return bundle.getString(key);
-			}
-		}
-		return forMissing(key);
-	}
-
-	private String forMissing(String key) {
-		// TODO Make a reasonable solution
-		return "[" + key + "]";
+		return getFormatter(bundles).format(value, unit.getName());
 	}
 }

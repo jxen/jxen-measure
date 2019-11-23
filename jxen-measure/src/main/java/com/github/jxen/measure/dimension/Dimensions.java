@@ -6,6 +6,7 @@ import javax.measure.Dimension;
  * {@code Dimensions} class collects dimensions.
  *
  * @author Denis Murashev
+ *
  * @since Measure 0.1
  */
 public final class Dimensions {
@@ -21,16 +22,6 @@ public final class Dimensions {
 	public static final Dimension LENGTH = BaseDimension.LENGTH;
 
 	/**
-	 * Area.
-	 */
-	public static final Dimension AREA = LENGTH.pow(2);
-
-	/**
-	 * Volume.
-	 */
-	public static final Dimension VOLUME = LENGTH.pow(3);
-
-	/**
 	 * Mass.
 	 */
 	public static final Dimension MASS = BaseDimension.MASS;
@@ -41,14 +32,24 @@ public final class Dimensions {
 	public static final Dimension TIME = BaseDimension.TIME;
 
 	/**
-	 * Speed.
+	 * Electric current (I).
 	 */
-	public static final Dimension SPEED = LENGTH.divide(TIME);
+	public static final Dimension ELECTRIC_CURRENT = BaseDimension.ELECTRIC_CURRENT;
 
 	/**
-	 * Density.
+	 * Temperature dimension (&Theta;).
 	 */
-	public static final Dimension DENSITY = MASS.divide(VOLUME);
+	public static final Dimension TEMPERATURE = BaseDimension.TEMPERATURE;
+
+	/**
+	 * Amount of substance (N).
+	 */
+	public static final Dimension AMOUNT_OF_SUBSTANCE = BaseDimension.AMOUNT_OF_SUBSTANCE;
+
+	/**
+	 * Luminous intensity (J).
+	 */
+	public static final Dimension LUMINOUS_INTENSITY = BaseDimension.LUMINOUS_INTENSITY;
 
 	private Dimensions() {
 	}

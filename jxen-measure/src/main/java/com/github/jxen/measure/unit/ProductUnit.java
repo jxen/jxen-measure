@@ -13,7 +13,9 @@ import javax.measure.UnitConverter;
  * {@code ProductUnit} class represents product unit.
  *
  * @author Denis Murashev
+ *
  * @param <Q> Quantity type
+ *
  * @since Measure 0.1
  */
 final class ProductUnit<Q extends Quantity<Q>> extends AbstractUnit<Q> {
@@ -24,12 +26,11 @@ final class ProductUnit<Q extends Quantity<Q>> extends AbstractUnit<Q> {
 	 * Initializes empty unit.
 	 */
 	ProductUnit() {
-		super(null);
-		elements = new Element[0];
+		this(new Element[0]);
 	}
 
 	private ProductUnit(Element[] elements) {
-		super(null);
+		super("");
 		this.elements = elements.clone();
 	}
 

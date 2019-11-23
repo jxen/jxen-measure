@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import com.github.jxen.measure.dimension.Dimensions;
+import com.github.jxen.measure.unit.SystemOfUnitsImpl.Builder;
 import javax.measure.quantity.Length;
 import org.junit.jupiter.api.Test;
 
@@ -34,5 +35,13 @@ class SystemOfUnitsTest {
 	@Test
 	void testGetUnitsLength() {
 		assertFalse(SYSTEM.getUnits(Dimensions.LENGTH).isEmpty());
+	}
+
+	@Test
+	void testAddSame() {
+		Builder builder = SystemOfUnitsImpl.builder("Test");
+		builder.unit(METER, Length.class);
+		builder.unit(METER, Length.class);
+		assertEquals(1, builder.build().getUnits().size());
 	}
 }

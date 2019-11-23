@@ -1,14 +1,18 @@
 package com.github.jxen.measure.format;
 
+import com.github.jxen.measure.format.UnitNameHelper.FullFormatter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 /**
  * {@code FullUnitFormat} class is extension of {@link MeasureUnitFormat}.
  *
  * @author Denis Murashev
+ *
  * @since Measure 0.1
  */
 public class FullUnitFormat extends MeasureUnitFormat {
@@ -46,7 +50,8 @@ public class FullUnitFormat extends MeasureUnitFormat {
 	}
 
 	@Override
-	protected LocaleAdapter getAdapter() {
-		return Optional.ofNullable(ADAPTERS.get(Locale.getDefault())).orElse(DEFAULT_ADAPTER);
+	protected UnitNameHelper.Formatter getFormatter(List<ResourceBundle> bundles) {
+		LocaleAdapter adapter = Optional.ofNullable(ADAPTERS.get(Locale.getDefault())).orElse(DEFAULT_ADAPTER);
+		return new FullFormatter(adapter, bundles);
 	}
 }

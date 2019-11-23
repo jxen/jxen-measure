@@ -1,8 +1,8 @@
 package com.github.jxen.measure.unit;
 
 import static com.github.jxen.measure.converter.Converters.IDENTITY;
+import static com.github.jxen.measure.unit.MechanicalUnits.SQUARE_METER;
 import static com.github.jxen.measure.unit.MetricUnits.METER;
-import static com.github.jxen.measure.unit.MetricUnits.SQUARE_METER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 

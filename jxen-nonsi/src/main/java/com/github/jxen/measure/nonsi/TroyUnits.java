@@ -1,7 +1,7 @@
 package com.github.jxen.measure.nonsi;
 
 import static com.github.jxen.measure.nonsi.TroyUnits.BuilderHolder.BUILDER;
-import static com.github.jxen.measure.unit.MetricUnits.GRAM;
+import static com.github.jxen.measure.unit.MechanicalUnits.GRAM;
 
 import com.github.jxen.math.rational.BigRational;
 import com.github.jxen.measure.unit.AbstractUnit;

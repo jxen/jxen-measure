@@ -4,28 +4,29 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.github.jxen.sdk</groupId>
-		<artifactId>jxen-parent</artifactId>
-		<version>1</version>
+		<artifactId>jxen-measure-parent</artifactId>
+		<version>0.2-SNAPSHOT</version>
 	</parent>
 	<artifactId>jxen-measure</artifactId>
 	<packaging>jar</packaging>
-	<version>0.1</version>
-	<name>Jave Xenon Implementation of JSR 363 (javax.measure)</name>
+	<name>Java Xenon JSR 385 (javax.measure) Core Classes</name>
+	<description>Java Xenon JSR 385 (javax.measure) Implementation Core Project</description>
 	<dependencies>
 		<dependency>
 			<groupId>com.github.jxen.sdk</groupId>
 			<artifactId>jxen-math</artifactId>
-			<version>0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.measure</groupId>
 			<artifactId>unit-api</artifactId>
-			<version>2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>si.uom</groupId>
 			<artifactId>si-quantity</artifactId>
-			<version>2.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>systems.uom</groupId>
+			<artifactId>systems-quantity</artifactId>
 		</dependency>
 	</dependencies>
 </project>

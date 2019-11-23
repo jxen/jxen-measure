@@ -8,9 +8,10 @@ import javax.measure.quantity.Speed;
  * {@code SpeedAmount} class represents {@link Quantity} of type {@link Speed}.
  *
  * @author Denis Murashev
+ *
  * @since Measure 0.1
  */
-public class SpeedAmount extends QuantityImpl<Speed> {
+public class SpeedAmount extends QuantityImpl<Speed> implements Speed {
 
 	/**
 	 * @param number value

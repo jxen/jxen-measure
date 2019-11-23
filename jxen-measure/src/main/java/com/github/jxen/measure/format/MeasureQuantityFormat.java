@@ -15,6 +15,7 @@ import javax.measure.format.QuantityFormat;
  * {@code MeasureQuantityFormat} class is extension of {@link QuantityFormat}.
  *
  * @author Denis Murashev
+ *
  * @since Measure 0.1
  */
 public class MeasureQuantityFormat implements QuantityFormat {
@@ -61,12 +62,13 @@ public class MeasureQuantityFormat implements QuantityFormat {
 	public Appendable format(Quantity<?> quantity, Appendable appendable) {
 		try {
 			appendable.append(numberFormat.format(quantity.getValue()));
-			appendable.append(DELIMITER);
-			if (quantity.getUnit() instanceof AbstractUnit) {
-				appendable.append(unitFormat.format(quantity.getValue(), (AbstractUnit<?>) quantity.getUnit()));
-			} else {
-				appendable.append(unitFormat.format(quantity.getUnit()));
+			String unit = quantity.getUnit() instanceof AbstractUnit
+					? unitFormat.format(quantity.getValue(), (AbstractUnit<?>) quantity.getUnit())
+					: unitFormat.format(quantity.getUnit());
+			if (!unit.matches("[^\\p{L}]")) {
+				appendable.append(DELIMITER);
 			}
+			appendable.append(unit);
 			return appendable;
 		} catch (IOException e) {
 			// TODO Fix exception type

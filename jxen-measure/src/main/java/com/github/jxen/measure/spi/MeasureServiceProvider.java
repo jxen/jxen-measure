@@ -12,6 +12,7 @@ import javax.measure.spi.UnitFormatService;
  * {@code MeasureServiceProvider} class is default service provider for Measure project.
  *
  * @author Denis Murashev
+ *
  * @since Measure 0.1
  */
 public class MeasureServiceProvider extends ServiceProvider {

@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import com.github.jxen.measure.dimension.Dimensions;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Locale;
@@ -63,7 +64,7 @@ class AbstractUnitTest {
 
 	@Test
 	void testGetConverterToCase2() {
-		assertEquals(fromFactor(MetricPrefix.DEKA.getValue()), MetricPrefix.deka(METER).getConverterTo(METER));
+		assertEquals(fromFactor(MetricPrefix.DECA.getValue()), MetricPrefix.deca(METER).getConverterTo(METER));
 	}
 
 	@Test
@@ -111,6 +112,14 @@ class AbstractUnitTest {
 	}
 
 	@Test
+	void testInverse() {
+		Map<Unit<?>, Integer> expected = new HashMap<>();
+		expected.put(METER, -1);
+		Unit<?> unit = METER.inverse();
+		assertEquals(expected, unit.getBaseUnits());
+	}
+
+	@Test
 	void testDivideNumber() {
 		Unit<Length> unit = METER.divide(BigDecimal.TEN);
 		assertEquals(fromFactor(new BigDecimal("0.1")), unit.getConverterTo(METER));
@@ -120,6 +129,16 @@ class AbstractUnitTest {
 	void testDivideDouble() {
 		Unit<Length> unit = METER.divide(2.0);
 		assertEquals(fromFactor(0.5), unit.getConverterTo(METER));
+	}
+
+	@Test
+	void testRootZero() {
+		assertThrows(ArithmeticException.class, () -> METER.root(0));
+	}
+
+	@Test
+	void testPowZero() {
+		assertEquals(Dimensions.DIMENSIONLESS, METER.pow(0).getDimension());
 	}
 
 	@Test

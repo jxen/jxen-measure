@@ -14,10 +14,12 @@ import javax.measure.UnitConverter;
  * {@code BaseUnit} class represents base unit.
  *
  * @author Denis Murashev
+ *
  * @param <Q> Quantity type
+ *
  * @since Measure 0.1
  */
-public final class BaseUnit<Q extends Quantity<Q>> extends AbstractUnit<Q> {
+final class BaseUnit<Q extends Quantity<Q>> extends AbstractUnit<Q> {
 
 	private transient Dimension dimension;
 
@@ -25,7 +27,7 @@ public final class BaseUnit<Q extends Quantity<Q>> extends AbstractUnit<Q> {
 	 * @param name      unit name
 	 * @param dimension unit dimension
 	 */
-	public BaseUnit(String name, Dimension dimension) {
+	BaseUnit(String name, Dimension dimension) {
 		super(name);
 		this.dimension = Optional.ofNullable(dimension).orElse(Dimensions.DIMENSIONLESS);
 	}
@@ -33,7 +35,7 @@ public final class BaseUnit<Q extends Quantity<Q>> extends AbstractUnit<Q> {
 	/**
 	 * @param name unit name
 	 */
-	public BaseUnit(String name) {
+	BaseUnit(String name) {
 		this(name, Dimensions.DIMENSIONLESS);
 	}
 

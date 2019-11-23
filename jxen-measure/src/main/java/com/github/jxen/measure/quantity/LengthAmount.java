@@ -8,9 +8,10 @@ import javax.measure.quantity.Length;
  * {@code LengthAmount} class represents {@link Quantity} of type {@link Length}.
  *
  * @author Denis Murashev
+ *
  * @since Measure 0.1
  */
-public class LengthAmount extends QuantityImpl<Length> {
+public class LengthAmount extends QuantityImpl<Length> implements Length {
 
 	/**
 	 * @param number value

@@ -15,6 +15,7 @@ import javax.measure.spi.SystemOfUnits;
  * {@code SystemOfUnitsImpl} class is implementation of {@link SystemOfUnits} interface.
  *
  * @author Denis Murashev
+ *
  * @since Measure 0.1
  */
 public final class SystemOfUnitsImpl implements SystemOfUnits {

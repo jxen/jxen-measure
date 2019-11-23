@@ -10,7 +10,9 @@ import javax.measure.UnitConverter;
  * {@code TransformedUnit} class represents unit created by transformation of another unit.
  *
  * @author Denis Murashev
+ *
  * @param <Q> Quantity type
+ *
  * @since Measure 0.1
  */
 final class TransformedUnit<Q extends Quantity<Q>> extends AbstractUnit<Q> {

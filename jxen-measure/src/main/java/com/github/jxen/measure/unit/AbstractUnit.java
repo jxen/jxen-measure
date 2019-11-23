@@ -6,6 +6,7 @@ import static com.github.jxen.measure.converter.Converters.fromOffset;
 
 import com.github.jxen.math.common.Adapters;
 import com.github.jxen.measure.format.DefaultUnitFormat;
+import com.github.jxen.measure.format.UnitNameHelper;
 import javax.measure.IncommensurableException;
 import javax.measure.Prefix;
 import javax.measure.Quantity;
@@ -17,7 +18,9 @@ import javax.measure.UnitConverter;
  * {@code AbstractUnit} class represents base general {@link Unit} implementation.
  *
  * @author Denis Murashev
+ *
  * @param <Q> Quantity type
+ *
  * @since Measure 0.1
  */
 public abstract class AbstractUnit<Q extends Quantity<Q>> implements Unit<Q> {
@@ -128,7 +131,7 @@ public abstract class AbstractUnit<Q extends Quantity<Q>> implements Unit<Q> {
 	@Override
 	public AbstractUnit<?> multiply(Unit<?> multiplier) {
 		if (multiplier instanceof AbstractUnit) {
-			String unitName = String.format("(%s*%s)", name, multiplier.getName());
+			String unitName = UnitNameHelper.multiply(this, multiplier);
 			return ProductUnit.getProductInstance(this, (AbstractUnit<?>) multiplier).alternate(unitName);
 		}
 		throw new UnsupportedOperationException(ERROR_NOT_COMPATIBLE);
@@ -152,7 +155,7 @@ public abstract class AbstractUnit<Q extends Quantity<Q>> implements Unit<Q> {
 	@Override
 	public AbstractUnit<?> divide(Unit<?> divisor) {
 		if (divisor instanceof AbstractUnit) {
-			String unitName = String.format("(%s/%s)", name, divisor.getName());
+			String unitName = UnitNameHelper.divide(this, divisor);
 			return ProductUnit.getQuotientInstance(this, (AbstractUnit<?>) divisor).alternate(unitName);
 		}
 		throw new UnsupportedOperationException(ERROR_NOT_COMPATIBLE);
@@ -172,7 +175,7 @@ public abstract class AbstractUnit<Q extends Quantity<Q>> implements Unit<Q> {
 	@Override
 	public AbstractUnit<?> pow(int n) {
 		if (n > 0) {
-			return ProductUnit.getPowInstance(this, n).alternate(name + "^" + n);
+			return ProductUnit.getPowInstance(this, n).alternate(UnitNameHelper.pow(this, n));
 		}
 		if (n == 0) {
 			return new ProductUnit<>();
@@ -197,7 +200,7 @@ public abstract class AbstractUnit<Q extends Quantity<Q>> implements Unit<Q> {
 
 	@Override
 	public AbstractUnit<Q> prefix(Prefix prefix) {
-		return transform(fromFactor(prefix.getValue())).alternate(prefix.getName() + ":" + name);
+		return transform(fromFactor(prefix.getValue())).alternate(UnitNameHelper.prefix(prefix, this));
 	}
 
 	/**

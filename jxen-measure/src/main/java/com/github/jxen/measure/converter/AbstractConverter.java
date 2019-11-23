@@ -8,6 +8,7 @@ import javax.measure.UnitConverter;
  * {@code AbstractConverter} class is basic abstract implementation of {@link UnitConverter}.
  *
  * @author Denis Murashev
+ *
  * @since Measure 0.1
  */
 abstract class AbstractConverter implements UnitConverter {

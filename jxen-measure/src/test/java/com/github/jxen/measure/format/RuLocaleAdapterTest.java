@@ -9,37 +9,74 @@ class RuLocaleAdapterTest {
 	private LocaleAdapter adapter = new RuLocaleAdapter();
 
 	@Test
-	void testSingle() {
-		assertEquals("", adapter.getSuffix(1));
+	void testNameSingle() {
+		String name = "name";
+		assertEquals(name, adapter.name(name, 1));
 	}
 
 	@Test
-	void testPart() {
-		assertEquals(".part", adapter.getSuffix(1.5));
+	void testNamePart() {
+		assertEquals("name.part", adapter.name("name",1.5));
 	}
 
 	@Test
-	void testPlural() {
-		assertEquals(".plural", adapter.getSuffix(2));
+	void testNamePlural() {
+		assertEquals("name.part", adapter.name("name",2));
 	}
 
 	@Test
-	void testPlural22() {
-		assertEquals(".plural", adapter.getSuffix(22));
+	void testNamePlural22() {
+		assertEquals("name.part", adapter.name("name",22));
 	}
 
 	@Test
-	void testPlural5() {
-		assertEquals(".plural5", adapter.getSuffix(5));
+	void testNamePlural5() {
+		assertEquals("name.plural", adapter.name("name",5));
 	}
 
 	@Test
-	void testPlural11() {
-		assertEquals(".plural5", adapter.getSuffix(11));
+	void testNamePlural11() {
+		assertEquals("name.plural", adapter.name("name",11));
 	}
 
 	@Test
-	void testPlural50() {
-		assertEquals(".plural5", adapter.getSuffix(50));
+	void testNamePlural50() {
+		assertEquals("name.plural", adapter.name("name",50));
+	}
+
+	@Test
+	void testSuffixSingle() {
+		String name = "suffix";
+		assertEquals(name, adapter.suffix(name, "name", 1));
+	}
+
+	@Test
+	void testSuffixPart() {
+		assertEquals("suffix.part", adapter.suffix("suffix","name", 1.5));
+	}
+
+	@Test
+	void testSuffixPlural() {
+		assertEquals("suffix.plural", adapter.suffix("suffix","name", 2));
+	}
+
+	@Test
+	void testSuffixPlural22() {
+		assertEquals("suffix.plural", adapter.suffix("suffix","name", 22));
+	}
+
+	@Test
+	void testSuffixPlural5() {
+		assertEquals("suffix.plural", adapter.suffix("suffix","name", 5));
+	}
+
+	@Test
+	void testSuffixPlural11() {
+		assertEquals("suffix.plural", adapter.suffix("suffix","name", 11));
+	}
+
+	@Test
+	void testSuffixPlural50() {
+		assertEquals("suffix.plural", adapter.suffix("suffix","name", 50));
 	}
 }

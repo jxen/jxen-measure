@@ -8,9 +8,10 @@ import javax.measure.quantity.Angle;
  * {@code AngleAmount} class represents {@link Quantity} of type {@link Angle}.
  *
  * @author Denis Murashev
+ *
  * @since Measure 0.1
  */
-public class AngleAmount extends QuantityImpl<Angle> {
+public class AngleAmount extends QuantityImpl<Angle> implements Angle {
 
 	/**
 	 * @param number value

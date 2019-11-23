@@ -2,6 +2,7 @@ package com.github.jxen.measure.unit;
 
 import static com.github.jxen.measure.unit.MetricUnits.METER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.github.jxen.measure.dimension.Dimensions;
 import java.util.HashMap;
@@ -27,5 +28,10 @@ class AlternateUnitTest {
 	@Test
 	void testGetSystemUnit() {
 		assertEquals(METER, METER.alternate("alt").getSystemUnit());
+	}
+
+	@Test
+	void testParent() {
+		assertTrue(METER.alternate("alt").alternate("another") instanceof AlternateUnit);
 	}
 }

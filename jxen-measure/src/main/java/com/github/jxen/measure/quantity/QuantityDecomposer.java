@@ -15,7 +15,9 @@ import javax.measure.Unit;
  * {@code QuantityDecomposer} class is able to decompose quantity by the set of units.
  *
  * @author Denis Murashev
+ *
  * @param <Q> Quantity type
+ *
  * @since Measure 0.1
  */
 public class QuantityDecomposer<Q extends Quantity<Q>> {

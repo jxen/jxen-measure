@@ -3,30 +3,35 @@ package com.github.jxen.measure.quantity;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+import com.github.jxen.measure.unit.ElectromagneticUnits;
+import com.github.jxen.measure.unit.MechanicalUnits;
 import com.github.jxen.measure.unit.MetricUnits;
+import com.github.jxen.measure.unit.MiscUnits;
 import javax.measure.Quantity;
 import javax.measure.quantity.Area;
+import javax.measure.quantity.ElectricPotential;
+import javax.measure.quantity.Temperature;
 import org.junit.jupiter.api.Test;
 
 class QuantityImplTest {
 
 	@Test
 	void testAdd() {
-		AngleAmount angle = new AngleAmount(1, MetricUnits.RADIAN);
+		AngleAmount angle = new AngleAmount(1, MechanicalUnits.RADIAN);
 		AngleAmount actual = AngleAmount.of(angle.add(angle));
-		assertEquals(new AngleAmount(2.0, MetricUnits.RADIAN), actual);
+		assertEquals(new AngleAmount(2.0, MechanicalUnits.RADIAN), actual);
 	}
 
 	@Test
 	void testSubtract() {
-		AreaAmount area = new AreaAmount(1, MetricUnits.SQUARE_METER);
+		AreaAmount area = new AreaAmount(1, MechanicalUnits.SQUARE_METER);
 		AreaAmount actual = AreaAmount.of(area.subtract(area));
-		assertEquals(new AreaAmount(0.0, MetricUnits.SQUARE_METER), actual);
+		assertEquals(new AreaAmount(0.0, MechanicalUnits.SQUARE_METER), actual);
 	}
 
 	@Test
 	void testDivideQuantity() {
-		DensityAmount density = new DensityAmount(1, MetricUnits.KILOGRAM_PER_CUBIC_METER);
+		DensityAmount density = new DensityAmount(1, MechanicalUnits.KILOGRAM_PER_CUBIC_METER);
 		Quantity<?> actual = density.divide(density);
 		assertEquals(1, actual.getValue().doubleValue());
 	}
@@ -39,7 +44,7 @@ class QuantityImplTest {
 	}
 
 	@Test
-	void testmMltiplyQuantity() {
+	void testMultiplyQuantity() {
 		LengthAmount length = new LengthAmount(2, MetricUnits.METER);
 		@SuppressWarnings("unchecked")
 		AreaAmount actual = AreaAmount.of((Quantity<Area>) length.multiply(length));
@@ -48,27 +53,33 @@ class QuantityImplTest {
 
 	@Test
 	void testMultiplyNumber() {
-		DensityAmount density = new DensityAmount(2, MetricUnits.KILOGRAM_PER_CUBIC_METER);
+		DensityAmount density = new DensityAmount(2, MechanicalUnits.KILOGRAM_PER_CUBIC_METER);
 		DensityAmount actual = DensityAmount.of(density.multiply(2.0));
 		assertEquals(4, actual.getValue().doubleValue());
 	}
 
 	@Test
+	void testNegate() {
+		LengthAmount length = new LengthAmount(1, MetricUnits.METER);
+		assertEquals(-1, length.negate().getValue().doubleValue());
+	}
+
+	@Test
 	void testEqualsSame() {
-		MassAmount mass = new MassAmount(1, MetricUnits.KILOGRAM);
-		assertEquals(mass, mass);
+		Quantity<ElectricPotential> voltage = Quantities.of(1, ElectromagneticUnits.VOLT);
+		assertEquals(voltage, voltage);
 	}
 
 	@Test
 	void testNotEqualsCase1() {
-		MassAmount mass = new MassAmount(1, MetricUnits.KILOGRAM);
-		assertNotEquals(mass, MetricUnits.KILOGRAM);
+		Quantity<Temperature> temperature = Quantities.of(1, MiscUnits.CELSIUS);
+		assertNotEquals(temperature, MetricUnits.KELVIN);
 	}
 
 	@Test
 	void testNotEqualsCase2() {
 		MassAmount mass = new MassAmount(1, MetricUnits.KILOGRAM);
-		assertNotEquals(mass, new MassAmount(1, MetricUnits.GRAM));
+		assertNotEquals(mass, new MassAmount(1, MechanicalUnits.GRAM));
 	}
 
 	@Test
@@ -80,7 +91,7 @@ class QuantityImplTest {
 	@Test
 	void testNotEqualsCompareToCase1() {
 		MassAmount mass = new MassAmount(1, MetricUnits.KILOGRAM);
-		assertEquals(1, mass.compareTo(new MassAmount(1, MetricUnits.GRAM)));
+		assertEquals(1, mass.compareTo(new MassAmount(1, MechanicalUnits.GRAM)));
 	}
 
 	@Test

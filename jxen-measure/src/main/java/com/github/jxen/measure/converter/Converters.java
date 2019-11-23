@@ -8,6 +8,7 @@ import javax.measure.UnitConverter;
  * {@code Converters} class provides utility methods for getting converters.
  *
  * @author Denis Murashev
+ *
  * @since Measure 0.1
  */
 public final class Converters {

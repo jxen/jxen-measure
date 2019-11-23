@@ -8,9 +8,10 @@ import javax.measure.quantity.Mass;
  * {@code MassAmount} class represents {@link Quantity} of type {@link Mass}.
  *
  * @author Denis Murashev
+ *
  * @since Measure 0.1
  */
-public class MassAmount extends QuantityImpl<Mass> {
+public class MassAmount extends QuantityImpl<Mass> implements Mass {
 
 	/**
 	 * @param number value

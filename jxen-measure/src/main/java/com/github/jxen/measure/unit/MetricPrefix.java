@@ -12,6 +12,7 @@ import javax.measure.Unit;
  * {@code MetricPrefix} enumeration contains metric prefixes.
  *
  * @author Denis Murashev
+ *
  * @since Measure 0.1
  */
 public enum MetricPrefix implements Prefix {
@@ -19,37 +20,37 @@ public enum MetricPrefix implements Prefix {
 	/**
 	 * Yotta.
 	 */
-	YOTTA("Y", 24),
+	YOTTA("yotta", 24),
 
 	/**
 	 * Zetta.
 	 */
-	ZETTA("Z", 21),
+	ZETTA("zetta", 21),
 
 	/**
 	 * Exa.
 	 */
-	EXA("E", 18),
+	EXA("exa", 18),
 
 	/**
 	 * Peta.
 	 */
-	PETA("P", 15),
+	PETA("peta", 15),
 
 	/**
 	 * Tera.
 	 */
-	TERA("T", 12),
+	TERA("tera", 12),
 
 	/**
 	 * Giga.
 	 */
-	GIGA("G", 9),
+	GIGA("giga", 9),
 
 	/**
 	 * Mega.
 	 */
-	MEGA("M", 6),
+	MEGA("mega", 6),
 
 	/**
 	 * Kilo.
@@ -64,7 +65,7 @@ public enum MetricPrefix implements Prefix {
 	/**
 	 * Deka.
 	 */
-	DEKA("da", 1),
+	DECA("deca", 1),
 
 	/**
 	 * Deci.
@@ -89,32 +90,32 @@ public enum MetricPrefix implements Prefix {
 	/**
 	 * Nano.
 	 */
-	NANO("n", -9),
+	NANO("nano", -9),
 
 	/**
 	 * Pico.
 	 */
-	PICO("p", -12),
+	PICO("pico", -12),
 
 	/**
 	 * Femto.
 	 */
-	FEMTO("f", -15),
+	FEMTO("femto", -15),
 
 	/**
 	 * Atto.
 	 */
-	ATTO("a", -18),
+	ATTO("atto", -18),
 
 	/**
 	 * Zepto.
 	 */
-	ZEPTO("z", -21),
+	ZEPTO("zepto", -21),
 
 	/**
 	 * Yocto.
 	 */
-	YOCTO("y", -24);
+	YOCTO("yocto", -24);
 
 	private final String prefix;
 	private final int exponent;
@@ -232,8 +233,8 @@ public enum MetricPrefix implements Prefix {
 	 * @param unit any unit.
 	 * @return {@code unit.times(1e1)}
 	 */
-	public static <Q extends Quantity<Q>> Unit<Q> deka(Unit<Q> unit) {
-		return unit.prefix(DEKA);
+	public static <Q extends Quantity<Q>> Unit<Q> deca(Unit<Q> unit) {
+		return unit.prefix(DECA);
 	}
 
 	/**
