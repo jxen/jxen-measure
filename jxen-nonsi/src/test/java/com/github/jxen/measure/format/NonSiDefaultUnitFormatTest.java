@@ -27,6 +27,6 @@ class NonSiDefaultUnitFormatTest {
 
 	@Test
 	void testFormatTroyUnits() {
-		Assertions.assertEquals("lb t", new NonSiDefaultUnitFormat().format(TroyUnits.POUND));
+		Assertions.assertEquals("lb\u202Ft", new NonSiDefaultUnitFormat().format(TroyUnits.POUND));
 	}
 }

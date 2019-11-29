@@ -1,7 +1,6 @@
 package com.github.jxen.measure.nonsi;
 
-import static com.github.jxen.measure.nonsi.TroyUnits.BuilderHolder.BUILDER;
-import static com.github.jxen.measure.unit.MechanicalUnits.GRAM;
+import static com.github.jxen.measure.nonsi.TroyUnits.Holder.BUILDER;
 
 import com.github.jxen.math.rational.BigRational;
 import com.github.jxen.measure.unit.AbstractUnit;
@@ -10,64 +9,76 @@ import javax.measure.quantity.Mass;
 import javax.measure.spi.SystemOfUnits;
 
 /**
- * {@code TroyUnits}  class represents Troy unit system.
+ * {@code TroyUnits} class represents Troy unit system.
  *
  * @author Denis Murashev
+ *
  * @since Non-SI Units 0.1
  */
 public final class TroyUnits {
 
 	/**
-	 * Troy grain.
+	 * Grain.
+	 *
+	 * @see ImperialUnits#GRAIN
 	 */
-	public static final AbstractUnit<Mass> GRAIN = add("grain", GRAM, new BigRational(6_479_891, 100_000_000));
+	public static final AbstractUnit<Mass> GRAIN = BUILDER.unit(ImperialUnits.GRAIN, Mass.class);
 
 	/**
-	 * Pennyweight.
+	 * <p>A pennyweight (abbreviated {@code dwt}, {@code d} being the symbol of an old British penny)
+	 * is a unit of mass that is equal to 24 grains, <sup>1</sup>/<sub>20</sub> of a troy ounce,
+	 * <sup>1</sup>/<sub>240</sub> of a troy pound.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Pennyweight">Wikipedia: Pennyweight</a>
 	 */
 	public static final AbstractUnit<Mass> PENNYWEIGHT = add("pennyweight", GRAIN, 24);
 
 	/**
-	 * Troy ounce.
+	 * <p>A troy ounce is a unit of measure used for weighing precious metals that dates back to the Middle Ages.
+	 * Originally used in Troyes, France, one troy ounce is equal to 31.1034768 grams, according to the U.K. Royal Mint.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Troy_weight#Troy_ounce_(oz_t)">Wikipedia: Troy ounce</a>
 	 */
-	public static final AbstractUnit<Mass> OUNCE = add("ounce_troy", GRAIN, 480);
+	public static final AbstractUnit<Mass> OUNCE = add("ounce^troy", GRAIN, 480);
 
 	/**
-	 * Troy pound.
+	 * <p>A troy pound is equal to 12 troy ounces and to 5760 grains, that is exactly 373.2417216 grams.
+	 * Troy weights were used in England by jewellers.
+	 *
+	 * <p>Apothecaries also used the troy pound and ounce,
+	 * but added the drachms and scruples unit in the Apothecaries' system of weights.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Pound_(mass)#Troy_pound">Wikipedia: Troy pound</a>
 	 */
-	public static final AbstractUnit<Mass> POUND = add("pound_troy", OUNCE, 12);
+	public static final AbstractUnit<Mass> POUND = add("pound^troy", OUNCE, 12);
 
 	/**
 	 * Mite.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Troy_weight">Wikipedia: Troy weight</a>
 	 */
 	public static final AbstractUnit<Mass> MITE = add("mite", GRAIN, new BigRational(1, 20));
 
 	/**
 	 * Droit.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Troy_weight">Wikipedia: Troy weight</a>
 	 */
-	public static final AbstractUnit<Mass> DROIT = add("droit", GRAIN, new BigRational(1, 480));
+	public static final AbstractUnit<Mass> DROIT = add("droit", MITE, new BigRational(1, 24));
 
 	/**
 	 * Perit.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Troy_weight">Wikipedia: Troy weight</a>
 	 */
-	public static final AbstractUnit<Mass> PERIT = add("perit", GRAIN, new BigRational(1, 9600));
+	public static final AbstractUnit<Mass> PERIT = add("perit", DROIT, new BigRational(1, 20));
 
 	/**
 	 * Blank.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Troy_weight">Wikipedia: Troy weight</a>
 	 */
-	public static final AbstractUnit<Mass> BLANK = add("blank", GRAIN, new BigRational(1, 230_400));
-
-	/**
-	 * Dram (or drachm).
-	 */
-	public static final AbstractUnit<Mass> DRAM = add("dram", POUND, new BigRational(1, 96));
-
-	/**
-	 * Scruple.
-	 */
-	public static final AbstractUnit<Mass> SCRUPLE = add("scruple", POUND, new BigRational(1, 288));
-
-	///////////////////////// System of MetricUnits /////////////////////////
+	public static final AbstractUnit<Mass> BLANK = add("blank", PERIT, new BigRational(1, 24));
 
 	/**
 	 * The instance of {@link SystemOfUnits}.
@@ -81,11 +92,11 @@ public final class TroyUnits {
 		return BUILDER.unit(name, unit, factor, Mass.class);
 	}
 
-	static final class BuilderHolder {
+	static final class Holder {
 
 		static final SystemOfUnitsImpl.Builder BUILDER = SystemOfUnitsImpl.builder("Troy");
 
-		private BuilderHolder() {
+		private Holder() {
 		}
 	}
 }
