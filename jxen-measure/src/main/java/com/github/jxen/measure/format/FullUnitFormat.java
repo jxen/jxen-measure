@@ -1,12 +1,14 @@
 package com.github.jxen.measure.format;
 
 import com.github.jxen.measure.format.UnitNameHelper.FullFormatter;
+import com.github.jxen.measure.spi.LocaleService;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.ServiceLoader;
 
 /**
  * {@code FullUnitFormat} class is extension of {@link MeasureUnitFormat}.
@@ -24,7 +26,9 @@ public class FullUnitFormat extends MeasureUnitFormat {
 	private static final Map<Locale, LocaleAdapter> ADAPTERS = new HashMap<>();
 
 	static {
-		ADAPTERS.put(new Locale("ru", "RU"), new RuLocaleAdapter());
+		for (LocaleService service : ServiceLoader.load(LocaleService.class)) {
+			ADAPTERS.putIfAbsent(service.getLocale(), service.getAdapter());
+		}
 	}
 
 	/**
@@ -39,14 +43,6 @@ public class FullUnitFormat extends MeasureUnitFormat {
 	 */
 	protected FullUnitFormat(String... names) {
 		super(DEFAULT_BUNDLE_NAME, names);
-	}
-
-	/**
-	 * @param locale  locale
-	 * @param adapter adapter
-	 */
-	public static void addAdapter(Locale locale, LocaleAdapter adapter) {
-		ADAPTERS.put(locale, adapter);
 	}
 
 	@Override

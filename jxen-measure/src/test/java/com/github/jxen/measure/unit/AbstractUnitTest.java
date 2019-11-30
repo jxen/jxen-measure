@@ -143,7 +143,6 @@ class AbstractUnitTest {
 
 	@Test
 	void testToString() {
-		Locale.setDefault(Locale.US);
-		assertEquals("m", METER.toString());
+		assertEquals("meter", METER.toString());
 	}
 }

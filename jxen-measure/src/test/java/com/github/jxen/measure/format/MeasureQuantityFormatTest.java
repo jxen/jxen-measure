@@ -9,13 +9,19 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.github.jxen.math.rational.Rational;
 import com.github.jxen.math.rational.format.RationalFormat;
+import com.github.jxen.measure.quantity.AngleAmount;
 import com.github.jxen.measure.quantity.LengthAmount;
+import com.github.jxen.measure.quantity.Quantities;
 import com.github.jxen.measure.quantity.QuantityDecomposer;
+import com.github.jxen.measure.unit.ElectromagneticUnits;
+import com.github.jxen.measure.unit.MechanicalUnits;
 import com.github.jxen.measure.unit.MetricPrefix;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
+import javax.measure.MeasurementException;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.format.QuantityFormat;
@@ -48,13 +54,11 @@ class MeasureQuantityFormatTest {
 		assertEquals("2\u202F\u00B5m", format.format(new LengthAmount(2, MetricPrefix.micro(METER))));
 	}
 
-	/*
 	@Test
 	void testFormatShort3() {
 		QuantityFormat format = new MeasureQuantityFormat(new DecimalFormat("0.#"), new DefaultUnitFormat());
-		assertEquals("1\u00B0", format.format(new AngleAmount(1, ElectromagneticUnits.DEGREE_ANGLE)));
+		assertEquals("1\u00B0", format.format(new AngleAmount(1, MechanicalUnits.DEGREE_ANGLE)));
 	}
-	*/
 
 	@Test
 	void testFormatFull1() {
@@ -90,5 +94,36 @@ class MeasureQuantityFormatTest {
 	@Test
 	void testParseCase2() {
 		assertThrows(UnsupportedOperationException.class, () -> new MeasureQuantityFormat().parse(null));
+	}
+
+	@Test
+	void testFailureCase1() {
+		assertThrows(MeasurementException.class,
+				() -> new MeasureQuantityFormat().format(Quantities.of(1, METER), new BrokenAppendable()));
+	}
+
+	@Test
+	void testFailureCase2() {
+		List<Quantity<Length>> quantities = asList(Quantities.of(1, METER), Quantities.of(1, METER));
+		assertThrows(MeasurementException.class,
+				() -> new MeasureQuantityFormat().format(quantities, new BrokenAppendable()));
+	}
+
+	private static class BrokenAppendable implements Appendable {
+
+		@Override
+		public Appendable append(CharSequence csq) throws IOException {
+			throw new IOException();
+		}
+
+		@Override
+		public Appendable append(CharSequence csq, int start, int end) throws IOException {
+			throw new IOException();
+		}
+
+		@Override
+		public Appendable append(char c) throws IOException {
+			throw new IOException();
+		}
 	}
 }

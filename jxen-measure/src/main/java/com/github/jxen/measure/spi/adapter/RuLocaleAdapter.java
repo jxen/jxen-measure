@@ -1,14 +1,15 @@
-package com.github.jxen.measure.format;
+package com.github.jxen.measure.spi.adapter;
 
 import static java.util.Arrays.asList;
 
 import com.github.jxen.math.common.Adapters;
 import com.github.jxen.math.common.ArithmeticAware;
+import com.github.jxen.measure.format.LocaleAdapter;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * {@code RuLocaleAdapter} class is Locale adapter for Russian locale.
+ * {@code RuLocaleService} class is Locale adapter for Russian locale.
  *
  * @author Denis Murashev
  *

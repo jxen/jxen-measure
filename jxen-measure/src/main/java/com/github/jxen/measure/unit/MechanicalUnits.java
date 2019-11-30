@@ -177,8 +177,7 @@ public final class MechanicalUnits {
 	/**
 	 * <p>A unit of length expressing the number of kilometers (abbreviation {@code km}).
 	 */
-	public static final AbstractUnit<Length> KILOMETER = BUILDER.unit((AbstractUnit<?>) MetricPrefix.kilo(METER),
-			Length.class);
+	public static final AbstractUnit<Length> KILOMETER = BUILDER.unit(MetricPrefix.kilo(METER), Length.class);
 
 	/**
 	 * <p>A unit of speed expressing the number of international {@link #KILOMETER kilometres}

@@ -195,7 +195,7 @@ public abstract class AbstractUnit<Q extends Quantity<Q>> implements Unit<Q> {
 
 	@Override
 	public String toString() {
-		return getSymbol();
+		return name;
 	}
 
 	@Override

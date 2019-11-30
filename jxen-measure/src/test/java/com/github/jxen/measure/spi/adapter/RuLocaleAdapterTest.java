@@ -1,7 +1,8 @@
-package com.github.jxen.measure.format;
+package com.github.jxen.measure.spi.adapter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.github.jxen.measure.format.LocaleAdapter;
 import org.junit.jupiter.api.Test;
 
 class RuLocaleAdapterTest {
@@ -78,5 +79,11 @@ class RuLocaleAdapterTest {
 	@Test
 	void testSuffixPlural50() {
 		assertEquals("suffix.plural", adapter.suffix("suffix","name", 50));
+	}
+
+	@Test
+	void testSuffixFeminineGender() {
+		String name = "suffix";
+		assertEquals(name + ".f", adapter.suffix(name, "second", 1));
 	}
 }

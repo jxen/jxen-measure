@@ -209,7 +209,8 @@ public final class UnitNameHelper {
 			if (name.denominator.size() > 1) {
 				return "?/?";
 			}
-			return format(value, name.numerator.get(0)) + " " + formatDenom(name.denominator.get(0));
+			char space = '\u202F'; // unbreakable space
+			return format(value, name.numerator.get(0)) + space + formatDenom(name.denominator.get(0));
 		}
 	}
 

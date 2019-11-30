@@ -81,7 +81,7 @@ class ProductDimension implements Dimension {
 			Integer i = data.get(d);
 			if (i != null) {
 				if (i % n != 0) {
-					throw new UnsupportedOperationException();
+					throw new ArithmeticException("Unsupported operation");
 				}
 				map.put(d, i / n);
 			}
