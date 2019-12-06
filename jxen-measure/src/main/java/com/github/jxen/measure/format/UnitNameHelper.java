@@ -152,7 +152,17 @@ public final class UnitNameHelper {
 					builder.toString());
 		}
 
-		String formatDenom(Part part) {
+		String formatNumerator(Number value, List<Part> parts) {
+			StringBuilder builder = new StringBuilder();
+			int last = parts.size() - 1;
+			for (int i = 0; i < last; i++) {
+				builder.append(format(1, parts.get(i))).append('\u2011'); // Nonbreaking hyphen
+			}
+			builder.append(format(value, parts.get(last)));
+			return builder.toString();
+		}
+
+		String formatDenominator(Part part) {
 			String prefix = Optional.ofNullable(part.prefix).map(v -> getString(PREFIX + v)).orElse("");
 			String name = MessageFormat.format(getString("per." + part.name), prefix);
 			if (Objects.isNull(part.suffix)) {
@@ -184,7 +194,7 @@ public final class UnitNameHelper {
 			final String bullet = "\u2022"; // bullet symbol
 			builder.append(name.numerator.stream().map(p -> format(value, p)).collect(joining(bullet)));
 			if (!name.denominator.isEmpty()) {
-				builder.append(DIV);
+				builder.append('\u2044'); // fraction slash
 				builder.append(name.denominator.stream().map(p -> format(value, p)).collect(joining(bullet)));
 			}
 			return builder.toString();
@@ -200,17 +210,14 @@ public final class UnitNameHelper {
 		@Override
 		String format(Number value, String unit) {
 			UnitName name = parse(unit);
-			if (name.numerator.size() > 1) {
-				return "?";
-			}
-			if (name.denominator.isEmpty()) {
-				return format(value, name.numerator.get(0));
-			}
 			if (name.denominator.size() > 1) {
 				return "?/?";
 			}
+			if (name.denominator.isEmpty()) {
+				return formatNumerator(value, name.numerator);
+			}
 			char space = '\u202F'; // unbreakable space
-			return format(value, name.numerator.get(0)) + space + formatDenom(name.denominator.get(0));
+			return formatNumerator(value, name.numerator) + space + formatDenominator(name.denominator.get(0));
 		}
 	}
 

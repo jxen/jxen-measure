@@ -51,7 +51,7 @@ class FullUnitFormatTest {
 
 	@Test
 	void testFormatProduct() {
-		assertEquals("?", new FullUnitFormat().format(METER.multiply(METER)));
+		assertEquals("meter\u2011meter", new FullUnitFormat().format(METER.multiply(METER)));
 	}
 
 	@Test

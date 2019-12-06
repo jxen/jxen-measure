@@ -61,6 +61,12 @@ class MeasureQuantityFormatTest {
 	}
 
 	@Test
+	void testFormatShort4() {
+		QuantityFormat format = new MeasureQuantityFormat(new RationalFormat(), new DefaultUnitFormat());
+		assertEquals("2\u202Fm\u2022m", format.format(Quantities.of(2, METER.multiply(METER))));
+	}
+
+	@Test
 	void testFormatFull1() {
 		QuantityFormat format = new MeasureQuantityFormat(new RationalFormat(), new FullUnitFormat());
 		assertEquals("1\u202Fdecimeter", format.format(new LengthAmount(Rational.ONE, MetricPrefix.deci(METER))));
@@ -73,8 +79,13 @@ class MeasureQuantityFormatTest {
 	}
 
 	@Test
+	void testFormatFull3() {
+		QuantityFormat format = new MeasureQuantityFormat(new RationalFormat(), new FullUnitFormat());
+		assertEquals("2\u202Fmeter\u2011meters", format.format(Quantities.of(2, METER.multiply(METER))));
+	}
+
+	@Test
 	void testFormatList() {
-		Locale.setDefault(Locale.US);
 		MeasureQuantityFormat format = new MeasureQuantityFormat(new FullUnitFormat());
 		Unit<Length> cm = centi(METER);
 		QuantityDecomposer<Length> decomposer = new QuantityDecomposer<>(asList(METER, cm));

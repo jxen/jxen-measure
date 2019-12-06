@@ -47,12 +47,12 @@ class DefaultUnitFormatTest {
 
 	@Test
 	void testFormatMeterPerSecond() {
-		assertEquals("m/s", new DefaultUnitFormat().format(METER_PER_SECOND));
+		assertEquals("m\u2044s", new DefaultUnitFormat().format(METER_PER_SECOND));
 	}
 
 	@Test
 	void testFormatMeterPerSquareSecond() {
-		assertEquals("m/s\u00B2", new DefaultUnitFormat().format(METER_PER_SECOND_SQUARED));
+		assertEquals("m\u2044s\u00B2", new DefaultUnitFormat().format(METER_PER_SECOND_SQUARED));
 	}
 
 	@Test
