@@ -2,7 +2,6 @@ package com.github.jxen.measure.format;
 
 import com.github.jxen.measure.unit.AbstractUnit;
 import java.io.IOException;
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParsePosition;
 import java.util.List;
@@ -22,7 +21,6 @@ public class MeasureQuantityFormat implements QuantityFormat {
 
 	private static final String ERROR_NOT_IMPLEMENTED = "Not implemented yet";
 
-	private static final String DEFAULT_PATTERN = "#.##";
 	private static final String DELIMITER = "\u202F";
 
 	private final NumberFormat numberFormat;
@@ -48,14 +46,14 @@ public class MeasureQuantityFormat implements QuantityFormat {
 	 * @param unitFormat unit format
 	 */
 	public MeasureQuantityFormat(MeasureUnitFormat unitFormat) {
-		this(new DecimalFormat(DEFAULT_PATTERN), unitFormat);
+		this(new DefaultNumberFormat(), unitFormat);
 	}
 
 	/**
 	 * Default formatter.
 	 */
 	public MeasureQuantityFormat() {
-		this(new DecimalFormat(DEFAULT_PATTERN), new DefaultUnitFormat());
+		this(new DefaultNumberFormat(), new DefaultUnitFormat());
 	}
 
 	@Override
