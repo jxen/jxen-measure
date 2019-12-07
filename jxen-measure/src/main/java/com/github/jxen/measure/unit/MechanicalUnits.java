@@ -160,12 +160,39 @@ public final class MechanicalUnits {
 			Density.class);
 
 	/**
-	 * <p>The SI derived unit for mass quantities (standard name {@code g}).
-	 * The base unit for mass quantity is {@link MetricUnits#KILOGRAM}.
+	 * <p>A unit of length expressing the number of kilometers (abbreviation {@code km}).
 	 *
-	 * @see <a href="https://en.wikipedia.org/wiki/Gram">Wikipedia: Gram</a>
+	 * @see <a href="https://en.wikipedia.org/wiki/Kilometre">Wikipedia: Kilometre</a>
 	 */
-	public static final AbstractUnit<Mass> GRAM = BUILDER.unit("gram", KILOGRAM, R1_1000, Mass.class);
+	public static final AbstractUnit<Length> KILOMETER = BUILDER.unit(MetricPrefix.kilo(METER), Length.class);
+
+	/**
+	 * <p>A unit of length expressing the number of centimeters (abbreviation {@code cm}).
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Centimetre">Wikipedia: Centimetre</a>
+	 */
+	public static final AbstractUnit<Length> CENTIMETER = BUILDER.unit(MetricPrefix.centi(METER), Length.class);
+
+	/**
+	 * <p>A unit of length expressing the number of millimeters (abbreviation {@code mm}).
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Millimetre">Wikipedia: Millimetre</a>
+	 */
+	public static final AbstractUnit<Length> MILLIMETER = BUILDER.unit(MetricPrefix.milli(METER), Length.class);
+
+	/**
+	 * A unit of area equal to {@code 100 m}<sup>2</sup> (abbreviation {@code a}).
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Hectare#Are">Wikipedia: Are</a>
+	 */
+	public static final AbstractUnit<Area> ARE = BUILDER.unit("are", SQUARE_METER, 100, Area.class);
+
+	/**
+	 * A unit of area equal to {@code 100 ares} (abbreviation {@code ha}).
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Hectare">Wikipedia: Hectare</a>
+	 */
+	public static final AbstractUnit<Area> HECTARE = BUILDER.unit("hectare", ARE, 100, Area.class);
 
 	/**
 	 * <p>A volume unit accepted for use with SI units (standard name {@code l}).
@@ -175,13 +202,33 @@ public final class MechanicalUnits {
 	public static final AbstractUnit<Volume> LITER = BUILDER.unit("liter", CUBIC_METER, R1_1000, Volume.class);
 
 	/**
-	 * <p>A unit of length expressing the number of kilometers (abbreviation {@code km}).
+	 * <p>The SI derived unit for mass quantities (standard name {@code g}).
+	 * The base unit for mass quantity is {@link MetricUnits#KILOGRAM}.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Gram">Wikipedia: Gram</a>
 	 */
-	public static final AbstractUnit<Length> KILOMETER = BUILDER.unit(MetricPrefix.kilo(METER), Length.class);
+	public static final AbstractUnit<Mass> GRAM = BUILDER.unit("gram", KILOGRAM, R1_1000, Mass.class);
+
+	/**
+	 * <p>The quintal or centner is a historical unit of mass which is usually defined as 100 base units of kilograms.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Quintal">Wikipedia: Quintal</a>
+	 */
+	public static final AbstractUnit<Mass> CENTNER = BUILDER.unit("centner", KILOGRAM, 100, Mass.class);
+
+	/**
+	 * <p>The tonne (non-SI unit, symbol: {@code t}), commonly referred to as the metric ton in Canada,
+	 * the United Kingdom and the United States, is a non-SI metric unit of mass equal to 1,000 kilograms.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Tonne">Wikipedia: Tonne</a>
+	 */
+	public static final AbstractUnit<Mass> TONNE = BUILDER.unit("tonne", KILOGRAM, 1000, Mass.class);
 
 	/**
 	 * <p>A unit of speed expressing the number of international {@link #KILOMETER kilometres}
 	 * per {@link TimeUnits#HOUR hour} (abbreviation {@code km/h}).
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Kilometres_per_hour">Wikipedia: Kilometres per hour</a>
 	 */
 	public static final AbstractUnit<Speed> KILOMETER_PER_HOUR = BUILDER.unit(KILOMETER.divide(HOUR), Speed.class);
 

@@ -26,6 +26,7 @@ class RuLocaleAdapter implements LocaleAdapter {
 			"minute_angle",
 			"second",
 			"second_angle",
+			"tonne",
 			"week",
 	};
 
