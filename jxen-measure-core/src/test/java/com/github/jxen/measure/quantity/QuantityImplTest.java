@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import com.github.jxen.measure.unit.ElectromagneticUnits;
-import com.github.jxen.measure.unit.MechanicalUnits;
+import com.github.jxen.measure.unit.LmtUnits;
 import com.github.jxen.measure.unit.MetricUnits;
 import com.github.jxen.measure.unit.MiscUnits;
 import javax.measure.Quantity;
@@ -17,21 +17,21 @@ class QuantityImplTest {
 
 	@Test
 	void testAdd() {
-		AngleAmount angle = new AngleAmount(1, MechanicalUnits.RADIAN);
+		AngleAmount angle = new AngleAmount(1, LmtUnits.RADIAN);
 		AngleAmount actual = AngleAmount.of(angle.add(angle));
-		assertEquals(new AngleAmount(2.0, MechanicalUnits.RADIAN), actual);
+		assertEquals(new AngleAmount(2.0, LmtUnits.RADIAN), actual);
 	}
 
 	@Test
 	void testSubtract() {
-		AreaAmount area = new AreaAmount(1, MechanicalUnits.SQUARE_METER);
+		AreaAmount area = new AreaAmount(1, LmtUnits.SQUARE_METER);
 		AreaAmount actual = AreaAmount.of(area.subtract(area));
-		assertEquals(new AreaAmount(0.0, MechanicalUnits.SQUARE_METER), actual);
+		assertEquals(new AreaAmount(0.0, LmtUnits.SQUARE_METER), actual);
 	}
 
 	@Test
 	void testDivideQuantity() {
-		DensityAmount density = new DensityAmount(1, MechanicalUnits.KILOGRAM_PER_CUBIC_METER);
+		DensityAmount density = new DensityAmount(1, LmtUnits.KILOGRAM_PER_CUBIC_METER);
 		Quantity<?> actual = density.divide(density);
 		assertEquals(1, actual.getValue().doubleValue());
 	}
@@ -53,7 +53,7 @@ class QuantityImplTest {
 
 	@Test
 	void testMultiplyNumber() {
-		DensityAmount density = new DensityAmount(2, MechanicalUnits.KILOGRAM_PER_CUBIC_METER);
+		DensityAmount density = new DensityAmount(2, LmtUnits.KILOGRAM_PER_CUBIC_METER);
 		DensityAmount actual = DensityAmount.of(density.multiply(2.0));
 		assertEquals(4, actual.getValue().doubleValue());
 	}
@@ -79,7 +79,7 @@ class QuantityImplTest {
 	@Test
 	void testNotEqualsCase2() {
 		MassAmount mass = new MassAmount(1, MetricUnits.KILOGRAM);
-		assertNotEquals(mass, new MassAmount(1, MechanicalUnits.GRAM));
+		assertNotEquals(mass, new MassAmount(1, LmtUnits.GRAM));
 	}
 
 	@Test
@@ -91,7 +91,7 @@ class QuantityImplTest {
 	@Test
 	void testNotEqualsCompareToCase1() {
 		MassAmount mass = new MassAmount(1, MetricUnits.KILOGRAM);
-		assertEquals(1, mass.compareTo(new MassAmount(1, MechanicalUnits.GRAM)));
+		assertEquals(1, mass.compareTo(new MassAmount(1, LmtUnits.GRAM)));
 	}
 
 	@Test

@@ -1,6 +1,7 @@
 package com.github.jxen.measure.unit;
 
 import com.github.jxen.measure.converter.Converters;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -94,12 +95,8 @@ public final class SystemOfUnitsImpl implements SystemOfUnits {
 		@SuppressWarnings("unchecked")
 		public <Q extends Quantity<Q>> AbstractUnit<Q> unit(AbstractUnit<?> unit, Class<Q> type) {
 			units.add(unit);
-			if (!nameToUnit.containsKey(unit.getName())) {
-				nameToUnit.put(unit.getName(), unit);
-			}
-			if (!classToUnit.containsKey(type)) {
-				classToUnit.put(type, unit);
-			}
+			nameToUnit.putIfAbsent(unit.getName(), unit);
+			classToUnit.putIfAbsent(type, unit);
 			return (AbstractUnit<Q>) unit;
 		}
 
@@ -135,7 +132,7 @@ public final class SystemOfUnitsImpl implements SystemOfUnits {
 		 * @return built System of Units
 		 */
 		public SystemOfUnits build() {
-			return new SystemOfUnitsImpl(name, units, nameToUnit, classToUnit);
+			return new SystemOfUnitsImpl(name, Collections.unmodifiableSet(units), nameToUnit, classToUnit);
 		}
 	}
 }

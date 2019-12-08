@@ -1,8 +1,8 @@
 package com.github.jxen.measure.unit;
 
 import static com.github.jxen.measure.dimension.Dimensions.DIMENSIONLESS;
-import static com.github.jxen.measure.unit.MechanicalUnits.Holder.R1_1000;
-import static com.github.jxen.measure.unit.MechanicalUnits.Holder.R1_60;
+import static com.github.jxen.measure.unit.LmtUnits.Holder.R1_1000;
+import static com.github.jxen.measure.unit.LmtUnits.Holder.R1_60;
 import static com.github.jxen.measure.unit.MetricUnits.Holder.BUILDER;
 import static com.github.jxen.measure.unit.MetricUnits.KILOGRAM;
 import static com.github.jxen.measure.unit.MetricUnits.METER;
@@ -26,13 +26,14 @@ import javax.measure.quantity.Volume;
 import si.uom.quantity.Density;
 
 /**
- * {@code MechanicalUnits} class contains SI units.
+ * {@code LmtUnits} class contains SI units based on {@link MetricUnits#METER} ({@code L}),
+ * {@link MetricUnits#KILOGRAM}  ({@code M}) and {@link MetricUnits#SECOND} ({@code T}).
  *
  * @author Denis Murashev
  *
  * @since Measure 0.2
  */
-public final class MechanicalUnits {
+public final class LmtUnits {
 
 	/**
 	 * <p>The hertz (symbol: {@code Hz}) is the derived unit of frequency in the International System of Units (SI)
@@ -256,7 +257,7 @@ public final class MechanicalUnits {
 	public static final AbstractUnit<Angle> SECOND_ANGLE = BUILDER.unit("second_angle", MINUTE_ANGLE, R1_60,
 			Angle.class);
 
-	private MechanicalUnits() {
+	private LmtUnits() {
 	}
 
 	static class Holder {

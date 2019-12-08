@@ -1,6 +1,6 @@
 package com.github.jxen.measure.unit;
 
-import static com.github.jxen.measure.unit.MechanicalUnits.WATT;
+import static com.github.jxen.measure.unit.LmtUnits.WATT;
 import static com.github.jxen.measure.unit.MetricUnits.AMPERE;
 import static com.github.jxen.measure.unit.MetricUnits.Holder.BUILDER;
 import static com.github.jxen.measure.unit.MetricUnits.METER;

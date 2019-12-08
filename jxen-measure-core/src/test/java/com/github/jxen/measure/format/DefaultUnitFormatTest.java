@@ -1,8 +1,8 @@
 package com.github.jxen.measure.format;
 
-import static com.github.jxen.measure.unit.MechanicalUnits.METER_PER_SECOND;
-import static com.github.jxen.measure.unit.MechanicalUnits.METER_PER_SECOND_SQUARED;
-import static com.github.jxen.measure.unit.MechanicalUnits.SQUARE_METER;
+import static com.github.jxen.measure.unit.LmtUnits.METER_PER_SECOND;
+import static com.github.jxen.measure.unit.LmtUnits.METER_PER_SECOND_SQUARED;
+import static com.github.jxen.measure.unit.LmtUnits.SQUARE_METER;
 import static com.github.jxen.measure.unit.MetricUnits.METER;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;

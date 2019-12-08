@@ -1,6 +1,6 @@
 package com.github.jxen.measure.unit;
 
-import static com.github.jxen.measure.unit.MechanicalUnits.METER_PER_SECOND_SQUARED;
+import static com.github.jxen.measure.unit.LmtUnits.METER_PER_SECOND_SQUARED;
 import static com.github.jxen.measure.unit.NaturalUnits.Holder.GRAVITY;
 
 import com.github.jxen.math.rational.Rational;

@@ -13,8 +13,7 @@ import com.github.jxen.measure.quantity.AngleAmount;
 import com.github.jxen.measure.quantity.LengthAmount;
 import com.github.jxen.measure.quantity.Quantities;
 import com.github.jxen.measure.quantity.QuantityDecomposer;
-import com.github.jxen.measure.unit.ElectromagneticUnits;
-import com.github.jxen.measure.unit.MechanicalUnits;
+import com.github.jxen.measure.unit.LmtUnits;
 import com.github.jxen.measure.unit.MetricPrefix;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -57,7 +56,7 @@ class MeasureQuantityFormatTest {
 	@Test
 	void testFormatShort3() {
 		QuantityFormat format = new MeasureQuantityFormat(new DecimalFormat("0.#"), new DefaultUnitFormat());
-		assertEquals("1\u00B0", format.format(new AngleAmount(1, MechanicalUnits.DEGREE_ANGLE)));
+		assertEquals("1\u00B0", format.format(new AngleAmount(1, LmtUnits.DEGREE_ANGLE)));
 	}
 
 	@Test

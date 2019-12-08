@@ -1,7 +1,7 @@
 package com.github.jxen.measure.unit;
 
-import static com.github.jxen.measure.unit.MechanicalUnits.JOULE;
-import static com.github.jxen.measure.unit.MechanicalUnits.STERADIAN;
+import static com.github.jxen.measure.unit.LmtUnits.JOULE;
+import static com.github.jxen.measure.unit.LmtUnits.STERADIAN;
 import static com.github.jxen.measure.unit.MetricUnits.CANDELA;
 import static com.github.jxen.measure.unit.MetricUnits.Holder.BUILDER;
 import static com.github.jxen.measure.unit.MetricUnits.KELVIN;
