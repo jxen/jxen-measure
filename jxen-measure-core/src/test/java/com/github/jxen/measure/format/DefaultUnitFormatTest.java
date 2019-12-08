@@ -56,11 +56,6 @@ class DefaultUnitFormatTest {
 	}
 
 	@Test
-	void testFormatGravity() {
-		assertEquals("[unit.gravity]", new DefaultUnitFormat().format(NaturalUnits.STANDARD_GRAVITY));
-	}
-
-	@Test
 	void testLabel() {
 		assertThrows(UnsupportedOperationException.class, () -> new DefaultUnitFormat().label(null, null));
 	}

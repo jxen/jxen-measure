@@ -6,9 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.github.jxen.measure.format.LocaleAdapter;
 import org.junit.jupiter.api.Test;
 
-class NonSiRuLocaleAdapterTest {
+class TraditionalRuLocaleAdapterTest {
 
-	private LocaleAdapter adapter = new NonSiRuLocaleAdapter();
+	private LocaleAdapter adapter = new TraditionalRuLocaleAdapter();
 
 	@Test
 	void testIsFeminineCase1() {

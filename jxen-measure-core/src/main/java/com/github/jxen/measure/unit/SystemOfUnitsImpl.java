@@ -1,13 +1,19 @@
 package com.github.jxen.measure.unit;
 
+import com.github.jxen.measure.annotation.AddUnit;
 import com.github.jxen.measure.converter.Converters;
+import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 import javax.measure.Dimension;
+import javax.measure.MeasurementException;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.spi.SystemOfUnits;
@@ -24,10 +30,10 @@ public final class SystemOfUnitsImpl implements SystemOfUnits {
 	private final String name;
 	private final Set<Unit<?>> units;
 	private final Map<String, Unit<?>> nameToUnit;
-	private final Map<Class<? extends Quantity<?>>, Unit<?>> classToUnit;
+	private final Map<Class<?>, Unit<?>> classToUnit;
 
 	private SystemOfUnitsImpl(String name, Set<Unit<?>> units, Map<String, Unit<?>> nameToUnit,
-			Map<Class<? extends Quantity<?>>, Unit<?>> classToUnit) {
+			Map<Class<?>, Unit<?>> classToUnit) {
 		this.name = name;
 		this.units = units;
 		this.nameToUnit = nameToUnit;
@@ -63,6 +69,47 @@ public final class SystemOfUnitsImpl implements SystemOfUnits {
 	}
 
 	/**
+	 * Adds unit to system.
+	 *
+	 * @param unit unit
+	 * @param type type
+	 * @param <Q> quantity type
+	 * @return added unit
+	 */
+	@SuppressWarnings("unchecked")
+	public static <Q extends Quantity<Q>> AbstractUnit<Q> unit(AbstractUnit<?> unit, Class<Q> type) {
+		return (AbstractUnit<Q>) unit;
+	}
+
+	/**
+	 * Adds base unit to the system.
+	 *
+	 * @param name      name
+	 * @param dimension dimension
+	 * @param type      type
+	 * @param <Q> quantity type
+	 * @return added unit
+	 */
+	public static <Q extends Quantity<Q>> AbstractUnit<Q> unit(String name, Dimension dimension, Class<Q> type) {
+		return unit(new BaseUnit<>(name, dimension), type);
+	}
+
+	/**
+	 * Adds unit created with given factor.
+	 *
+	 * @param name   name
+	 * @param unit   unit
+	 * @param factor factor
+	 * @param type   type
+	 * @param <Q> quantity type
+	 * @return added unit
+	 */
+	public static <Q extends Quantity<Q>> AbstractUnit<Q> unit(String name, AbstractUnit<Q> unit, Number factor,
+			Class<Q> type) {
+		return unit(new TransformedUnit<>(unit, Converters.fromFactor(factor)).alternate(name), type);
+	}
+
+	/**
 	 * @param name System of Units name
 	 * @return Builder for new System of Units
 	 */
@@ -78,54 +125,49 @@ public final class SystemOfUnitsImpl implements SystemOfUnits {
 		private final String name;
 		private final Set<Unit<?>> units = new HashSet<>();
 		private final Map<String, Unit<?>> nameToUnit = new HashMap<>();
-		private final Map<Class<? extends Quantity<?>>, Unit<?>> classToUnit = new HashMap<>();
+		private final Map<Class<?>, Unit<?>> classToUnit = new HashMap<>();
 
 		private Builder(String name) {
 			this.name = name;
 		}
 
 		/**
-		 * Adds unit to system.
+		 * Adds unit information from given class.
 		 *
-		 * @param unit unit
-		 * @param type type
-		 * @param <Q> quantity type
-		 * @return added unit
+		 * @param unitsClass class with unit constants
+		 * @return current instance
 		 */
-		@SuppressWarnings("unchecked")
-		public <Q extends Quantity<Q>> AbstractUnit<Q> unit(AbstractUnit<?> unit, Class<Q> type) {
+		public Builder add(Class<?> unitsClass) {
+			for (Field field : unitsClass.getDeclaredFields()) {
+				AddUnit annotation = field.getAnnotation(AddUnit.class);
+				if (Objects.isNull(annotation)) {
+					continue;
+				}
+				if (!AbstractUnit.class.isAssignableFrom(field.getType())) {
+					throw new MeasurementException("Unsupported unit type: " + field.getType());
+				}
+				Type genericType = field.getGenericType();
+				if (!(genericType instanceof ParameterizedType)) {
+					throw new MeasurementException("Unit type is not parametrized: " + field.getGenericType());
+				}
+				Type typeArgument = ((ParameterizedType) genericType).getActualTypeArguments()[0];
+				if (!(typeArgument instanceof Class)) {
+					throw new MeasurementException("Unsupported type parameter: " + typeArgument);
+				}
+				Class<?> type = (Class<?>) typeArgument;
+				try {
+					add((AbstractUnit<?>) field.get(null), type);
+				} catch (IllegalAccessException e) {
+					throw new MeasurementException(e);
+				}
+			}
+			return this;
+		}
+
+		private void add(AbstractUnit<?> unit, Class<?> type) {
 			units.add(unit);
 			nameToUnit.putIfAbsent(unit.getName(), unit);
 			classToUnit.putIfAbsent(type, unit);
-			return (AbstractUnit<Q>) unit;
-		}
-
-		/**
-		 * Adds base unit to the system.
-		 *
-		 * @param name      name
-		 * @param dimension dimension
-		 * @param type      type
-		 * @param <Q> quantity type
-		 * @return added unit
-		 */
-		public <Q extends Quantity<Q>> AbstractUnit<Q> unit(String name, Dimension dimension, Class<Q> type) {
-			return unit(new BaseUnit<>(name, dimension), type);
-		}
-
-		/**
-		 * Adds unit created with given factor.
-		 *
-		 * @param name   name
-		 * @param unit   unit
-		 * @param factor factor
-		 * @param type   type
-		 * @param <Q> quantity type
-		 * @return added unit
-		 */
-		public <Q extends Quantity<Q>> AbstractUnit<Q> unit(String name, AbstractUnit<Q> unit, Number factor,
-				Class<Q> type) {
-			return unit(new TransformedUnit<>(unit, Converters.fromFactor(factor)).alternate(name), type);
 		}
 
 		/**

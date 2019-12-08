@@ -10,7 +10,7 @@ import javax.measure.spi.ServiceProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class NonSiServiceProviderTest {
+class TraditionalServiceProviderTest {
 
 	private ServiceProvider service;
 

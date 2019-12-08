@@ -1,23 +1,21 @@
-package com.github.jxen.measure.nonsi;
+package com.github.jxen.measure.traditional;
 
-import static com.github.jxen.measure.nonsi.ImperialUnits.Holder.BUILDER;
-import static com.github.jxen.measure.nonsi.ImperialUnits.Holder.R1_16;
-import static com.github.jxen.measure.nonsi.ImperialUnits.Holder.R5_9;
-import static com.github.jxen.measure.nonsi.ImperialUnits.Holder.RANKINE_SHIFT;
 import static com.github.jxen.measure.unit.LmtUnits.GRAM;
 import static com.github.jxen.measure.unit.LmtUnits.LITER;
 import static com.github.jxen.measure.unit.MetricPrefix.milli;
 import static com.github.jxen.measure.unit.MetricUnits.KELVIN;
 import static com.github.jxen.measure.unit.MetricUnits.METER;
 import static com.github.jxen.measure.unit.MetricUnits.SECOND;
+import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
 import static com.github.jxen.measure.unit.TimeUnits.HOUR;
 
 import com.github.jxen.math.rational.BigRational;
 import com.github.jxen.math.rational.Rational;
+import com.github.jxen.measure.annotation.AddUnit;
 import com.github.jxen.measure.unit.AbstractUnit;
 import com.github.jxen.measure.unit.NaturalUnits;
 import com.github.jxen.measure.unit.SystemOfUnitsImpl;
-import javax.measure.Unit;
+import java.math.BigDecimal;
 import javax.measure.quantity.Acceleration;
 import javax.measure.quantity.Area;
 import javax.measure.quantity.Force;
@@ -33,7 +31,7 @@ import javax.measure.spi.SystemOfUnits;
  *
  * @author Denis Murashev
  *
- * @since Non-SI Units 0.1
+ * @since Traditional Units 0.1
  */
 public final class ImperialUnits {
 
@@ -49,8 +47,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Inch">Wikipedia: Inch</a>
 	 */
-	public static final AbstractUnit<Length> INCH = BUILDER.unit("inch", METER, new BigRational(254, 10_000),
-			Length.class);
+	@AddUnit
+	public static final AbstractUnit<Length> INCH = unit("inch", METER, new BigRational(254, 10_000), Length.class);
 
 	/**
 	 * <p>A thousandth of an inch is a derived unit of length in a system of units using inches.
@@ -59,7 +57,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Thousandth_of_an_inch">Wikipedia: Thousandth of an inch</a>
 	 */
-	public static final AbstractUnit<Length> THOU = BUILDER.unit("thou", INCH, new Rational(1, 1000), Length.class);
+	@AddUnit
+	public static final AbstractUnit<Length> THOU = unit("thou", INCH, new Rational(1, 1000), Length.class);
 
 	/**
 	 * <p>The foot (pl. feet; abbreviation: {@code ft}; symbol: &prime;, the prime symbol) is a unit of length
@@ -69,7 +68,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Foot_(unit)">Wikipedia: Foot (unit)</a>
 	 */
-	public static final AbstractUnit<Length> FOOT = BUILDER.unit("foot", INCH, 12, Length.class);
+	@AddUnit
+	public static final AbstractUnit<Length> FOOT = unit("foot", INCH, 12, Length.class);
 
 	/**
 	 * <p>The yard (abbreviation: {@code yd}) is an English unit of length,
@@ -79,7 +79,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Yard">Wikipedia: Yard</a>
 	 */
-	public static final AbstractUnit<Length> YARD = BUILDER.unit("yard", FOOT, 3, Length.class);
+	@AddUnit
+	public static final AbstractUnit<Length> YARD = unit("yard", FOOT, 3, Length.class);
 
 	/**
 	 * <p>The chain is a unit of length equal to 66 feet (22 yards). It is subdivided into 100 links or 4 rods.
@@ -87,7 +88,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Chain_(unit)">Wikipedia: Chain (unit)</a>
 	 */
-	public static final AbstractUnit<Length> CHAIN = BUILDER.unit("chain", FOOT, 66, Length.class);
+	@AddUnit
+	public static final AbstractUnit<Length> CHAIN = unit("chain", FOOT, 66, Length.class);
 
 	/**
 	 * <p>A furlong is a measure of distance in imperial units and U.S. customary units equal to one eighth of a mile,
@@ -95,7 +97,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Furlong">Wikipedia: Furlong</a>
 	 */
-	public static final AbstractUnit<Length> FURLONG = BUILDER.unit("furlong", FOOT, 660, Length.class);
+	@AddUnit
+	public static final AbstractUnit<Length> FURLONG = unit("furlong", FOOT, 660, Length.class);
 
 	/**
 	 * <p>The mile is an English unit of length of linear measure equal to 5,280 feet, or 1,760 yards,
@@ -103,7 +106,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Mile">Wikipedia: Mile</a>
 	 */
-	public static final AbstractUnit<Length> MILE = BUILDER.unit("mile", YARD, 1760, Length.class);
+	@AddUnit
+	public static final AbstractUnit<Length> MILE = unit("mile", YARD, 1760, Length.class);
 
 	/**
 	 * <p>A league is a unit of length.
@@ -112,7 +116,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/League_(unit)">Wikipedia: League (unit)</a>
 	 */
-	public static final AbstractUnit<Length> LEAGUE = BUILDER.unit("league", MILE, 3, Length.class);
+	@AddUnit
+	public static final AbstractUnit<Length> LEAGUE = unit("league", MILE, 3, Length.class);
 
 	/**
 	 * <p>A nautical mile is a unit of measurement used in both air and marine navigation,
@@ -122,7 +127,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Nautical_mile">Wikipedia: Nautical mile</a>
 	 */
-	public static final AbstractUnit<Length> NAUTICAL_MILE = BUILDER.unit("mile^nautical", FOOT, 6080, Length.class);
+	@AddUnit
+	public static final AbstractUnit<Length> NAUTICAL_MILE = unit("mile^nautical", FOOT, 6080, Length.class);
 
 	/**
 	 * <p>A cable length or length of cable is a nautical unit of measure equal to one tenth of a nautical mile
@@ -130,8 +136,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Cable_length">Wikipedia: Cable length</a>
 	 */
-	public static final AbstractUnit<Length> CABLE = BUILDER.unit("cable", NAUTICAL_MILE, new Rational(1, 10),
-			Length.class);
+	@AddUnit
+	public static final AbstractUnit<Length> CABLE = unit("cable", NAUTICAL_MILE, new Rational(1, 10), Length.class);
 
 	/**
 	 * <p>The British Admiralty defined a fathom to be a thousandth of an imperial nautical mile (which was 6080 ft)
@@ -140,7 +146,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Fathom">Wikipedia: Fathom</a>
 	 */
-	public static final AbstractUnit<Length> FATHOM = BUILDER.unit("fathom", NAUTICAL_MILE, new Rational(1, 1000),
+	@AddUnit
+	public static final AbstractUnit<Length> FATHOM = unit("fathom", NAUTICAL_MILE, new Rational(1, 1000),
 			Length.class);
 
 	/**
@@ -150,7 +157,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Rod_(unit)">Wikipedia: Rod (unit)</a>
 	 */
-	public static final AbstractUnit<Length> ROD = BUILDER.unit("rod", YARD, new Rational(11, 2), Length.class);
+	@AddUnit
+	public static final AbstractUnit<Length> ROD = unit("rod", YARD, new Rational(11, 2), Length.class);
 
 	/**
 	 * <p>The link (usually abbreviated as {@code l.}, {@code li.} or {@code lnk.}), sometimes called a Gunter's link,
@@ -159,7 +167,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Link_(unit)">Wikipedia: Link (unit)</a>
 	 */
-	public static final AbstractUnit<Length> LINK = BUILDER.unit("link", FOOT, new Rational(66, 100), Length.class);
+	@AddUnit
+	public static final AbstractUnit<Length> LINK = unit("link", FOOT, new Rational(66, 100), Length.class);
 
 	///////////////////////// Area British Imperial Units /////////////////////////
 
@@ -168,7 +177,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Square_inch">Wikipedia: Square inch</a>
 	 */
-	public static final AbstractUnit<Area> SQUARE_INCH = BUILDER.unit(INCH.pow(2), Area.class);
+	@AddUnit
+	public static final AbstractUnit<Area> SQUARE_INCH = unit(INCH.pow(2), Area.class);
 
 	/**
 	 * <p>The square foot (abbreviated {@code sq ft}, {@code sf}, or {@code ft}<sup>2</sup>;
@@ -180,7 +190,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Square_foot">Wikipedia: Square foot</a>
 	 */
-	public static final AbstractUnit<Area> SQUARE_FOOT = BUILDER.unit(FOOT.pow(2), Area.class);
+	@AddUnit
+	public static final AbstractUnit<Area> SQUARE_FOOT = unit(FOOT.pow(2), Area.class);
 
 	/**
 	 * <p>The square yard is an imperial unit of area,
@@ -191,7 +202,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Square_yard">Wikipedia: Square yard</a>
 	 */
-	public static final AbstractUnit<Area> SQUARE_YARD = BUILDER.unit(YARD.pow(2), Area.class);
+	@AddUnit
+	public static final AbstractUnit<Area> SQUARE_YARD = unit(YARD.pow(2), Area.class);
 
 	/**
 	 * <p>As a unit of area, a square perch (the perch being standardized to equal 16<sup>1</sup>/<sub>2</sub> feet,
@@ -200,7 +212,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Rod_(unit)#Area_and_volume">Wikipedia: Rod_(unit)#Area_and_volume</a>
 	 */
-	public static final AbstractUnit<Area> SQUARE_ROD = BUILDER.unit(ROD.pow(2), Area.class);
+	@AddUnit
+	public static final AbstractUnit<Area> SQUARE_ROD = unit(ROD.pow(2), Area.class);
 
 	/**
 	 * <p>Rood is an English unit of area equal to one quarter of an acre] or 10,890 square feet (1,012 m<sup>2</sup>).
@@ -209,7 +222,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Rood_(unit)">Wikipedia: Rood (unit)</a>
 	 */
-	public static final AbstractUnit<Area> ROOD = BUILDER.unit(FURLONG.multiply(ROD).alternate("rood"), Area.class);
+	@AddUnit
+	public static final AbstractUnit<Area> ROOD = unit(FURLONG.multiply(ROD).alternate("rood"), Area.class);
 
 	/**
 	 * <p>The acre is a unit of land area used in the imperial and US customary systems.
@@ -217,7 +231,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Acre">Wikipedia: Acre</a>
 	 */
-	public static final AbstractUnit<Area> ACRE = BUILDER.unit("acre", ROOD, 4, Area.class);
+	@AddUnit
+	public static final AbstractUnit<Area> ACRE = unit("acre", ROOD, 4, Area.class);
 
 	/**
 	 * <p>The square mile (abbreviated as {@code sq mi} and sometimes as {@code mi}<sup>2</sup>) is an imperial
@@ -225,7 +240,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Square_mile">Wikipedia: Square mile</a>
 	 */
-	public static final AbstractUnit<Area> SQUARE_MILE = BUILDER.unit(MILE.pow(2), Area.class);
+	@AddUnit
+	public static final AbstractUnit<Area> SQUARE_MILE = unit(MILE.pow(2), Area.class);
 
 	///////////////////////// Volume British Imperial Units /////////////////////////
 
@@ -237,7 +253,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Cubic_inch">Wikipedia: Cubic inch</a>
 	 */
-	public static final AbstractUnit<Volume> CUBIC_INCH = BUILDER.unit(INCH.pow(3), Volume.class);
+	@AddUnit
+	public static final AbstractUnit<Volume> CUBIC_INCH = unit(INCH.pow(3), Volume.class);
 
 	/**
 	 * <p>The cubic foot (symbol {@code ft}<sup>3</sup>) is an imperial and US customary (non-metric) unit of volume,
@@ -248,7 +265,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Cubic_foot">Wikipedia: Cubic foot</a>
 	 */
-	public static final AbstractUnit<Volume> CUBIC_FOOT = BUILDER.unit(FOOT.pow(3), Volume.class);
+	@AddUnit
+	public static final AbstractUnit<Volume> CUBIC_FOOT = unit(FOOT.pow(3), Volume.class);
 
 	/**
 	 * <p>A cubic yard (symbol {@code yd}<sup>3</sup>3) is an Imperial / U.S. customary (non-SI non-metric) unit
@@ -258,7 +276,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Cubic_yard">Wikipedia: Cubic yard</a>
 	 */
-	public static final AbstractUnit<Volume> CUBIC_YARD = BUILDER.unit(YARD.pow(3), Volume.class);
+	@AddUnit
+	public static final AbstractUnit<Volume> CUBIC_YARD = unit(YARD.pow(3), Volume.class);
 
 	///////////////////////// Dry & Wet Volume British Imperial Units /////////////////////////
 
@@ -268,15 +287,17 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Fluid_ounce">Wikipedia: Fluid ounce</a>
 	 */
-	public static final AbstractUnit<Volume> FLUID_OUNCE = BUILDER.unit("ounce^fluid", milli(LITER),
-			new BigRational(284_130_625, 10_000_000), Volume.class);
+	@AddUnit
+	public static final AbstractUnit<Volume> FLUID_OUNCE = unit("ounce^fluid", milli(LITER),
+			new BigDecimal("28.4130625"), Volume.class);
 
 	/**
 	 * <p>The gill or teacup is a unit of measurement for volume equal to a quarter of a pint.
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Gill_(unit)">Wikipedia: Gill (unit)</a>
 	 */
-	public static final AbstractUnit<Volume> GILL = BUILDER.unit("gill", FLUID_OUNCE, 5, Volume.class);
+	@AddUnit
+	public static final AbstractUnit<Volume> GILL = unit("gill", FLUID_OUNCE, 5, Volume.class);
 
 	/**
 	 * <p>The pint (symbol {@code pt}) is a unit of volume or capacity in the imperial measurement systems.
@@ -284,7 +305,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Pint">Wikipedia: Pint</a>
 	 */
-	public static final AbstractUnit<Volume> PINT = BUILDER.unit("pint", GILL, 4, Volume.class);
+	@AddUnit
+	public static final AbstractUnit<Volume> PINT = unit("pint", GILL, 4, Volume.class);
 
 	/**
 	 * <p>The quart (abbreviation {@code qt.}) is an English unit of volume equal to a quarter gallon.
@@ -292,7 +314,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Quart">Wikipedia: Quart</a>
 	 */
-	public static final AbstractUnit<Volume> QUART = BUILDER.unit("quart", PINT, 2, Volume.class);
+	@AddUnit
+	public static final AbstractUnit<Volume> QUART = unit("quart", PINT, 2, Volume.class);
 
 	/**
 	 * <p>The gallon is a unit of measurement for volume and fluid capacity
@@ -303,14 +326,16 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Gallon">Wikipedia: Gallon</a>
 	 */
-	public static final AbstractUnit<Volume> GALLON = BUILDER.unit("gallon", QUART, 4, Volume.class);
+	@AddUnit
+	public static final AbstractUnit<Volume> GALLON = unit("gallon", QUART, 4, Volume.class);
 
 	/**
 	 * <p>A peck is an imperial unit of dry volume, equivalent to 2 dry gallons or 8 dry quarts(9.09 liters).
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Peck">Wikipedia: Peck</a>
 	 */
-	public static final AbstractUnit<Volume> PECK = BUILDER.unit("peck", GALLON, 2, Volume.class);
+	@AddUnit
+	public static final AbstractUnit<Volume> PECK = unit("peck", GALLON, 2, Volume.class);
 
 	/**
 	 * <p>A bushel (abbreviation: {@code bsh.} or {@code bu.}) is an imperial unit of volume
@@ -319,7 +344,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Bushel">Wikipedia: Bushel</a>
 	 */
-	public static final AbstractUnit<Volume> BUSHEL = BUILDER.unit("bushel", PECK, 4, Volume.class);
+	@AddUnit
+	public static final AbstractUnit<Volume> BUSHEL = unit("bushel", PECK, 4, Volume.class);
 
 	/**
 	 * <p>Fluid barrels vary depending on what is being measured and where.
@@ -327,7 +353,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Barrel_(unit)">Wikipedia: Barrel (unit)</a>
 	 */
-	public static final AbstractUnit<Volume> BARREL = BUILDER.unit("barrel", GALLON, 36, Volume.class);
+	@AddUnit
+	public static final AbstractUnit<Volume> BARREL = unit("barrel", GALLON, 36, Volume.class);
 
 	///////////////////////// Mass British Imperial Units /////////////////////////
 
@@ -339,8 +366,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Grain_(unit)">Wikipedia: Grain_(unit)</a>
 	 */
-	public static final AbstractUnit<Mass> GRAIN = BUILDER.unit("grain", GRAM, new BigRational(6_479_891, 100_000_000),
-			Mass.class);
+	@AddUnit
+	public static final AbstractUnit<Mass> GRAIN = unit("grain", GRAM, new BigDecimal("0.06479891"), Mass.class);
 
 	/**
 	 * <p>The pound or pound-mass is a unit of mass used in the imperial, United States customary
@@ -353,7 +380,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Pound_(mass)#Avoirdupois_pound">Wikipedia: Avoirdupois pound</a>
 	 */
-	public static final AbstractUnit<Mass> POUND = BUILDER.unit("pound", GRAIN, 7000, Mass.class);
+	@AddUnit
+	public static final AbstractUnit<Mass> POUND = unit("pound", GRAIN, 7000, Mass.class);
 
 	/**
 	 * <p>The ounce (abbreviated {@code oz}) is a unit of mass in most British derived customary systems of measurement.
@@ -362,7 +390,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Ounce">Wikipedia: Ounce</a>
 	 */
-	public static final AbstractUnit<Mass> OUNCE = BUILDER.unit("ounce", POUND, R1_16, Mass.class);
+	@AddUnit
+	public static final AbstractUnit<Mass> OUNCE = unit("ounce", POUND, new Rational(1, 16), Mass.class);
 
 	/**
 	 * <p>The dram (alternative British spelling drachm; apothecary abbreviated symbol {@code dr})
@@ -374,7 +403,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Dram_(unit)">Wikipedia: Dram (unit)</a>
 	 */
-	public static final AbstractUnit<Mass> DRAM = BUILDER.unit("dram", OUNCE, R1_16, Mass.class);
+	@AddUnit
+	public static final AbstractUnit<Mass> DRAM = unit("dram", OUNCE, new Rational(1, 16), Mass.class);
 
 	/**
 	 * <p>The stone or stone weight (abbreviation: {@code st.}) is an English and imperial unit of mass
@@ -382,7 +412,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Stone_(unit)">Wikipedia: Stone (unit)</a>
 	 */
-	public static final AbstractUnit<Mass> STONE = BUILDER.unit("stone", POUND, 14, Mass.class);
+	@AddUnit
+	public static final AbstractUnit<Mass> STONE = unit("stone", POUND, 14, Mass.class);
 
 	/**
 	 * <p>The hundredweight (abbreviation: {@code cwt}), formerly also known as the centum weight or quintal,
@@ -393,7 +424,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Hundredweight">Wikipedia: Hundredweight</a>
 	 */
-	public static final AbstractUnit<Mass> CWT = BUILDER.unit("hundredweight", POUND, 112, Mass.class);
+	@AddUnit
+	public static final AbstractUnit<Mass> CWT = unit("hundredweight", POUND, 112, Mass.class);
 
 	/**
 	 * <p>The long ton is a unit of measure.
@@ -401,7 +433,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Ton">Wikipedia: Ton</a>
 	 */
-	public static final AbstractUnit<Mass> TON = BUILDER.unit("ton", POUND, 2240, Mass.class);
+	@AddUnit
+	public static final AbstractUnit<Mass> TON = unit("ton", POUND, 2240, Mass.class);
 
 	///////////////////////// Speed British Imperial Units /////////////////////////
 
@@ -414,7 +447,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Foot_per_second">Wikipedia: Foot per second</a>
 	 */
-	public static final AbstractUnit<Speed> FOOT_PER_SECOND = BUILDER.unit(FOOT.divide(SECOND), Speed.class);
+	@AddUnit
+	public static final AbstractUnit<Speed> FOOT_PER_SECOND = unit(FOOT.divide(SECOND), Speed.class);
 
 	/**
 	 * <p>The knot is a unit of speed equal to one nautical mile per hour, exactly 1.852 km/h
@@ -424,8 +458,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Knot_(unit)">Wikipedia: Knot (unit)</a>
 	 */
-	public static final AbstractUnit<Speed> KNOT = BUILDER.unit(NAUTICAL_MILE.divide(HOUR).alternate("knot"),
-			Speed.class);
+	@AddUnit
+	public static final AbstractUnit<Speed> KNOT = unit(NAUTICAL_MILE.divide(HOUR).alternate("knot"), Speed.class);
 
 	///////////////////////// Acceleration British Imperial Units /////////////////////////
 
@@ -434,7 +468,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Metre_per_second_squared">Wikipedia: Metre per second squared</a>
 	 */
-	public static final AbstractUnit<Acceleration> FOOT_PER_SECOND_SQUARED = BUILDER.unit(FOOT.divide(SECOND.pow(2)),
+	@AddUnit
+	public static final AbstractUnit<Acceleration> FOOT_PER_SECOND_SQUARED = unit(FOOT.divide(SECOND.pow(2)),
 			Acceleration.class);
 
 	///////////////////////// Force British Imperial Units /////////////////////////
@@ -446,7 +481,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Pound_(force)">Wikipedia: Pound (force)</a>
 	 */
-	public static final Unit<Force> POUND_FORCE = BUILDER.unit(POUND.multiply(NaturalUnits.STANDARD_GRAVITY)
+	@AddUnit
+	public static final AbstractUnit<Force> POUND_FORCE = unit(POUND.multiply(NaturalUnits.STANDARD_GRAVITY)
 			.alternate("pound^force"), Force.class);
 
 	/**
@@ -459,8 +495,9 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Poundal">Wikipedia: Poundal</a>
 	 */
-	public static final AbstractUnit<Force> POUNDAL = BUILDER.unit(FOOT.multiply(FOOT_PER_SECOND_SQUARED)
-			.alternate("poundal"), Force.class);
+	@AddUnit
+	public static final AbstractUnit<Force> POUNDAL = unit(FOOT.multiply(FOOT_PER_SECOND_SQUARED).alternate("poundal"),
+			Force.class);
 
 	///////////////////////// Temperature Units /////////////////////////
 
@@ -471,7 +508,9 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Rankine_scale">Wikipedia: Rankine scale</a>
 	 */
-	public static final AbstractUnit<Temperature> RANKINE = BUILDER.unit("rankine", KELVIN, R5_9, Temperature.class);
+	@AddUnit
+	public static final AbstractUnit<Temperature> RANKINE = unit("rankine", KELVIN, new Rational(5, 9),
+			Temperature.class);
 
 	/**
 	 * <p>The Fahrenheit scale is a temperature scale based on one proposed in 1724
@@ -483,7 +522,8 @@ public final class ImperialUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Fahrenheit">Wikipedia: Fahrenheit</a>
 	 */
-	public static final AbstractUnit<Temperature> FAHRENHEIT = BUILDER.unit(RANKINE.shift(RANKINE_SHIFT)
+	@AddUnit
+	public static final AbstractUnit<Temperature> FAHRENHEIT = unit(RANKINE.shift(new BigDecimal("459.67"))
 			.alternate("fahrenheit"), Temperature.class);
 
 	///////////////////////// System of British Imperial Units /////////////////////////
@@ -491,22 +531,8 @@ public final class ImperialUnits {
 	/**
 	 * The instance of {@link SystemOfUnits}.
 	 */
-	public static final SystemOfUnits SYSTEM = BUILDER.build();
+	public static final SystemOfUnits SYSTEM = SystemOfUnitsImpl.builder("Imperial").add(ImperialUnits.class).build();
 
 	private ImperialUnits() {
-	}
-
-	static final class Holder {
-
-		static final SystemOfUnitsImpl.Builder BUILDER = SystemOfUnitsImpl.builder("Imperial");
-
-		static final Rational R1_16 = new Rational(1, 16);
-
-		static final Rational R5_9 = new Rational(5, 9);
-
-		static final double RANKINE_SHIFT = 459.67;
-
-		private Holder() {
-		}
 	}
 }

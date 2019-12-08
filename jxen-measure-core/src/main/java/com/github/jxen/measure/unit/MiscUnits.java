@@ -3,14 +3,15 @@ package com.github.jxen.measure.unit;
 import static com.github.jxen.measure.unit.LmtUnits.JOULE;
 import static com.github.jxen.measure.unit.LmtUnits.STERADIAN;
 import static com.github.jxen.measure.unit.MetricUnits.CANDELA;
-import static com.github.jxen.measure.unit.MetricUnits.Holder.BUILDER;
 import static com.github.jxen.measure.unit.MetricUnits.KELVIN;
 import static com.github.jxen.measure.unit.MetricUnits.KILOGRAM;
 import static com.github.jxen.measure.unit.MetricUnits.METER;
 import static com.github.jxen.measure.unit.MetricUnits.MOLE;
 import static com.github.jxen.measure.unit.MetricUnits.SECOND;
-import static com.github.jxen.measure.unit.MiscUnits.Holder.CELSIUS_SHIFT;
+import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
 
+import com.github.jxen.measure.annotation.AddUnit;
+import java.math.BigDecimal;
 import javax.measure.quantity.CatalyticActivity;
 import javax.measure.quantity.Illuminance;
 import javax.measure.quantity.LuminousFlux;
@@ -20,7 +21,7 @@ import javax.measure.quantity.Radioactivity;
 import javax.measure.quantity.Temperature;
 
 /**
- * {@code ElectromagneticUnits} class contains named units derived from SI base units.
+ * {@code AmpereUnits} class contains named units derived from SI base units.
  *
  * @author Denis Murashev
  *
@@ -37,7 +38,8 @@ public final class MiscUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Celsius">Wikipedia: Celsius</a>
 	 */
-	public static final AbstractUnit<Temperature> CELSIUS = BUILDER.unit(KELVIN.shift(CELSIUS_SHIFT)
+	@AddUnit
+	public static final AbstractUnit<Temperature> CELSIUS = unit(KELVIN.shift(new BigDecimal("273.15"))
 			.alternate("celsius"), Temperature.class);
 
 	/**
@@ -46,7 +48,8 @@ public final class MiscUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Lumen_(unit)">Wikipedia: Lumen (unit)</a>
 	 */
-	public static final AbstractUnit<LuminousFlux> LUMEN = BUILDER.unit(CANDELA.multiply(STERADIAN).alternate("lumen"),
+	@AddUnit
+	public static final AbstractUnit<LuminousFlux> LUMEN = unit(CANDELA.multiply(STERADIAN).alternate("lumen"),
 			LuminousFlux.class);
 
 	/**
@@ -55,7 +58,8 @@ public final class MiscUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Lux">Wikipedia: Lux</a>
 	 */
-	public static final AbstractUnit<Illuminance> LUX = BUILDER.unit(LUMEN.divide(METER.pow(2)).alternate("lux"),
+	@AddUnit
+	public static final AbstractUnit<Illuminance> LUX = unit(LUMEN.divide(METER.pow(2)).alternate("lux"),
 			Illuminance.class);
 
 	/**
@@ -68,7 +72,8 @@ public final class MiscUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Becquerel">Wikipedia: Becquerel</a>
 	 */
-	public static final AbstractUnit<Radioactivity> BECQUEREL = BUILDER.unit(SECOND.inverse().alternate("becquerel"),
+	@AddUnit
+	public static final AbstractUnit<Radioactivity> BECQUEREL = unit(SECOND.inverse().alternate("becquerel"),
 			Radioactivity.class);
 
 	/**
@@ -78,8 +83,9 @@ public final class MiscUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Gray_(unit)">Wikipedia: Gray_(unit)</a>
 	 */
-	public static final AbstractUnit<RadiationDoseAbsorbed> GRAY = BUILDER.unit(JOULE.divide(KILOGRAM)
-			.alternate("gray"), RadiationDoseAbsorbed.class);
+	@AddUnit
+	public static final AbstractUnit<RadiationDoseAbsorbed> GRAY = unit(JOULE.divide(KILOGRAM).alternate("gray"),
+			RadiationDoseAbsorbed.class);
 
 	/**
 	 * <p>The sievert (symbol: {@code Sv}) is a derived unit of ionizing radiation dose
@@ -92,8 +98,9 @@ public final class MiscUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Sievert">Wikipedia: Sievert</a>
 	 */
-	public static final AbstractUnit<RadiationDoseEffective> SIEVERT = BUILDER.unit(JOULE.divide(KILOGRAM)
-			.alternate("sievert"), RadiationDoseEffective.class);
+	@AddUnit
+	public static final AbstractUnit<RadiationDoseEffective> SIEVERT = unit(JOULE.divide(KILOGRAM).alternate("sievert"),
+			RadiationDoseEffective.class);
 
 	/**
 	 * <p>The katal (symbol: {@code kat}) is the unit of catalytic activity in the International System of Units (SI).
@@ -102,14 +109,10 @@ public final class MiscUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Katal">Wikipedia: Katal</a>
 	 */
-	public static final AbstractUnit<CatalyticActivity> KATAL = BUILDER.unit(MOLE.divide(SECOND).alternate("katal"),
+	@AddUnit
+	public static final AbstractUnit<CatalyticActivity> KATAL = unit(MOLE.divide(SECOND).alternate("katal"),
 			CatalyticActivity.class);
 
 	private MiscUnits() {
-	}
-
-	static class Holder {
-
-		static final double CELSIUS_SHIFT = 273.15;
 	}
 }

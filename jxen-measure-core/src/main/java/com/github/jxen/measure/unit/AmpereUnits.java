@@ -2,10 +2,11 @@ package com.github.jxen.measure.unit;
 
 import static com.github.jxen.measure.unit.LmtUnits.WATT;
 import static com.github.jxen.measure.unit.MetricUnits.AMPERE;
-import static com.github.jxen.measure.unit.MetricUnits.Holder.BUILDER;
 import static com.github.jxen.measure.unit.MetricUnits.METER;
 import static com.github.jxen.measure.unit.MetricUnits.SECOND;
+import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
 
+import com.github.jxen.measure.annotation.AddUnit;
 import javax.measure.quantity.ElectricCapacitance;
 import javax.measure.quantity.ElectricCharge;
 import javax.measure.quantity.ElectricConductance;
@@ -16,13 +17,14 @@ import javax.measure.quantity.MagneticFlux;
 import javax.measure.quantity.MagneticFluxDensity;
 
 /**
- * {@code ElectromagneticUnits} class contains named units derived from SI base units.
+ * {@code AmpereUnits} class contains named units derived from SI base units,
+ * based on {@link MetricUnits#AMPERE} ({@code I}).
  *
  * @author Denis Murashev
  *
  * @since Measure 0.2
  */
-public final class ElectromagneticUnits {
+public final class AmpereUnits {
 
 	/**
 	 * <p>The coulomb (symbol: {@code C}) is the International System of Units (SI) unit of electric charge.
@@ -32,8 +34,9 @@ public final class ElectromagneticUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Coulomb">Wikipedia: Coulomb</a>
 	 */
-	public static final AbstractUnit<ElectricCharge> COULOMB = BUILDER.unit(AMPERE.multiply(SECOND)
-			.alternate("coulomb"), ElectricCharge.class);
+	@AddUnit
+	public static final AbstractUnit<ElectricCharge> COULOMB = unit(AMPERE.multiply(SECOND).alternate("coulomb"),
+			ElectricCharge.class);
 
 	/**
 	 * <p>The volt (symbol: {@code V}) is the derived unit for electric potential,
@@ -46,7 +49,8 @@ public final class ElectromagneticUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Volt">Wikipedia: Volt</a>
 	 */
-	public static final AbstractUnit<ElectricPotential> VOLT = BUILDER.unit(WATT.divide(AMPERE).alternate("volt"),
+	@AddUnit
+	public static final AbstractUnit<ElectricPotential> VOLT = unit(WATT.divide(AMPERE).alternate("volt"),
 			ElectricPotential.class);
 
 	/**
@@ -62,7 +66,8 @@ public final class ElectromagneticUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Farad">Wikipedia: Farad</a>
 	 */
-	public static final AbstractUnit<ElectricCapacitance> FARAD = BUILDER.unit(COULOMB.divide(VOLT).alternate("farad"),
+	@AddUnit
+	public static final AbstractUnit<ElectricCapacitance> FARAD = unit(COULOMB.divide(VOLT).alternate("farad"),
 			ElectricCapacitance.class);
 
 	/**
@@ -76,7 +81,8 @@ public final class ElectromagneticUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Ohm">Wikipedia: Ohm</a>
 	 */
-	public static final AbstractUnit<ElectricResistance> OHM = BUILDER.unit(VOLT.divide(AMPERE).alternate("ohm"),
+	@AddUnit
+	public static final AbstractUnit<ElectricResistance> OHM = unit(VOLT.divide(AMPERE).alternate("ohm"),
 			ElectricResistance.class);
 
 	/**
@@ -92,8 +98,9 @@ public final class ElectromagneticUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Siemens_(unit)">Wikipedia: Siemens (unit)</a>
 	 */
-	public static final AbstractUnit<ElectricConductance> SIEMENS = BUILDER.unit(AMPERE.divide(VOLT)
-			.alternate("siemens"), ElectricConductance.class);
+	@AddUnit
+	public static final AbstractUnit<ElectricConductance> SIEMENS = unit(AMPERE.divide(VOLT).alternate("siemens"),
+			ElectricConductance.class);
 
 	/**
 	 * <p>The weber (symbol: {@code Wb}) is the SI derived unit of magnetic flux.
@@ -103,7 +110,8 @@ public final class ElectromagneticUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Weber_(unit)">Wikipedia: Weber (unit)</a>
 	 */
-	public static final AbstractUnit<MagneticFlux> WEBER = BUILDER.unit(VOLT.multiply(SECOND).alternate("weber"),
+	@AddUnit
+	public static final AbstractUnit<MagneticFlux> WEBER = unit(VOLT.multiply(SECOND).alternate("weber"),
 			MagneticFlux.class);
 
 	/**
@@ -116,8 +124,9 @@ public final class ElectromagneticUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Tesla_(unit)">Wikipedia: Tesla (unit)</a>
 	 */
-	public static final AbstractUnit<MagneticFluxDensity> TESLA = BUILDER.unit(WEBER.divide(METER.pow(2))
-			.alternate("tesla"), MagneticFluxDensity.class);
+	@AddUnit
+	public static final AbstractUnit<MagneticFluxDensity> TESLA = unit(WEBER.divide(METER.pow(2)).alternate("tesla"),
+			MagneticFluxDensity.class);
 
 	/**
 	 * <p>The henry (symbol: {@code H}) is the SI derived unit of electrical inductance.
@@ -130,9 +139,10 @@ public final class ElectromagneticUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Henry_(unit)">Wikipedia: Henry (unit)</a>
 	 */
-	public static final AbstractUnit<ElectricInductance> HENRY = BUILDER.unit(WEBER.divide(AMPERE).alternate("henry"),
+	@AddUnit
+	public static final AbstractUnit<ElectricInductance> HENRY = unit(WEBER.divide(AMPERE).alternate("henry"),
 			ElectricInductance.class);
 
-	private ElectromagneticUnits() {
+	private AmpereUnits() {
 	}
 }

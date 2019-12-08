@@ -1,14 +1,14 @@
 package com.github.jxen.measure.spi;
 
-import com.github.jxen.measure.nonsi.ImperialUnits;
-import com.github.jxen.measure.nonsi.RussianUnits;
-import com.github.jxen.measure.nonsi.TroyUnits;
-import com.github.jxen.measure.unit.MetricUnits;
+import com.github.jxen.measure.traditional.ImperialUnits;
+import com.github.jxen.measure.traditional.RussianUnits;
+import com.github.jxen.measure.traditional.TroyUnits;
+import com.github.jxen.measure.unit.Si;
 import java.util.Arrays;
 import java.util.Collection;
 import javax.measure.spi.SystemOfUnits;
 
-class NonSiSystemOfUnitsService extends DefaultSystemOfUnitsService {
+class TraditionalSystemOfUnitsService extends DefaultSystemOfUnitsService {
 
 	@Override
 	public SystemOfUnits getSystemOfUnits(String name) {
@@ -22,6 +22,6 @@ class NonSiSystemOfUnitsService extends DefaultSystemOfUnitsService {
 
 	@Override
 	public Collection<SystemOfUnits> getAvailableSystemsOfUnits() {
-		return Arrays.asList(MetricUnits.SYSTEM, ImperialUnits.SYSTEM, TroyUnits.SYSTEM, RussianUnits.SYSTEM);
+		return Arrays.asList(Si.SYSTEM, ImperialUnits.SYSTEM, TroyUnits.SYSTEM, RussianUnits.SYSTEM);
 	}
 }

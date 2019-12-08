@@ -1,7 +1,7 @@
-package com.github.jxen.measure.nonsi;
+package com.github.jxen.measure.traditional;
 
-import static com.github.jxen.measure.nonsi.ImperialUnits.FAHRENHEIT;
-import static com.github.jxen.measure.nonsi.ImperialUnits.RANKINE;
+import static com.github.jxen.measure.traditional.ImperialUnits.FAHRENHEIT;
+import static com.github.jxen.measure.traditional.ImperialUnits.RANKINE;
 import static com.github.jxen.measure.unit.MetricUnits.KELVIN;
 import static com.github.jxen.measure.unit.MiscUnits.CELSIUS;
 import static org.junit.jupiter.api.Assertions.assertEquals;

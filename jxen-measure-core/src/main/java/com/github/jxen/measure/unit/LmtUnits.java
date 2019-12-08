@@ -1,15 +1,14 @@
 package com.github.jxen.measure.unit;
 
 import static com.github.jxen.measure.dimension.Dimensions.DIMENSIONLESS;
-import static com.github.jxen.measure.unit.LmtUnits.Holder.R1_1000;
-import static com.github.jxen.measure.unit.LmtUnits.Holder.R1_60;
-import static com.github.jxen.measure.unit.MetricUnits.Holder.BUILDER;
 import static com.github.jxen.measure.unit.MetricUnits.KILOGRAM;
 import static com.github.jxen.measure.unit.MetricUnits.METER;
 import static com.github.jxen.measure.unit.MetricUnits.SECOND;
+import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
 import static com.github.jxen.measure.unit.TimeUnits.HOUR;
 
 import com.github.jxen.math.rational.Rational;
+import com.github.jxen.measure.annotation.AddUnit;
 import javax.measure.quantity.Acceleration;
 import javax.measure.quantity.Angle;
 import javax.measure.quantity.Area;
@@ -44,8 +43,8 @@ public final class LmtUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Hertz">Wikipedia: Hertz</a>
 	 */
-	public static final AbstractUnit<Frequency> HERTZ = BUILDER.unit(SECOND.inverse().alternate("hertz"),
-			Frequency.class);
+	@AddUnit
+	public static final AbstractUnit<Frequency> HERTZ = unit(SECOND.inverse().alternate("hertz"), Frequency.class);
 
 	/**
 	 * <p>The radian is the SI unit for measuring angles, and is the standard unit of angular measure
@@ -58,7 +57,8 @@ public final class LmtUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Radian">Wikipedia: Radian</a>
 	 */
-	public static final AbstractUnit<Angle> RADIAN = BUILDER.unit("radian", DIMENSIONLESS, Angle.class);
+	@AddUnit
+	public static final AbstractUnit<Angle> RADIAN = unit("radian", DIMENSIONLESS, Angle.class);
 
 	/**
 	 * <p>The steradian (symbol: {@code sr}) or square radian is the SI unit of solid angle.
@@ -69,7 +69,8 @@ public final class LmtUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Steradian">Wikipedia: Steradian</a>
 	 */
-	public static final AbstractUnit<SolidAngle> STERADIAN = BUILDER.unit("steradian", DIMENSIONLESS, SolidAngle.class);
+	@AddUnit
+	public static final AbstractUnit<SolidAngle> STERADIAN = unit("steradian", DIMENSIONLESS, SolidAngle.class);
 
 	/**
 	 * <p>The newton (symbol: {@code N}) is the International System of Units (SI) derived unit of force.
@@ -81,7 +82,8 @@ public final class LmtUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Newton_(unit)">Wikipedia: Newton (unit)</a>
 	 */
-	public static final AbstractUnit<Force> NEWTON = BUILDER.unit(METER.multiply(KILOGRAM).divide(SECOND.pow(2))
+	@AddUnit
+	public static final AbstractUnit<Force> NEWTON = unit(METER.multiply(KILOGRAM).divide(SECOND.pow(2))
 			.alternate("newton"), Force.class);
 
 	/**
@@ -94,7 +96,8 @@ public final class LmtUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Pascal_(unit)">Wikipedia: Pascal (unit)</a>
 	 */
-	public static final AbstractUnit<Pressure> PASCAL = BUILDER.unit(NEWTON.divide(METER.pow(2)).alternate("pascal"),
+	@AddUnit
+	public static final AbstractUnit<Pressure> PASCAL = unit(NEWTON.divide(METER.pow(2)).alternate("pascal"),
 			Pressure.class);
 
 	/**
@@ -109,8 +112,8 @@ public final class LmtUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Joule">Wikipedia: Joule</a>
 	 */
-	public static final AbstractUnit<Energy> JOULE = BUILDER.unit(NEWTON.multiply(METER).alternate("joule"),
-			Energy.class);
+	@AddUnit
+	public static final AbstractUnit<Energy> JOULE = unit(NEWTON.multiply(METER).alternate("joule"), Energy.class);
 
 	/**
 	 * <p>The watt (symbol: {@code W}) is a unit of power.
@@ -121,21 +124,24 @@ public final class LmtUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Watt">Wikipedia: Watt</a>
 	 */
-	public static final AbstractUnit<Power> WATT = BUILDER.unit(JOULE.divide(SECOND).alternate("watt"), Power.class);
+	@AddUnit
+	public static final AbstractUnit<Power> WATT = unit(JOULE.divide(SECOND).alternate("watt"), Power.class);
 
 	/**
 	 * <p>The SI unit for speed quantities (standard name {@code m/s}).
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Metre_per_second">Wikipedia: Metre per second</a>
 	 */
-	public static final AbstractUnit<Speed> METER_PER_SECOND = BUILDER.unit(METER.divide(SECOND), Speed.class);
+	@AddUnit
+	public static final AbstractUnit<Speed> METER_PER_SECOND = unit(METER.divide(SECOND), Speed.class);
 
 	/**
 	 * <p>The SI unit for acceleration quantities (standard name m/s&sup2;).
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Metre_per_second_squared">Wikipedia: Metre per second squared</a>
 	 */
-	public static final AbstractUnit<Acceleration> METER_PER_SECOND_SQUARED = BUILDER.unit(METER.divide(SECOND.pow(2)),
+	@AddUnit
+	public static final AbstractUnit<Acceleration> METER_PER_SECOND_SQUARED = unit(METER.divide(SECOND.pow(2)),
 			Acceleration.class);
 
 	/**
@@ -143,21 +149,24 @@ public final class LmtUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Square_metre">Wikipedia: Square metre</a>
 	 */
-	public static final AbstractUnit<Area> SQUARE_METER = BUILDER.unit(METER.pow(2), Area.class);
+	@AddUnit
+	public static final AbstractUnit<Area> SQUARE_METER = unit(METER.pow(2), Area.class);
 
 	/**
 	 * <p>The SI unit for volume quantities (standard name m&sup3;).
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Cubic_metre">Wikipedia: Cubic metre</a>
 	 */
-	public static final AbstractUnit<Volume> CUBIC_METER = BUILDER.unit(METER.pow(3), Volume.class);
+	@AddUnit
+	public static final AbstractUnit<Volume> CUBIC_METER = unit(METER.pow(3), Volume.class);
 
 	/**
 	 * <p>The SI unit for density quantities (standard name kg/m&sup3;).
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Kilogram_per_cubic_metre">Wikipedia: Kilogram per cubic metre</a>
 	 */
-	public static final AbstractUnit<Density> KILOGRAM_PER_CUBIC_METER = BUILDER.unit(KILOGRAM.divide(CUBIC_METER),
+	@AddUnit
+	public static final AbstractUnit<Density> KILOGRAM_PER_CUBIC_METER = unit(KILOGRAM.divide(CUBIC_METER),
 			Density.class);
 
 	/**
@@ -165,42 +174,48 @@ public final class LmtUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Kilometre">Wikipedia: Kilometre</a>
 	 */
-	public static final AbstractUnit<Length> KILOMETER = BUILDER.unit(MetricPrefix.kilo(METER), Length.class);
+	@AddUnit
+	public static final AbstractUnit<Length> KILOMETER = unit(MetricPrefix.kilo(METER), Length.class);
 
 	/**
 	 * <p>A unit of length expressing the number of centimeters (abbreviation {@code cm}).
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Centimetre">Wikipedia: Centimetre</a>
 	 */
-	public static final AbstractUnit<Length> CENTIMETER = BUILDER.unit(MetricPrefix.centi(METER), Length.class);
+	@AddUnit
+	public static final AbstractUnit<Length> CENTIMETER = unit(MetricPrefix.centi(METER), Length.class);
 
 	/**
 	 * <p>A unit of length expressing the number of millimeters (abbreviation {@code mm}).
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Millimetre">Wikipedia: Millimetre</a>
 	 */
-	public static final AbstractUnit<Length> MILLIMETER = BUILDER.unit(MetricPrefix.milli(METER), Length.class);
+	@AddUnit
+	public static final AbstractUnit<Length> MILLIMETER = unit(MetricPrefix.milli(METER), Length.class);
 
 	/**
 	 * A unit of area equal to {@code 100 m}<sup>2</sup> (abbreviation {@code a}).
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Hectare#Are">Wikipedia: Are</a>
 	 */
-	public static final AbstractUnit<Area> ARE = BUILDER.unit("are", SQUARE_METER, 100, Area.class);
+	@AddUnit
+	public static final AbstractUnit<Area> ARE = unit("are", SQUARE_METER, 100, Area.class);
 
 	/**
 	 * A unit of area equal to {@code 100 ares} (abbreviation {@code ha}).
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Hectare">Wikipedia: Hectare</a>
 	 */
-	public static final AbstractUnit<Area> HECTARE = BUILDER.unit("hectare", ARE, 100, Area.class);
+	@AddUnit
+	public static final AbstractUnit<Area> HECTARE = unit("hectare", ARE, 100, Area.class);
 
 	/**
 	 * <p>A volume unit accepted for use with SI units (standard name {@code l}).
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Litre">Wikipedia: Litre</a>
 	 */
-	public static final AbstractUnit<Volume> LITER = BUILDER.unit("liter", CUBIC_METER, R1_1000, Volume.class);
+	@AddUnit
+	public static final AbstractUnit<Volume> LITER = unit("liter", CUBIC_METER, new Rational(1, 1000), Volume.class);
 
 	/**
 	 * <p>The SI derived unit for mass quantities (standard name {@code g}).
@@ -208,14 +223,16 @@ public final class LmtUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Gram">Wikipedia: Gram</a>
 	 */
-	public static final AbstractUnit<Mass> GRAM = BUILDER.unit("gram", KILOGRAM, R1_1000, Mass.class);
+	@AddUnit
+	public static final AbstractUnit<Mass> GRAM = unit("gram", KILOGRAM, new Rational(1, 1000), Mass.class);
 
 	/**
 	 * <p>The quintal or centner is a historical unit of mass which is usually defined as 100 base units of kilograms.
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Quintal">Wikipedia: Quintal</a>
 	 */
-	public static final AbstractUnit<Mass> CENTNER = BUILDER.unit("centner", KILOGRAM, 100, Mass.class);
+	@AddUnit
+	public static final AbstractUnit<Mass> CENTNER = unit("centner", KILOGRAM, 100, Mass.class);
 
 	/**
 	 * <p>The tonne (non-SI unit, symbol: {@code t}), commonly referred to as the metric ton in Canada,
@@ -223,7 +240,8 @@ public final class LmtUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Tonne">Wikipedia: Tonne</a>
 	 */
-	public static final AbstractUnit<Mass> TONNE = BUILDER.unit("tonne", KILOGRAM, 1000, Mass.class);
+	@AddUnit
+	public static final AbstractUnit<Mass> TONNE = unit("tonne", KILOGRAM, 1000, Mass.class);
 
 	/**
 	 * <p>A unit of speed expressing the number of international {@link #KILOMETER kilometres}
@@ -231,22 +249,24 @@ public final class LmtUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Kilometres_per_hour">Wikipedia: Kilometres per hour</a>
 	 */
-	public static final AbstractUnit<Speed> KILOMETER_PER_HOUR = BUILDER.unit(KILOMETER.divide(HOUR), Speed.class);
+	@AddUnit
+	public static final AbstractUnit<Speed> KILOMETER_PER_HOUR = unit(KILOMETER.divide(HOUR), Speed.class);
 
 	/**
 	 * <p>An angle unit accepted for use with SI units (standard name &deg;).
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Degree_(angle)">Wikipedia: Degree (angle)</a>
 	 */
-	public static final AbstractUnit<Angle> DEGREE_ANGLE = BUILDER.unit("degree_angle", RADIAN, Math.PI / 180,
-			Angle.class);
+	@AddUnit
+	public static final AbstractUnit<Angle> DEGREE_ANGLE = unit("degree_angle", RADIAN, Math.PI / 180, Angle.class);
 
 	/**
 	 * <p>An angle unit accepted for use with SI units (standard name &prime;).
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Minute_and_second_of_arc">Wikipedia: Minute and second of arc</a>
 	 */
-	public static final AbstractUnit<Angle> MINUTE_ANGLE = BUILDER.unit("minute_angle", DEGREE_ANGLE, R1_60,
+	@AddUnit
+	public static final AbstractUnit<Angle> MINUTE_ANGLE = unit("minute_angle", DEGREE_ANGLE, new Rational(1, 60),
 			Angle.class);
 
 	/**
@@ -254,16 +274,10 @@ public final class LmtUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Minute_and_second_of_arc">Wikipedia: Minute and second of arc</a>
 	 */
-	public static final AbstractUnit<Angle> SECOND_ANGLE = BUILDER.unit("second_angle", MINUTE_ANGLE, R1_60,
+	@AddUnit
+	public static final AbstractUnit<Angle> SECOND_ANGLE = unit("second_angle", MINUTE_ANGLE, new Rational(1, 60),
 			Angle.class);
 
 	private LmtUnits() {
-	}
-
-	static class Holder {
-
-		static final Rational R1_60 = new Rational(1, 60);
-
-		static final Rational R1_1000 = new Rational(1, 1000);
 	}
 }

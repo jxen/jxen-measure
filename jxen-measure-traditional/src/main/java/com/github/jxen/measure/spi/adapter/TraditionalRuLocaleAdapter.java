@@ -5,7 +5,7 @@ import static java.util.Arrays.asList;
 import java.util.HashSet;
 import java.util.Set;
 
-class NonSiRuLocaleAdapter extends RuLocaleAdapter {
+class TraditionalRuLocaleAdapter extends RuLocaleAdapter {
 
 	private static final String[] FEMININE = {
 			"bochka",

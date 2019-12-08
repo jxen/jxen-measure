@@ -1,14 +1,14 @@
 package com.github.jxen.measure.spi;
 
 import com.github.jxen.measure.format.MeasureUnitFormat;
-import com.github.jxen.measure.format.NonSiAlternativeUnitFormat;
-import com.github.jxen.measure.format.NonSiDefaultUnitFormat;
-import com.github.jxen.measure.format.NonSiFullUnitFormat;
+import com.github.jxen.measure.format.TraditionalAlternativeUnitFormat;
+import com.github.jxen.measure.format.TraditionalDefaultUnitFormat;
+import com.github.jxen.measure.format.TraditionalFullUnitFormat;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-class NonSiFormatService extends DefaultFormatService {
+class TraditionalFormatService extends DefaultFormatService {
 
 	private static final String DEFAULT = "default";
 	private static final String ALT = "alt";
@@ -18,12 +18,12 @@ class NonSiFormatService extends DefaultFormatService {
 	@Override
 	public MeasureUnitFormat getUnitFormat(String name) {
 		if (FULL.equalsIgnoreCase(name)) {
-			return new NonSiFullUnitFormat();
+			return new TraditionalFullUnitFormat();
 		}
 		if (ALT.equalsIgnoreCase(name)) {
-			return new NonSiAlternativeUnitFormat();
+			return new TraditionalAlternativeUnitFormat();
 		}
-		return new NonSiDefaultUnitFormat();
+		return new TraditionalDefaultUnitFormat();
 	}
 
 	@Override

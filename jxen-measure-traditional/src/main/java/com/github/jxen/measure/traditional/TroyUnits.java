@@ -1,8 +1,9 @@
-package com.github.jxen.measure.nonsi;
+package com.github.jxen.measure.traditional;
 
-import static com.github.jxen.measure.nonsi.TroyUnits.Holder.BUILDER;
+import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
 
 import com.github.jxen.math.rational.BigRational;
+import com.github.jxen.measure.annotation.AddUnit;
 import com.github.jxen.measure.unit.AbstractUnit;
 import com.github.jxen.measure.unit.SystemOfUnitsImpl;
 import javax.measure.quantity.Mass;
@@ -13,7 +14,7 @@ import javax.measure.spi.SystemOfUnits;
  *
  * @author Denis Murashev
  *
- * @since Non-SI Units 0.1
+ * @since Traditional Units 0.1
  */
 public final class TroyUnits {
 
@@ -22,7 +23,8 @@ public final class TroyUnits {
 	 *
 	 * @see ImperialUnits#GRAIN
 	 */
-	public static final AbstractUnit<Mass> GRAIN = BUILDER.unit(ImperialUnits.GRAIN, Mass.class);
+	@AddUnit
+	public static final AbstractUnit<Mass> GRAIN = unit(ImperialUnits.GRAIN, Mass.class);
 
 	/**
 	 * <p>A pennyweight (abbreviated {@code dwt}, {@code d} being the symbol of an old British penny)
@@ -31,6 +33,7 @@ public final class TroyUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Pennyweight">Wikipedia: Pennyweight</a>
 	 */
+	@AddUnit
 	public static final AbstractUnit<Mass> PENNYWEIGHT = add("pennyweight", GRAIN, 24);
 
 	/**
@@ -39,6 +42,7 @@ public final class TroyUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Troy_weight#Troy_ounce_(oz_t)">Wikipedia: Troy ounce</a>
 	 */
+	@AddUnit
 	public static final AbstractUnit<Mass> OUNCE = add("ounce^troy", GRAIN, 480);
 
 	/**
@@ -50,6 +54,7 @@ public final class TroyUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Pound_(mass)#Troy_pound">Wikipedia: Troy pound</a>
 	 */
+	@AddUnit
 	public static final AbstractUnit<Mass> POUND = add("pound^troy", OUNCE, 12);
 
 	/**
@@ -57,6 +62,7 @@ public final class TroyUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Troy_weight">Wikipedia: Troy weight</a>
 	 */
+	@AddUnit
 	public static final AbstractUnit<Mass> MITE = add("mite", GRAIN, new BigRational(1, 20));
 
 	/**
@@ -64,6 +70,7 @@ public final class TroyUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Troy_weight">Wikipedia: Troy weight</a>
 	 */
+	@AddUnit
 	public static final AbstractUnit<Mass> DROIT = add("droit", MITE, new BigRational(1, 24));
 
 	/**
@@ -71,6 +78,7 @@ public final class TroyUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Troy_weight">Wikipedia: Troy weight</a>
 	 */
+	@AddUnit
 	public static final AbstractUnit<Mass> PERIT = add("perit", DROIT, new BigRational(1, 20));
 
 	/**
@@ -78,25 +86,18 @@ public final class TroyUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Troy_weight">Wikipedia: Troy weight</a>
 	 */
+	@AddUnit
 	public static final AbstractUnit<Mass> BLANK = add("blank", PERIT, new BigRational(1, 24));
 
 	/**
 	 * The instance of {@link SystemOfUnits}.
 	 */
-	public static final SystemOfUnits SYSTEM = BUILDER.build();
+	public static final SystemOfUnits SYSTEM = SystemOfUnitsImpl.builder("Troy").add(TroyUnits.class).build();
 
 	private TroyUnits() {
 	}
 
 	private static AbstractUnit<Mass> add(String name, AbstractUnit<Mass> unit, Number factor) {
-		return BUILDER.unit(name, unit, factor, Mass.class);
-	}
-
-	static final class Holder {
-
-		static final SystemOfUnitsImpl.Builder BUILDER = SystemOfUnitsImpl.builder("Troy");
-
-		private Holder() {
-		}
+		return unit(name, unit, factor, Mass.class);
 	}
 }

@@ -3,7 +3,7 @@ package com.github.jxen.measure.quantity;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-import com.github.jxen.measure.unit.ElectromagneticUnits;
+import com.github.jxen.measure.unit.AmpereUnits;
 import com.github.jxen.measure.unit.LmtUnits;
 import com.github.jxen.measure.unit.MetricUnits;
 import com.github.jxen.measure.unit.MiscUnits;
@@ -66,7 +66,7 @@ class QuantityImplTest {
 
 	@Test
 	void testEqualsSame() {
-		Quantity<ElectricPotential> voltage = Quantities.of(1, ElectromagneticUnits.VOLT);
+		Quantity<ElectricPotential> voltage = Quantities.of(1, AmpereUnits.VOLT);
 		assertEquals(voltage, voltage);
 	}
 

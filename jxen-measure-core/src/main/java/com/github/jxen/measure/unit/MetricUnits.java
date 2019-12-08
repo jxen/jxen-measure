@@ -7,8 +7,9 @@ import static com.github.jxen.measure.dimension.Dimensions.LUMINOUS_INTENSITY;
 import static com.github.jxen.measure.dimension.Dimensions.MASS;
 import static com.github.jxen.measure.dimension.Dimensions.TEMPERATURE;
 import static com.github.jxen.measure.dimension.Dimensions.TIME;
-import static com.github.jxen.measure.unit.MetricUnits.Holder.BUILDER;
+import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
 
+import com.github.jxen.measure.annotation.AddUnit;
 import javax.measure.quantity.AmountOfSubstance;
 import javax.measure.quantity.ElectricCurrent;
 import javax.measure.quantity.Length;
@@ -16,7 +17,6 @@ import javax.measure.quantity.LuminousIntensity;
 import javax.measure.quantity.Mass;
 import javax.measure.quantity.Temperature;
 import javax.measure.quantity.Time;
-import javax.measure.spi.SystemOfUnits;
 
 /**
  * {@code MetricUnits} class contains SI units.
@@ -34,8 +34,8 @@ public final class MetricUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Ampere">Wikipedia: Ampere</a>
 	 */
-	public static final AbstractUnit<ElectricCurrent> AMPERE = BUILDER.unit("ampere", ELECTRIC_CURRENT,
-			ElectricCurrent.class);
+	@AddUnit
+	public static final AbstractUnit<ElectricCurrent> AMPERE = unit("ampere", ELECTRIC_CURRENT, ElectricCurrent.class);
 
 	/**
 	 * <p>The candela (symbol: {@code cd}) is the base unit of luminous intensity in the International System of Units
@@ -45,7 +45,8 @@ public final class MetricUnits {
 	 *
 	 * @see <a href="http://en.wikipedia.org/wiki/Candela">Wikipedia: Candela</a>
 	 */
-	public static final AbstractUnit<LuminousIntensity> CANDELA = BUILDER.unit("candela", LUMINOUS_INTENSITY,
+	@AddUnit
+	public static final AbstractUnit<LuminousIntensity> CANDELA = unit("candela", LUMINOUS_INTENSITY,
 			LuminousIntensity.class);
 
 	/**
@@ -57,7 +58,8 @@ public final class MetricUnits {
 	 *
 	 * @see <a href="http://en.wikipedia.org/wiki/Kelvin">Wikipedia: Kelvin</a>
 	 */
-	public static final AbstractUnit<Temperature> KELVIN = BUILDER.unit("kelvin", TEMPERATURE, Temperature.class);
+	@AddUnit
+	public static final AbstractUnit<Temperature> KELVIN = unit("kelvin", TEMPERATURE, Temperature.class);
 
 	/**
 	 * <p>The kilogram (also kilogramme) is the base unit of mass in the metric system,
@@ -65,7 +67,8 @@ public final class MetricUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Kilogram">Wikipedia: Kilogram</a>
 	 */
-	public static final AbstractUnit<Mass> KILOGRAM = BUILDER.unit("kilogram", MASS, Mass.class);
+	@AddUnit
+	public static final AbstractUnit<Mass> KILOGRAM = unit("kilogram", MASS, Mass.class);
 
 	/**
 	 * The meter (or metre) is the base unit of length in the International System of Units (SI).
@@ -73,7 +76,8 @@ public final class MetricUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Metre">Wikipedia: Metre</a>
 	 */
-	public static final AbstractUnit<Length> METER = BUILDER.unit("meter", LENGTH, Length.class);
+	@AddUnit
+	public static final AbstractUnit<Length> METER = unit("meter", LENGTH, Length.class);
 
 	/**
 	 * The mole (symbol: {@code mol}) is the base unit of amount of substance ("number of substance")
@@ -81,7 +85,8 @@ public final class MetricUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Mole_(unit)">Wikipedia: Mole (unit)</a>
 	 */
-	public static final AbstractUnit<AmountOfSubstance> MOLE = BUILDER.unit("mole", AMOUNT_OF_SUBSTANCE,
+	@AddUnit
+	public static final AbstractUnit<AmountOfSubstance> MOLE = unit("mole", AMOUNT_OF_SUBSTANCE,
 			AmountOfSubstance.class);
 
 	/**
@@ -89,20 +94,9 @@ public final class MetricUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Second">Wikipedia: Second</a>
 	 */
-	public static final AbstractUnit<Time> SECOND = BUILDER.unit("second", TIME, Time.class);
-
-	/////////////////////// SI System of Units ///////////////////////
-
-	/**
-	 * The instance of {@link SystemOfUnits}.
-	 */
-	public static final SystemOfUnits SYSTEM = BUILDER.build();
+	@AddUnit
+	public static final AbstractUnit<Time> SECOND = unit("second", TIME, Time.class);
 
 	private MetricUnits() {
-	}
-
-	static class Holder {
-
-		static final SystemOfUnitsImpl.Builder BUILDER = SystemOfUnitsImpl.builder("SI");
 	}
 }
