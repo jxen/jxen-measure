@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.github.jxen.sdk</groupId>
-		<artifactId>jxen-measure-parent</artifactId>
-		<version>0.2</version>
+		<artifactId>jxen-measure</artifactId>
+		<version>0.3-SNAPSHOT</version>
 	</parent>
-	<artifactId>jxen-measure</artifactId>
+	<artifactId>jxen-measure-core</artifactId>
 	<packaging>jar</packaging>
 	<name>Java Xenon JSR 385 (javax.measure) Core Classes</name>
 	<description>Java Xenon JSR 385 (javax.measure) Implementation Core Project</description>

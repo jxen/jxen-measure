@@ -7,13 +7,22 @@
 		<artifactId>jxen-measure</artifactId>
 		<version>0.3-SNAPSHOT</version>
 	</parent>
-	<artifactId>jxen-currency</artifactId>
-	<name>Java Xenon Currency Classes</name>
-	<description>Java Xenon Currency Classes Support Project</description>
+	<artifactId>jxen-measure-all</artifactId>
+	<packaging>jar</packaging>
+	<name>Java Xenon JSR 385 (javax.measure) All Units</name>
+	<description>Java Xenon JSR 385 (javax.measure) Implementation of All Units Aggregator</description>
 	<dependencies>
 		<dependency>
 			<groupId>com.github.jxen.sdk</groupId>
 			<artifactId>jxen-measure-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.jxen.sdk</groupId>
+			<artifactId>jxen-measure-traditional</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.jxen.sdk</groupId>
+			<artifactId>jxen-currency</artifactId>
 		</dependency>
 	</dependencies>
 </project>

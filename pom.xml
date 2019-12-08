@@ -7,8 +7,8 @@
 		<artifactId>jxen-parent</artifactId>
 		<version>1</version>
 	</parent>
-	<artifactId>jxen-measure-parent</artifactId>
-	<version>0.2</version>
+	<artifactId>jxen-measure</artifactId>
+	<version>0.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Java Xenon JSR 385 (javax.measure) Parent</name>
 	<description>Java Xenon JSR 385 (javax.measure) Implementation Parent Project</description>
@@ -19,8 +19,10 @@
 		<systems-quantity.version>2.0</systems-quantity.version>
 	</properties>
 	<modules>
-		<module>jxen-measure</module>
-		<module>jxen-nonsi</module>
+		<module>jxen-measure-core</module>
+		<module>jxen-measure-traditional</module>
+		<module>jxen-currency</module>
+		<module>jxen-measure-all</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
@@ -31,12 +33,22 @@
 			</dependency>
 			<dependency>
 				<groupId>com.github.jxen.sdk</groupId>
-				<artifactId>jxen-measure</artifactId>
+				<artifactId>jxen-measure-core</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.jxen.sdk</groupId>
-				<artifactId>jxen-nonsi</artifactId>
+				<artifactId>jxen-measure-traditional</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.jxen.sdk</groupId>
+				<artifactId>jxen-currency</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.jxen.sdk</groupId>
+				<artifactId>jxen-measure-all</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
