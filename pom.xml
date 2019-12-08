@@ -8,7 +8,7 @@
 		<version>1</version>
 	</parent>
 	<artifactId>jxen-measure-parent</artifactId>
-	<version>0.2-SNAPSHOT</version>
+	<version>0.2</version>
 	<packaging>pom</packaging>
 	<name>Java Xenon JSR 385 (javax.measure) Parent</name>
 	<description>Java Xenon JSR 385 (javax.measure) Implementation Parent Project</description>
