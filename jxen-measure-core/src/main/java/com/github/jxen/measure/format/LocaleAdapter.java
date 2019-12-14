@@ -25,22 +25,4 @@ public interface LocaleAdapter {
 	default String suffix(String suffix, String name, Number number) {
 		return suffix;
 	}
-
-	/**
-	 * @param name unit name
-	 * @return {@code true} if given name is feminine name
-	 * @since Measure 0.2
-	 */
-	default boolean isFeminine(String name) {
-		return false;
-	}
-
-	/**
-	 * @param name unit name
-	 * @return {@code true} if given name is neuter name
-	 * @since Measure 0.2
-	 */
-	default boolean isNeuter(String name) {
-		return false;
-	}
 }
