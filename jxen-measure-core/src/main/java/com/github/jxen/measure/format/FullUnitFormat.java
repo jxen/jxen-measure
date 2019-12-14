@@ -19,8 +19,6 @@ import java.util.ServiceLoader;
  */
 public class FullUnitFormat extends MeasureUnitFormat {
 
-	private static final String DEFAULT_BUNDLE_NAME = "unit-full";
-
 	private static final LocaleAdapter DEFAULT_ADAPTER = new DefaultLocaleAdapter();
 
 	private static final Map<Locale, LocaleAdapter> ADAPTERS = new HashMap<>();
@@ -29,20 +27,6 @@ public class FullUnitFormat extends MeasureUnitFormat {
 		for (LocaleService service : ServiceLoader.load(LocaleService.class)) {
 			ADAPTERS.putIfAbsent(service.getLocale(), service.getAdapter());
 		}
-	}
-
-	/**
-	 * Initializes default unit format.
-	 */
-	public FullUnitFormat() {
-		super(DEFAULT_BUNDLE_NAME);
-	}
-
-	/**
-	 * @param names resource bundle names
-	 */
-	protected FullUnitFormat(String... names) {
-		super(DEFAULT_BUNDLE_NAME, names);
 	}
 
 	@Override

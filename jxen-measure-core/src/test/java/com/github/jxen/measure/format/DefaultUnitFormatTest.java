@@ -4,14 +4,12 @@ import static com.github.jxen.measure.unit.LmtUnits.METER_PER_SECOND;
 import static com.github.jxen.measure.unit.LmtUnits.METER_PER_SECOND_SQUARED;
 import static com.github.jxen.measure.unit.LmtUnits.SQUARE_METER;
 import static com.github.jxen.measure.unit.MetricUnits.METER;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.github.jxen.measure.unit.MetricPrefix;
 import com.github.jxen.measure.unit.MetricUnits;
-import com.github.jxen.measure.unit.NaturalUnits;
 import java.io.IOException;
 import java.util.Locale;
 import javax.measure.MeasurementException;
@@ -23,11 +21,6 @@ class DefaultUnitFormatTest {
 	@BeforeEach
 	void setUp() {
 		Locale.setDefault(Locale.US);
-	}
-
-	@Test
-	void testCreate() {
-		assertDoesNotThrow(() -> new DefaultUnitFormat("empty"));
 	}
 
 	@Test

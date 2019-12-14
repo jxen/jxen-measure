@@ -3,18 +3,17 @@ package com.github.jxen.measure.format;
 import com.github.jxen.measure.unit.AbstractUnit;
 import java.io.IOException;
 import java.text.ParsePosition;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import javax.measure.MeasurementException;
 import javax.measure.Unit;
 import javax.measure.format.UnitFormat;
 
 /**
  * {@code MeasureUnitFormat} class is extension of {@link UnitFormat}.
+ * Each extension of the class must have corresponding resource bundle with suffix "_unit".
  *
  * @author Denis Murashev
  *
@@ -25,17 +24,18 @@ public abstract class MeasureUnitFormat implements UnitFormat {
 	private static final String ERROR_NOT_IMPLEMENTED = "Not implemented yet";
 	private static final String ERROR_NO_NAME = "Unit must have name";
 
-	private final List<ResourceBundle> bundles;
+	private final List<ResourceBundle> bundles = new ArrayList<>();
 
 	/**
-	 * @param defaultName default name
-	 * @param names       resource bundle names
+	 * Initializes resource bundles for unit names
 	 */
-	protected MeasureUnitFormat(String defaultName, String... names) {
-		bundles = Stream.concat(Stream.of(defaultName), Stream.of(names))
-				.map(ResourceBundle::getBundle)
-				.collect(Collectors.toList());
-		Collections.reverse(bundles);
+	protected MeasureUnitFormat() {
+		Class<?> type = getClass();
+		while (type != MeasureUnitFormat.class) {
+			String name = type.getName() + "_unit";
+			bundles.add(ResourceBundle.getBundle(name));
+			type = type.getSuperclass();
+		}
 	}
 
 	@Override

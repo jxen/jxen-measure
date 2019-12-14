@@ -8,11 +8,4 @@ package com.github.jxen.measure.format;
  * @since Traditional Units 0.1
  */
 public class TraditionalFullUnitFormat extends FullUnitFormat {
-
-	/**
-	 * Initializes Non-SI units format.
-	 */
-	public TraditionalFullUnitFormat() {
-		super("traditional-full");
-	}
 }

@@ -7,12 +7,5 @@ package com.github.jxen.measure.format;
  *
  * @since Traditional Units 0.1
  */
-public class TraditionalAlternativeUnitFormat extends DefaultUnitFormat {
-
-	/**
-	 * Initializes Non-SI units format.
-	 */
-	public TraditionalAlternativeUnitFormat() {
-		super("traditional", "traditional-alt");
-	}
+public class TraditionalAlternativeUnitFormat extends TraditionalDefaultUnitFormat {
 }

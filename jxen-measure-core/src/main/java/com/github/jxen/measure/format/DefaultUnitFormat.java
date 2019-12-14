@@ -13,22 +13,6 @@ import java.util.ResourceBundle;
  */
 public class DefaultUnitFormat extends MeasureUnitFormat {
 
-	private static final String DEFAULT_BUNDLE_NAME = "unit";
-
-	/**
-	 * Initializes default unit format.
-	 */
-	public DefaultUnitFormat() {
-		super(DEFAULT_BUNDLE_NAME);
-	}
-
-	/**
-	 * @param names resource bundle names
-	 */
-	protected DefaultUnitFormat(String... names) {
-		super(DEFAULT_BUNDLE_NAME, names);
-	}
-
 	@Override
 	protected UnitNameHelper.Formatter getFormatter(List<ResourceBundle> bundles) {
 		return new DefaultFormatter((n, v) -> n, bundles);
