@@ -1,5 +1,6 @@
 package com.github.jxen.measure.format;
 
+import com.github.jxen.math.format.CompactFormat;
 import com.github.jxen.measure.unit.AbstractUnit;
 import java.io.IOException;
 import java.text.NumberFormat;
@@ -21,7 +22,8 @@ public class MeasureQuantityFormat implements QuantityFormat {
 
 	private static final String ERROR_NOT_IMPLEMENTED = "Not implemented yet";
 
-	private static final String DELIMITER = "\u202F";
+	private static final char DELIMITER = '\u202F';
+	private static final int DIGITS = 4;
 
 	private final NumberFormat numberFormat;
 	private final MeasureUnitFormat unitFormat;
@@ -46,14 +48,14 @@ public class MeasureQuantityFormat implements QuantityFormat {
 	 * @param unitFormat unit format
 	 */
 	public MeasureQuantityFormat(MeasureUnitFormat unitFormat) {
-		this(new DefaultNumberFormat(), unitFormat);
+		this(new CompactFormat(DIGITS), unitFormat);
 	}
 
 	/**
 	 * Default formatter.
 	 */
 	public MeasureQuantityFormat() {
-		this(new DefaultNumberFormat(), new DefaultUnitFormat());
+		this(new CompactFormat(DIGITS), new DefaultUnitFormat());
 	}
 
 	@Override
@@ -89,11 +91,10 @@ public class MeasureQuantityFormat implements QuantityFormat {
 	 */
 	public <Q extends Quantity<Q>> Appendable format(List<Quantity<Q>> quantities, Appendable appendable) {
 		try {
-			appendable.append(quantities.stream().map(this::format).collect(Collectors.joining(" ")));
+			return appendable.append(quantities.stream().map(this::format).collect(Collectors.joining(" ")));
 		} catch (IOException e) {
-			throw new MeasurementException("Error formatting String", e);
+			throw new MeasurementException("Error formatting quantities", e);
 		}
-		return appendable;
 	}
 
 	/**
