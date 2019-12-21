@@ -5,10 +5,10 @@
 	<parent>
 		<groupId>com.github.jxen.sdk</groupId>
 		<artifactId>jxen-measure</artifactId>
-		<version>0.3-SNAPSHOT</version>
+		<version>0.3</version>
 	</parent>
 	<artifactId>jxen-currency</artifactId>
-	<name>Java Xenon Currency Classes</name>
+	<name>JXen Currency Classes</name>
 	<description>Java Xenon Currency Classes Support Project</description>
 	<dependencies>
 		<dependency>
