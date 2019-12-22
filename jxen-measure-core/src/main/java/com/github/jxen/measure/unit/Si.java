@@ -28,10 +28,12 @@ public final class Si {
 		return SystemOfUnitsImpl.builder("SI")
 				.add(MetricUnits.class)
 				.add(TimeUnits.class)
-				.add(LmtUnits.class)
+				.add(MeterUnits.class)
+				.add(RadianUnits.class)
+				.add(NamedUnits.class)
 				.add(AmpereUnits.class)
 				.add(MiscUnits.class)
-				.add(NaturalUnits.class)
+				.add(NonSiUnits.class)
 				.build();
 	}
 }

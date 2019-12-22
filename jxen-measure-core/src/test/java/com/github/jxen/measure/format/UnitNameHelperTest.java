@@ -1,7 +1,7 @@
 package com.github.jxen.measure.format;
 
-import static com.github.jxen.measure.unit.LmtUnits.METER_PER_SECOND;
-import static com.github.jxen.measure.unit.LmtUnits.SQUARE_METER;
+import static com.github.jxen.measure.unit.MeterUnits.METER_PER_SECOND;
+import static com.github.jxen.measure.unit.MeterUnits.SQUARE_METER;
 import static com.github.jxen.measure.unit.MetricPrefix.ATTO;
 import static com.github.jxen.measure.unit.MetricUnits.METER;
 import static org.junit.jupiter.api.Assertions.assertEquals;

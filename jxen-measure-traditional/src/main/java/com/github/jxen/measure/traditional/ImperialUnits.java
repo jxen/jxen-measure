@@ -1,11 +1,11 @@
 package com.github.jxen.measure.traditional;
 
-import static com.github.jxen.measure.unit.LmtUnits.GRAM;
-import static com.github.jxen.measure.unit.LmtUnits.LITER;
 import static com.github.jxen.measure.unit.MetricPrefix.milli;
 import static com.github.jxen.measure.unit.MetricUnits.KELVIN;
 import static com.github.jxen.measure.unit.MetricUnits.METER;
 import static com.github.jxen.measure.unit.MetricUnits.SECOND;
+import static com.github.jxen.measure.unit.NamedUnits.GRAM;
+import static com.github.jxen.measure.unit.NonSiUnits.LITER;
 import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
 import static com.github.jxen.measure.unit.TimeUnits.HOUR;
 

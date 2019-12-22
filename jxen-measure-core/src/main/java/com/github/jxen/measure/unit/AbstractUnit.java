@@ -180,7 +180,7 @@ public abstract class AbstractUnit<Q extends Quantity<Q>> implements Unit<Q> {
 		if (n == 0) {
 			return new ProductUnit<>();
 		}
-		return new ProductUnit<>().divide(pow(-n));
+		return new ProductUnit<>().divide(pow(-n)).alternate(UnitNameHelper.pow(this, n));
 	}
 
 	@Override

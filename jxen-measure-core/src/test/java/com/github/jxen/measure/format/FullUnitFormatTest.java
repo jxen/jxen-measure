@@ -1,7 +1,7 @@
 package com.github.jxen.measure.format;
 
-import static com.github.jxen.measure.unit.LmtUnits.METER_PER_SECOND;
-import static com.github.jxen.measure.unit.LmtUnits.METER_PER_SECOND_SQUARED;
+import static com.github.jxen.measure.unit.MeterUnits.METER_PER_SECOND;
+import static com.github.jxen.measure.unit.MeterUnits.METER_PER_SECOND_SQUARED;
 import static com.github.jxen.measure.unit.MetricPrefix.kilo;
 import static com.github.jxen.measure.unit.MetricPrefix.milli;
 import static com.github.jxen.measure.unit.MetricUnits.METER;

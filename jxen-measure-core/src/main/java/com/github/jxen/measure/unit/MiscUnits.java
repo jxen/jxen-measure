@@ -1,13 +1,14 @@
 package com.github.jxen.measure.unit;
 
-import static com.github.jxen.measure.unit.LmtUnits.JOULE;
-import static com.github.jxen.measure.unit.LmtUnits.STERADIAN;
+import static com.github.jxen.measure.unit.MeterUnits.SQUARE_METER;
 import static com.github.jxen.measure.unit.MetricUnits.CANDELA;
 import static com.github.jxen.measure.unit.MetricUnits.KELVIN;
 import static com.github.jxen.measure.unit.MetricUnits.KILOGRAM;
 import static com.github.jxen.measure.unit.MetricUnits.METER;
 import static com.github.jxen.measure.unit.MetricUnits.MOLE;
 import static com.github.jxen.measure.unit.MetricUnits.SECOND;
+import static com.github.jxen.measure.unit.NamedUnits.JOULE;
+import static com.github.jxen.measure.unit.RadianUnits.STERADIAN;
 import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
 
 import com.github.jxen.measure.annotation.AddUnit;
@@ -19,6 +20,7 @@ import javax.measure.quantity.RadiationDoseAbsorbed;
 import javax.measure.quantity.RadiationDoseEffective;
 import javax.measure.quantity.Radioactivity;
 import javax.measure.quantity.Temperature;
+import si.uom.quantity.Luminance;
 
 /**
  * {@code AmpereUnits} class contains named units derived from SI base units.
@@ -112,6 +114,15 @@ public final class MiscUnits {
 	@AddUnit
 	public static final AbstractUnit<CatalyticActivity> KATAL = unit(MOLE.divide(SECOND).alternate("katal"),
 			CatalyticActivity.class);
+
+	/**
+	 * The candela per square metre (symbol: {@code cd/m}<sup>2</sup>) is the derived SI unit of luminance.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Candela_per_square_metre"> Wikipedia: Candela per square metre</a>
+	 */
+	@AddUnit
+	public static final AbstractUnit<Luminance> CANDELA_PER_SQUARE_METRE = unit(CANDELA.divide(SQUARE_METER),
+			Luminance.class);
 
 	private MiscUnits() {
 	}

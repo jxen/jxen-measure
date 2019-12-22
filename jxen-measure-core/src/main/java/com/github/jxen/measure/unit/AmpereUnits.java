@@ -1,9 +1,11 @@
 package com.github.jxen.measure.unit;
 
-import static com.github.jxen.measure.unit.LmtUnits.WATT;
 import static com.github.jxen.measure.unit.MetricUnits.AMPERE;
+import static com.github.jxen.measure.unit.MetricUnits.KILOGRAM;
 import static com.github.jxen.measure.unit.MetricUnits.METER;
 import static com.github.jxen.measure.unit.MetricUnits.SECOND;
+import static com.github.jxen.measure.unit.NamedUnits.NEWTON;
+import static com.github.jxen.measure.unit.NamedUnits.WATT;
 import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
 
 import com.github.jxen.measure.annotation.AddUnit;
@@ -15,6 +17,11 @@ import javax.measure.quantity.ElectricPotential;
 import javax.measure.quantity.ElectricResistance;
 import javax.measure.quantity.MagneticFlux;
 import javax.measure.quantity.MagneticFluxDensity;
+import si.uom.quantity.ElectricPermittivity;
+import si.uom.quantity.IonizingRadiation;
+import si.uom.quantity.MagneticFieldStrength;
+import si.uom.quantity.MagneticPermeability;
+import si.uom.quantity.MagnetomotiveForce;
 
 /**
  * {@code AmpereUnits} class contains named units derived from SI base units,
@@ -142,6 +149,54 @@ public final class AmpereUnits {
 	@AddUnit
 	public static final AbstractUnit<ElectricInductance> HENRY = unit(WEBER.divide(AMPERE).alternate("henry"),
 			ElectricInductance.class);
+
+	/**
+	 * The SI unit for magnetic field strength quantities (standard name {@code A/m}).
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Magnetic_field">Wikipedia: Magnetic field</a>
+	 */
+	@AddUnit
+	public static final AbstractUnit<MagneticFieldStrength> AMPERE_PER_METER = unit(AMPERE.divide(METER),
+			MagneticFieldStrength.class);
+
+	/**
+	 * The SI unit for electric permittivity (standard name &epsilon;, {@code F/m}
+	 * or {@code F}&bull;{@code m}<sup>-1</sup>).
+	 * In electromagnetism, absolute permittivity is the measure of resistance that is encountered
+	 * when forming an electric field in a medium.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Permittivity">Wikipedia: Permittivity</a>
+	 */
+	@AddUnit
+	public static final AbstractUnit<ElectricPermittivity> FARAD_PER_METRE = unit(FARAD.divide(METER),
+			ElectricPermittivity.class);
+
+	/**
+	 * The SI unit for magnetic permeability quantities (standard name {@code N/A}<sup>2</sup>).
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Permeability_(electromagnetism)">Wikipedia: Permeability</a>
+	 */
+	@AddUnit
+	public static final AbstractUnit<MagneticPermeability> NEWTON_PER_SQUARE_AMPERE = unit(NEWTON.divide(AMPERE.pow(2)),
+			MagneticPermeability.class);
+
+	/**
+	 * The SI unit for ionizing radiation quantities (standard name {@code C/kg}).
+	 */
+	@AddUnit
+	public static final AbstractUnit<IonizingRadiation> COULOMB_PER_KILOGRAM = unit(COULOMB.divide(KILOGRAM),
+			IonizingRadiation.class);
+
+	/**
+	 * The ampere-turn ({@code At}) is the MKS (Metres, Kilograms, Seconds) unit of magnetomotive force (MMF),
+	 * represented by a direct current of one ampere flowing in a single-turn loop in a vacuum.
+	 * "Turns" refers to the winding number of an electrical conductor composing an inductor.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Ampere-turn">Wikipedia: Ampere-turn</a>
+	 */
+	@AddUnit
+	public static final AbstractUnit<MagnetomotiveForce> AMPERE_TURN = unit(AMPERE.alternate("ampere_turn"),
+			MagnetomotiveForce.class);
 
 	private AmpereUnits() {
 	}
