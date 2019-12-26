@@ -65,20 +65,12 @@ public final class NonSiUnits {
 			Angle.class);
 
 	/**
-	 * A unit of area equal to {@code 100 m}<sup>2</sup> (abbreviation {@code a}).
-	 *
-	 * @see <a href="https://en.wikipedia.org/wiki/Hectare#Are">Wikipedia: Are</a>
-	 */
-	@AddUnit
-	public static final AbstractUnit<Area> ARE = unit("are", SQUARE_METER, 100, Area.class);
-
-	/**
 	 * A unit of area equal to {@code 100 ares} (abbreviation {@code ha}).
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Hectare">Wikipedia: Hectare</a>
 	 */
 	@AddUnit
-	public static final AbstractUnit<Area> HECTARE = unit("hectare", ARE, 100, Area.class);
+	public static final AbstractUnit<Area> HECTARE = unit("hectare", SQUARE_METER, 10_000, Area.class);
 
 	/**
 	 * <p>A volume unit accepted for use with SI units (standard name {@code l}).

@@ -22,8 +22,8 @@
 	<modules>
 		<module>jxen-measure-core</module>
 		<module>jxen-measure-core-ru</module>
-		<module>jxen-measure-traditional</module>
-		<module>jxen-measure-traditional-ru</module>
+		<module>jxen-measure-misc</module>
+		<module>jxen-measure-misc-ru</module>
 		<module>jxen-currency</module>
 		<module>jxen-measure-all</module>
 	</modules>
@@ -46,12 +46,12 @@
 			</dependency>
 			<dependency>
 				<groupId>com.github.jxen.sdk</groupId>
-				<artifactId>jxen-measure-traditional</artifactId>
+				<artifactId>jxen-measure-misc</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.jxen.sdk</groupId>
-				<artifactId>jxen-measure-traditional-ru</artifactId>
+				<artifactId>jxen-measure-misc-ru</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
