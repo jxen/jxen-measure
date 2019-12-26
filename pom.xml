@@ -21,7 +21,9 @@
 	</properties>
 	<modules>
 		<module>jxen-measure-core</module>
+		<module>jxen-measure-core-ru</module>
 		<module>jxen-measure-traditional</module>
+		<module>jxen-measure-traditional-ru</module>
 		<module>jxen-currency</module>
 		<module>jxen-measure-all</module>
 	</modules>
@@ -39,7 +41,17 @@
 			</dependency>
 			<dependency>
 				<groupId>com.github.jxen.sdk</groupId>
+				<artifactId>jxen-measure-core-ru</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.jxen.sdk</groupId>
 				<artifactId>jxen-measure-traditional</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.jxen.sdk</groupId>
+				<artifactId>jxen-measure-traditional-ru</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>

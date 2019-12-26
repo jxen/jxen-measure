@@ -7,15 +7,11 @@
 		<artifactId>jxen-measure</artifactId>
 		<version>0.4-SNAPSHOT</version>
 	</parent>
-	<artifactId>jxen-measure-all</artifactId>
+	<artifactId>jxen-measure-traditional-ru</artifactId>
 	<packaging>jar</packaging>
-	<name>JXen JSR 385 (javax.measure) All Units</name>
-	<description>Java Xenon JSR 385 (javax.measure) Implementation of All Units Aggregator</description>
+	<name>JXen JSR 385 (javax.measure) Traditional Ru Locale</name>
+	<description>Java Xenon JSR 385 (javax.measure) Implementation Traditional Ru Locale Support</description>
 	<dependencies>
-		<dependency>
-			<groupId>com.github.jxen.sdk</groupId>
-			<artifactId>jxen-measure-core</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>com.github.jxen.sdk</groupId>
 			<artifactId>jxen-measure-core-ru</artifactId>
@@ -23,14 +19,6 @@
 		<dependency>
 			<groupId>com.github.jxen.sdk</groupId>
 			<artifactId>jxen-measure-traditional</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.github.jxen.sdk</groupId>
-			<artifactId>jxen-measure-traditional-ru</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.github.jxen.sdk</groupId>
-			<artifactId>jxen-currency</artifactId>
 		</dependency>
 	</dependencies>
 </project>
