@@ -16,24 +16,27 @@ import com.github.jxen.measure.unit.RadianUnits;
 import com.github.jxen.measure.unit.MetricUnits;
 import com.github.jxen.measure.unit.MiscUnits;
 import javax.measure.Quantity;
+import javax.measure.quantity.Angle;
 import javax.measure.quantity.Area;
 import javax.measure.quantity.ElectricPotential;
+import javax.measure.quantity.Length;
 import javax.measure.quantity.Temperature;
 import org.junit.jupiter.api.Test;
+import si.uom.quantity.Density;
 
 class QuantityImplTest {
 
 	@Test
 	void testAdd() {
 		AngleAmount angle = new AngleAmount(1, RadianUnits.RADIAN);
-		AngleAmount actual = AngleAmount.of(angle.add(angle));
+		Angle actual = angle.add(angle);
 		assertEquals(new AngleAmount(2.0, RadianUnits.RADIAN), actual);
 	}
 
 	@Test
 	void testSubtract() {
 		AreaAmount area = new AreaAmount(1, MeterUnits.SQUARE_METER);
-		AreaAmount actual = AreaAmount.of(area.subtract(area));
+		Area actual = area.subtract(area);
 		assertEquals(new AreaAmount(0.0, MeterUnits.SQUARE_METER), actual);
 	}
 
@@ -47,22 +50,21 @@ class QuantityImplTest {
 	@Test
 	void testDivideNumber() {
 		LengthAmount length = new LengthAmount(2, MetricUnits.METER);
-		LengthAmount actual = LengthAmount.of(length.divide(2.0));
+		Length actual = length.divide(2.0);
 		assertEquals(1, actual.getValue().doubleValue());
 	}
 
 	@Test
 	void testMultiplyQuantity() {
 		LengthAmount length = new LengthAmount(2, MetricUnits.METER);
-		@SuppressWarnings("unchecked")
-		AreaAmount actual = AreaAmount.of((Quantity<Area>) length.multiply(length));
+		Quantity<Area> actual = length.multiply(length).asType(Area.class);
 		assertEquals(4, actual.getValue().doubleValue());
 	}
 
 	@Test
 	void testMultiplyNumber() {
 		DensityAmount density = new DensityAmount(2, NamedUnits.KILOGRAM_PER_CUBIC_METER);
-		DensityAmount actual = DensityAmount.of(density.multiply(2.0));
+		Density actual = density.multiply(2.0);
 		assertEquals(4, actual.getValue().doubleValue());
 	}
 

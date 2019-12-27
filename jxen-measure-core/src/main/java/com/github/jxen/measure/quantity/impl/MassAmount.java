@@ -1,7 +1,8 @@
 package com.github.jxen.measure.quantity.impl;
 
+import com.github.jxen.measure.unit.AbstractUnit;
+import java.util.function.BiFunction;
 import javax.measure.Quantity;
-import javax.measure.Unit;
 import javax.measure.quantity.Mass;
 
 /**
@@ -11,21 +12,18 @@ import javax.measure.quantity.Mass;
  *
  * @since Measure 0.1
  */
-public class MassAmount extends QuantityImpl<Mass> implements Mass {
+public class MassAmount extends AbstractQuantity<Mass> implements Mass {
 
 	/**
 	 * @param number value
 	 * @param unit   unit
 	 */
-	public MassAmount(Number number, Unit<Mass> unit) {
+	public MassAmount(Number number, AbstractUnit<Mass> unit) {
 		super(number, unit);
 	}
 
-	/**
-	 * @param quantity quantity
-	 * @return quantity as {@link MassAmount}
-	 */
-	public static MassAmount of(Quantity<Mass> quantity) {
-		return new MassAmount(quantity.getValue(), quantity.getUnit());
+	@Override
+	protected BiFunction<Number, AbstractUnit<Mass>, Mass> factory() {
+		return MassAmount::new;
 	}
 }

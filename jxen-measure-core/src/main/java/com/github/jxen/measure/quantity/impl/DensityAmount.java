@@ -1,7 +1,8 @@
 package com.github.jxen.measure.quantity.impl;
 
+import com.github.jxen.measure.unit.AbstractUnit;
+import java.util.function.BiFunction;
 import javax.measure.Quantity;
-import javax.measure.Unit;
 import si.uom.quantity.Density;
 
 /**
@@ -11,21 +12,18 @@ import si.uom.quantity.Density;
  *
  * @since Measure 0.1
  */
-public class DensityAmount extends QuantityImpl<Density> implements Density {
+public class DensityAmount extends AbstractQuantity<Density> implements Density {
 
 	/**
 	 * @param number number
 	 * @param unit   unit
 	 */
-	public DensityAmount(Number number, Unit<Density> unit) {
+	public DensityAmount(Number number, AbstractUnit<Density> unit) {
 		super(number, unit);
 	}
 
-	/**
-	 * @param quantity quantity
-	 * @return density
-	 */
-	public static DensityAmount of(Quantity<Density> quantity) {
-		return new DensityAmount(quantity.getValue(), quantity.getUnit());
+	@Override
+	protected BiFunction<Number, AbstractUnit<Density>, Density> factory() {
+		return DensityAmount::new;
 	}
 }

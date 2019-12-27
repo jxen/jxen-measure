@@ -1,7 +1,8 @@
 package com.github.jxen.measure.quantity.impl;
 
+import com.github.jxen.measure.unit.AbstractUnit;
+import java.util.function.BiFunction;
 import javax.measure.Quantity;
-import javax.measure.Unit;
 import javax.measure.quantity.Length;
 
 /**
@@ -11,21 +12,18 @@ import javax.measure.quantity.Length;
  *
  * @since Measure 0.1
  */
-public class LengthAmount extends QuantityImpl<Length> implements Length {
+public class LengthAmount extends AbstractQuantity<Length> implements Length {
 
 	/**
 	 * @param number value
 	 * @param unit   unit
 	 */
-	public LengthAmount(Number number, Unit<Length> unit) {
+	public LengthAmount(Number number, AbstractUnit<Length> unit) {
 		super(number, unit);
 	}
 
-	/**
-	 * @param quantity quantity
-	 * @return quantity as {@link LengthAmount}
-	 */
-	public static LengthAmount of(Quantity<Length> quantity) {
-		return new LengthAmount(quantity.getValue(), quantity.getUnit());
+	@Override
+	protected BiFunction<Number, AbstractUnit<Length>, Length> factory() {
+		return LengthAmount::new;
 	}
 }

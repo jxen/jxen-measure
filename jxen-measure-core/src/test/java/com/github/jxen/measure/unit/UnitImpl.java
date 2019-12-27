@@ -8,6 +8,7 @@ import javax.measure.Unit;
 import javax.measure.UnitConverter;
 
 class UnitImpl<Q extends Quantity<Q>> implements Unit<Q> {
+
 	@Override
 	public String getSymbol() {
 		return null;

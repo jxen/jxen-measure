@@ -8,6 +8,7 @@ import static com.github.jxen.measure.unit.MetricUnits.SECOND;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -15,7 +16,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.github.jxen.measure.dimension.Dimensions;
 import java.math.BigDecimal;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 import javax.measure.IncommensurableException;
 import javax.measure.UnconvertibleException;
@@ -49,12 +49,12 @@ class AbstractUnitTest {
 
 	@Test
 	void testCompatibleOther() {
-		assertFalse(METER.isCompatible(new UnitImpl()));
+		assertFalse(METER.isCompatible(new UnitImpl<Length>()));
 	}
 
 	@Test
 	void testAsType() {
-		assertThrows(UnsupportedOperationException.class, () -> METER.asType(Length.class));
+		assertNotNull(METER.asType(Length.class));
 	}
 
 	@Test

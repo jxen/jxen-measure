@@ -1,5 +1,6 @@
 package com.github.jxen.measure.quantity.impl;
 
+import com.github.jxen.measure.unit.AbstractUnit;
 import javax.measure.Quantity;
 import javax.measure.Quantity.Scale;
 import javax.measure.Unit;
@@ -51,6 +52,9 @@ public final class Quantities {
 	 * @return quantity
 	 */
 	public static <Q extends Quantity<Q>> Quantity<Q> of(Number value, Unit<Q> unit) {
-		return new QuantityImpl<>(value, unit);
+		if (unit instanceof AbstractUnit) {
+			return new QuantityImpl<>(value, (AbstractUnit<Q>) unit);
+		}
+		throw new UnsupportedOperationException("Unit class is not supported: " + unit.getClass());
 	}
 }

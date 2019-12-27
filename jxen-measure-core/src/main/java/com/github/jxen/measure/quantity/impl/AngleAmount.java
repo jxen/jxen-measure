@@ -1,7 +1,8 @@
 package com.github.jxen.measure.quantity.impl;
 
+import com.github.jxen.measure.unit.AbstractUnit;
+import java.util.function.BiFunction;
 import javax.measure.Quantity;
-import javax.measure.Unit;
 import javax.measure.quantity.Angle;
 
 /**
@@ -11,21 +12,18 @@ import javax.measure.quantity.Angle;
  *
  * @since Measure 0.1
  */
-public class AngleAmount extends QuantityImpl<Angle> implements Angle {
+public class AngleAmount extends AbstractQuantity<Angle> implements Angle {
 
 	/**
 	 * @param number value
 	 * @param unit   unit
 	 */
-	public AngleAmount(Number number, Unit<Angle> unit) {
+	public AngleAmount(Number number, AbstractUnit<Angle> unit) {
 		super(number, unit);
 	}
 
-	/**
-	 * @param quantity quantity
-	 * @return quantity as {@link AngleAmount}
-	 */
-	public static AngleAmount of(Quantity<Angle> quantity) {
-		return new AngleAmount(quantity.getValue(), quantity.getUnit());
+	@Override
+	protected BiFunction<Number, AbstractUnit<Angle>, Angle> factory() {
+		return AngleAmount::new;
 	}
 }

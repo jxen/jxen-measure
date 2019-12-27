@@ -25,7 +25,6 @@ import javax.measure.UnitConverter;
  */
 public abstract class AbstractUnit<Q extends Quantity<Q>> implements Unit<Q> {
 
-	private static final String ERROR_NOT_IMPLEMENTED = "Not implemented yet";
 	private static final String ERROR_NOT_COMPATIBLE = "Units are not compatible";
 
 	private final String name;
@@ -66,10 +65,11 @@ public abstract class AbstractUnit<Q extends Quantity<Q>> implements Unit<Q> {
 		return false;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public <T extends Quantity<T>> Unit<T> asType(Class<T> type) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException(ERROR_NOT_IMPLEMENTED);
+	public <T extends Quantity<T>> AbstractUnit<T> asType(Class<T> type) {
+		// TODO Check dimension
+		return (AbstractUnit<T>) this;
 	}
 
 	@Override
