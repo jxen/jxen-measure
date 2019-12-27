@@ -49,7 +49,7 @@ public final class ApothecariesUnits {
 	 * @see TroyUnits#OUNCE
 	 */
 	@AddUnit
-	public static final AbstractUnit<Mass> OUNCE = unit(TroyUnits.OUNCE, Mass.class);
+	public static final AbstractUnit<Mass> OUNCE = unit(TroyUnits.OUNCE.alternate("ounce^apothecary"), Mass.class);
 
 	/**
 	 * Apothecaries' pound (equal to Troy pound).
@@ -57,7 +57,7 @@ public final class ApothecariesUnits {
 	 * @see TroyUnits#POUND
 	 */
 	@AddUnit
-	public static final AbstractUnit<Mass> POUND = unit(TroyUnits.POUND, Mass.class);
+	public static final AbstractUnit<Mass> POUND = unit(TroyUnits.POUND.alternate("pound^apothecary"), Mass.class);
 
 	/**
 	 * Fluid ounce.

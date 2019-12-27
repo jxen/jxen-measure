@@ -103,6 +103,17 @@ public final class PhysicalConstants {
 	@AddUnit
 	public static final AbstractUnit<Action> PLANCK_CONSTANT = JOULE_SECOND.multiply(new BigDecimal("6.62607015E-34"))
 			.alternate("planck");
+
+	/**
+	 * The Faraday constant, denoted by the symbol F, is named after Michael Faraday.
+	 * In physics and chemistry, this constant represents the magnitude of electric charge per mole of electrons.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Faraday_constant">Wikipedia: Faraday constant</a>
+	 */
+	@AddUnit
+	public static final AbstractUnit<ElectricCharge> FARADAY = unit(ELEMENTARY_CHARGE.multiply(AVOGADRO_CONSTANT)
+			.alternate("faraday"), ElectricCharge.class);
+
 	/**
 	 * The instance of {@link SystemOfUnits}.
 	 */

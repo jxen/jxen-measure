@@ -1,7 +1,6 @@
 package com.github.jxen.measure.misc;
 
 import static com.github.jxen.measure.unit.MetricPrefix.milli;
-import static com.github.jxen.measure.unit.MetricUnits.KELVIN;
 import static com.github.jxen.measure.unit.MetricUnits.METER;
 import static com.github.jxen.measure.unit.MetricUnits.SECOND;
 import static com.github.jxen.measure.unit.NamedUnits.GRAM;
@@ -18,9 +17,12 @@ import com.github.jxen.measure.unit.SystemOfUnitsImpl;
 import java.math.BigDecimal;
 import javax.measure.quantity.Acceleration;
 import javax.measure.quantity.Area;
+import javax.measure.quantity.Energy;
 import javax.measure.quantity.Force;
 import javax.measure.quantity.Length;
 import javax.measure.quantity.Mass;
+import javax.measure.quantity.Power;
+import javax.measure.quantity.Pressure;
 import javax.measure.quantity.Speed;
 import javax.measure.quantity.Temperature;
 import javax.measure.quantity.Volume;
@@ -496,35 +498,77 @@ public final class ImperialUnits {
 	 * @see <a href="https://en.wikipedia.org/wiki/Poundal">Wikipedia: Poundal</a>
 	 */
 	@AddUnit
-	public static final AbstractUnit<Force> POUNDAL = unit(FOOT.multiply(FOOT_PER_SECOND_SQUARED).alternate("poundal"),
+	public static final AbstractUnit<Force> POUNDAL = unit(POUND.multiply(FOOT_PER_SECOND_SQUARED).alternate("poundal"),
 			Force.class);
+
+	///////////////////////// Pressure British Imperial Units /////////////////////////
+
+	/**
+	 * The pound per square inch or, more accurately, pound-force per square inch (symbol: {@code lbf/in}<sup>2</sup>;
+	 * abbreviation: {@code psi}) is a unit of pressure or of stress based on avoirdupois units.
+	 * It is the pressure resulting from a force of one pound-force applied to an area of one square inch.
+	 * In SI units, 1 psi is approximately equal to 6895 {@code N/m}<sup>2</sup>.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Pounds_per_square_inch">Wikipedia: Pounds per square inch</a>
+	 */
+	@AddUnit
+	public static final AbstractUnit<Pressure> POUND_PER_SQUARE_INCH = unit(POUND_FORCE.divide(INCH.pow(2)),
+			Pressure.class);
+
+	///////////////////////// Energy British Imperial Units /////////////////////////
+
+	/**
+	 * <p>The foot pound-force (symbol: ft&bull;lbf) is a unit of work or energy in the Engineering
+	 * and Gravitational Systems in United States customary and imperial units of measure.
+	 *
+	 * <p>It is the energy transferred upon applying a force of one pound-force ({@code lbf})
+	 * through a linear displacement of one foot. The corresponding SI unit is the joule.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Foot-pound_(energy)">Wikipedia: Foot-pound (energy)</a>
+	 */
+	@AddUnit
+	public static final AbstractUnit<Energy> FOOT_POUND = unit(FOOT.multiply(POUND_FORCE), Energy.class);
+
+	///////////////////////// Power British Imperial Units /////////////////////////
+
+	/**
+	 * <p>The foot pound-force per second.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Foot-pound_(energy)">Wikipedia: Foot-pound (energy)</a>
+	 */
+	@AddUnit
+	public static final AbstractUnit<Power> FOOT_POUND_PER_SECOND = unit(FOOT_POUND.divide(SECOND), Power.class);
+
+	/**
+	 * Horsepower ({@code hp}) is a unit of measurement of power, or the rate at which work is done.
+	 * There are many different standards and types of horsepower.
+	 * Two common definitions being used today are the mechanical horsepower (or imperial horsepower),
+	 * which is about 745.7 watts, and the metric horsepower, which is approximately 735.5 watts.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Horsepower">Wikipedia: Horsepower</a>
+	 */
+	@AddUnit
+	public static final AbstractUnit<Power> HORSEPOWER = unit("power^horse", FOOT_POUND_PER_SECOND, 550, Power.class);
 
 	///////////////////////// Temperature Units /////////////////////////
 
 	/**
-	 * <p>The Rankine scale is an absolute scale of thermodynamic temperature named after
-	 * the Glasgow University engineer and physicist William John Macquorn Rankine, who proposed it in 1859.
-	 * A unit of temperature equal to <sup>5</sup>/<sub>9</sub> {@code K} (standard name &deg;{@code R}).
+	 * The Rankine scale.
 	 *
+	 * @see TemperatureUnits#RANKINE
 	 * @see <a href="https://en.wikipedia.org/wiki/Rankine_scale">Wikipedia: Rankine scale</a>
 	 */
 	@AddUnit
-	public static final AbstractUnit<Temperature> RANKINE = unit("rankine", KELVIN, new Rational(5, 9),
-			Temperature.class);
+	public static final AbstractUnit<Temperature> RANKINE = TemperatureUnits.RANKINE;
 
 	/**
-	 * <p>The Fahrenheit scale is a temperature scale based on one proposed in 1724
-	 * by German physicist Daniel Gabriel Fahrenheit (1686-1736).
-	 * It uses the degree Fahrenheit (symbol: &deg;{@code F}) as the unit.
+	 * The Fahrenheit scale.
 	 *
-	 * <p>On the Fahrenheit scale, the freezing point of water is 32 &deg;{@code F}
-	 * and the boiling point is 212 &deg;{@code F} (at standard atmospheric pressure).
-	 *
+	 * @see TemperatureUnits#FAHRENHEIT
 	 * @see <a href="https://en.wikipedia.org/wiki/Fahrenheit">Wikipedia: Fahrenheit</a>
 	 */
 	@AddUnit
-	public static final AbstractUnit<Temperature> FAHRENHEIT = unit(RANKINE.shift(new BigDecimal("459.67"))
-			.alternate("fahrenheit"), Temperature.class);
+	public static final AbstractUnit<Temperature> FAHRENHEIT = TemperatureUnits.FAHRENHEIT;
 
 	///////////////////////// System of British Imperial Units /////////////////////////
 

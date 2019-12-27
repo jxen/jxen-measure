@@ -29,6 +29,7 @@ public final class MeterUnits {
 	 */
 	@AddUnit
 	public static final AbstractUnit<Area> SQUARE_METER = unit(METER.pow(2), Area.class);
+
 	/**
 	 * <p>The SI unit for volume quantities (standard name m&sup3;).
 	 *
@@ -36,6 +37,7 @@ public final class MeterUnits {
 	 */
 	@AddUnit
 	public static final AbstractUnit<Volume> CUBIC_METER = unit(METER.pow(3), Volume.class);
+
 	/**
 	 * <p>The SI unit for speed quantities (standard name {@code m/s}).
 	 *
@@ -43,6 +45,7 @@ public final class MeterUnits {
 	 */
 	@AddUnit
 	public static final AbstractUnit<Speed> METER_PER_SECOND = unit(METER.divide(SECOND), Speed.class);
+
 	/**
 	 * <p>The SI unit for acceleration quantities (standard name m/s&sup2;).
 	 *
@@ -51,6 +54,7 @@ public final class MeterUnits {
 	@AddUnit
 	public static final AbstractUnit<Acceleration> METER_PER_SECOND_SQUARED = unit(METER.divide(SECOND.pow(2)),
 			Acceleration.class);
+
 	/**
 	 * Reciprocal length or inverse length is a measurement used in several branches of science and mathematics.
 	 * As the reciprocal of length, common units used for this measurement include the reciprocal meter or inverse meter
@@ -60,6 +64,7 @@ public final class MeterUnits {
 	 */
 	@AddUnit
 	public static final AbstractUnit<WaveNumber> RECIPROCAL_METER = unit(METER.pow(-1), WaveNumber.class);
+
 	/**
 	 * <p>A unit of length expressing the number of kilometers (abbreviation {@code km}).
 	 *
@@ -67,6 +72,7 @@ public final class MeterUnits {
 	 */
 	@AddUnit
 	public static final AbstractUnit<Length> KILOMETER = unit(MetricPrefix.kilo(METER), Length.class);
+
 	/**
 	 * <p>A unit of speed expressing the number of international {@link #KILOMETER kilometres}
 	 * per {@link TimeUnits#HOUR hour} (abbreviation {@code km/h}).
@@ -75,6 +81,7 @@ public final class MeterUnits {
 	 */
 	@AddUnit
 	public static final AbstractUnit<Speed> KILOMETER_PER_HOUR = unit(KILOMETER.divide(HOUR), Speed.class);
+
 	/**
 	 * <p>A unit of length expressing the number of centimeters (abbreviation {@code cm}).
 	 *
@@ -82,6 +89,7 @@ public final class MeterUnits {
 	 */
 	@AddUnit
 	public static final AbstractUnit<Length> CENTIMETER = unit(MetricPrefix.centi(METER), Length.class);
+
 	/**
 	 * <p>A unit of length expressing the number of millimeters (abbreviation {@code mm}).
 	 *

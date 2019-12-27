@@ -69,15 +69,12 @@ public final class UsCustomaryUnits {
 	public static final AbstractUnit<Length> MILE = unit(ImperialUnits.MILE, Length.class);
 
 	/**
-	 * <p>A nautical mile is a unit of measurement used in both air and marine navigation,
-	 * and for the definition of territorial waters. Historically, it was defined as one minute
-	 * (<sup>1</sup>/<sub>60</sub> of a degree) of latitude along any line of longitude.
-	 * Today the international nautical mile is defined as exactly 1852 metres.
+	 * Nautical mile.
 	 *
-	 * @see <a href="https://en.wikipedia.org/wiki/Nautical_mile">Wikipedia: Nautical mile</a>
+	 * @see LegacyUnits#NAUTICAL_MILE
 	 */
 	@AddUnit
-	public static final AbstractUnit<Length> NAUTICAL_MILE = unit("mile^nautical", METER, 1852, Length.class);
+	public static final AbstractUnit<Length> NAUTICAL_MILE = LegacyUnits.NAUTICAL_MILE;
 
 	///////////////////////// Area US Customary Units /////////////////////////
 
@@ -400,15 +397,12 @@ public final class UsCustomaryUnits {
 	public static final AbstractUnit<Speed> MILE_PER_HOUR = unit(MILE.divide(HOUR), Speed.class);
 
 	/**
-	 * <p>The knot is a unit of speed equal to one nautical mile per hour, exactly 1.852 km/h
-	 * (approximately 1.15078 mph or 0.514 m/s).
+	 * The knot.
 	 *
-	 * <p>The ISO standard symbol for the knot is {@code kn}.
-	 *
-	 * @see <a href="https://en.wikipedia.org/wiki/Knot_(unit)">Wikipedia: Knot (unit)</a>
+	 * @see LegacyUnits#KNOT
 	 */
 	@AddUnit
-	public static final AbstractUnit<Speed> KNOT = unit(NAUTICAL_MILE.divide(HOUR).alternate("knot"), Speed.class);
+	public static final AbstractUnit<Speed> KNOT = LegacyUnits.KNOT;
 
 	///////////////////////// Temperature Units /////////////////////////
 
@@ -418,7 +412,7 @@ public final class UsCustomaryUnits {
 	 * @see ImperialUnits#FAHRENHEIT
 	 */
 	@AddUnit
-	public static final AbstractUnit<Temperature> FAHRENHEIT = unit(ImperialUnits.FAHRENHEIT, Temperature.class);
+	public static final AbstractUnit<Temperature> FAHRENHEIT = ImperialUnits.FAHRENHEIT;
 
 	///////////////////////// System of US Customary Units /////////////////////////
 

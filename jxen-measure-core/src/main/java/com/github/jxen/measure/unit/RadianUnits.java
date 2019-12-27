@@ -11,7 +11,7 @@ import si.uom.quantity.AngularAcceleration;
 import si.uom.quantity.AngularSpeed;
 
 /**
- * {@code TimeUnits} class contains units based on {@link Angle}.
+ * {@code RadianUnits} class contains units based on {@link Angle}.
  *
  * @author Denis Murashev
  *

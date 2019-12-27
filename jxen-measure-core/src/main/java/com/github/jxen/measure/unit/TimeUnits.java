@@ -4,6 +4,7 @@ import static com.github.jxen.measure.unit.MetricUnits.SECOND;
 import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
 
 import com.github.jxen.measure.annotation.AddUnit;
+import java.math.BigDecimal;
 import javax.measure.quantity.Time;
 
 /**
@@ -53,7 +54,16 @@ public final class TimeUnits {
 	 * @see <a href="https://en.wikipedia.org/wiki/Year">Wikipedia: Year</a>
 	 */
 	@AddUnit
-	public static final AbstractUnit<Time> YEAR = unit("year", DAY, 365.2425, Time.class);
+	public static final AbstractUnit<Time> YEAR = unit("year", DAY, new BigDecimal("365.2425"), Time.class);
+
+	/**
+	 * In astronomy, a Julian year (symbol: {@code a}) is a unit of measurement of time defined as exactly 365.25 days
+	 * of 86400 SI seconds each.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Julian_year_(astronomy)">Wikipedia: Julian year (astronomy)</a>
+	 */
+	@AddUnit
+	public static final AbstractUnit<Time> JULIAN_YEAR = unit("year_julian", SECOND, 31_557_600, Time.class);
 
 	private TimeUnits() {
 	}

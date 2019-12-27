@@ -279,6 +279,12 @@ public final class RussianUnits {
 	@AddUnit
 	public static final AbstractUnit<Mass> DOLYA = unit("dolya", ZOLOTNICK, new BigRational(1, 96), Mass.class);
 
+	/**
+	 * Berkovets.
+	 */
+	@AddUnit
+	public static final AbstractUnit<Mass> BERKOVETS = unit("berkovets", POOD, 10, Mass.class);
+
 	///////////////////////// Mass Apothecaries' obsolete Russian Units /////////////////////////
 
 	/**
