@@ -6,7 +6,7 @@ import static com.github.jxen.measure.unit.MetricUnits.KELVIN;
 import static com.github.jxen.measure.unit.MiscUnits.CELSIUS;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.github.jxen.measure.quantity.Quantities;
+import com.github.jxen.measure.quantity.impl.Quantities;
 import org.junit.jupiter.api.Test;
 
 public class ImperialUnitsTest {

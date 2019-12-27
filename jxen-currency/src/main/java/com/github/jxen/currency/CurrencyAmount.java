@@ -1,7 +1,7 @@
 package com.github.jxen.currency;
 
 import com.github.jxen.math.common.Adapters;
-import com.github.jxen.measure.quantity.QuantityImpl;
+import com.github.jxen.measure.quantity.impl.QuantityImpl;
 import javax.measure.Quantity;
 
 /**

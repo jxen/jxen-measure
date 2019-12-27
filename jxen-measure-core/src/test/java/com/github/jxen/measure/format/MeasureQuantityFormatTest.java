@@ -1,6 +1,6 @@
 package com.github.jxen.measure.format;
 
-import static com.github.jxen.measure.quantity.Quantities.of;
+import static com.github.jxen.measure.quantity.impl.Quantities.of;
 import static com.github.jxen.measure.unit.MetricPrefix.centi;
 import static com.github.jxen.measure.unit.MetricUnits.METER;
 import static java.util.Arrays.asList;
@@ -9,10 +9,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.github.jxen.math.rational.Rational;
 import com.github.jxen.math.rational.format.RationalFormat;
-import com.github.jxen.measure.quantity.AngleAmount;
-import com.github.jxen.measure.quantity.LengthAmount;
-import com.github.jxen.measure.quantity.Quantities;
-import com.github.jxen.measure.quantity.QuantityDecomposer;
+import com.github.jxen.measure.quantity.impl.AngleAmount;
+import com.github.jxen.measure.quantity.impl.LengthAmount;
+import com.github.jxen.measure.quantity.impl.Quantities;
+import com.github.jxen.measure.quantity.impl.QuantityDecomposer;
 import com.github.jxen.measure.unit.MetricPrefix;
 import com.github.jxen.measure.unit.NonSiUnits;
 import java.io.IOException;

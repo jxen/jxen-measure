@@ -1,5 +1,6 @@
 package com.github.jxen.measure.unit;
 
+import static com.github.jxen.measure.unit.MetricUnits.KELVIN;
 import static com.github.jxen.measure.unit.MetricUnits.KILOGRAM;
 import static com.github.jxen.measure.unit.MetricUnits.METER;
 import static com.github.jxen.measure.unit.MetricUnits.SECOND;
@@ -8,6 +9,7 @@ import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
 
 import com.github.jxen.math.rational.Rational;
 import com.github.jxen.measure.annotation.AddUnit;
+import com.github.jxen.measure.quantity.Entropy;
 import javax.measure.quantity.Energy;
 import javax.measure.quantity.Force;
 import javax.measure.quantity.Frequency;
@@ -171,6 +173,19 @@ public final class NamedUnits {
 	 */
 	@AddUnit
 	public static final AbstractUnit<Action> JOULE_SECOND = unit(JOULE.multiply(SECOND), Action.class);
+
+	/**
+	 * Entropy is a property of thermodynamical systems.
+	 * The term entropy was introduced by Rudolf Clausius who named it from the Greek word &tau;&rho;&omicron;&pi;&eta;,
+	 * "transformation".
+	 * He considered transfers of energy as heat and work between bodies of matter, taking temperature into account.
+	 * Bodies of radiation are also covered by the same kind of reasoning.
+	 *
+	 * @see <a href="http://en.wikipedia.org/wiki/Entropy_(classical_thermodynamics)">Wikipedia: Entropy
+	 * (classical thermodynamics)</a>
+	 */
+	@AddUnit
+	public static final AbstractUnit<Entropy> JOULE_PER_KELVIN = unit(JOULE.divide(KELVIN), Entropy.class);
 
 	private NamedUnits() {
 	}

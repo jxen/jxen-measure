@@ -1,4 +1,4 @@
-package com.github.jxen.measure.quantity;
+package com.github.jxen.measure.quantity.impl;
 
 import com.github.jxen.math.common.Adapters;
 import java.util.ArrayList;

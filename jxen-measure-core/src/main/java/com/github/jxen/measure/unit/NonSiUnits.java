@@ -5,7 +5,7 @@ import static com.github.jxen.measure.unit.MeterUnits.CUBIC_METER;
 import static com.github.jxen.measure.unit.MeterUnits.SQUARE_METER;
 import static com.github.jxen.measure.unit.MetricUnits.KILOGRAM;
 import static com.github.jxen.measure.unit.MetricUnits.METER;
-import static com.github.jxen.measure.unit.NaturalUnits.ELEMENTARY_CHARGE;
+import static com.github.jxen.measure.unit.PhysicalConstants.ELEMENTARY_CHARGE;
 import static com.github.jxen.measure.unit.RadianUnits.RADIAN;
 import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
 

@@ -1,6 +1,6 @@
 package com.github.jxen.currency;
 
-import com.github.jxen.measure.quantity.QuantityDecomposer;
+import com.github.jxen.measure.quantity.impl.QuantityDecomposer;
 import java.util.Arrays;
 import javax.measure.MeasurementException;
 import javax.measure.Unit;

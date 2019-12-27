@@ -13,7 +13,7 @@ import com.github.jxen.math.rational.BigRational;
 import com.github.jxen.math.rational.Rational;
 import com.github.jxen.measure.annotation.AddUnit;
 import com.github.jxen.measure.unit.AbstractUnit;
-import com.github.jxen.measure.unit.NaturalUnits;
+import com.github.jxen.measure.unit.PhysicalConstants;
 import com.github.jxen.measure.unit.SystemOfUnitsImpl;
 import java.math.BigDecimal;
 import javax.measure.quantity.Acceleration;
@@ -482,7 +482,7 @@ public final class ImperialUnits {
 	 * @see <a href="https://en.wikipedia.org/wiki/Pound_(force)">Wikipedia: Pound (force)</a>
 	 */
 	@AddUnit
-	public static final AbstractUnit<Force> POUND_FORCE = unit(POUND.multiply(NaturalUnits.STANDARD_GRAVITY)
+	public static final AbstractUnit<Force> POUND_FORCE = unit(POUND.multiply(PhysicalConstants.STANDARD_GRAVITY)
 			.alternate("pound^force"), Force.class);
 
 	/**

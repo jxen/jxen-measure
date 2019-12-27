@@ -3,27 +3,28 @@ package com.github.jxen.measure.unit;
 import static com.github.jxen.measure.unit.AmpereUnits.COULOMB;
 import static com.github.jxen.measure.unit.MeterUnits.METER_PER_SECOND;
 import static com.github.jxen.measure.unit.MeterUnits.METER_PER_SECOND_SQUARED;
-import static com.github.jxen.measure.unit.MetricUnits.KELVIN;
-import static com.github.jxen.measure.unit.MetricUnits.MOLE;
-import static com.github.jxen.measure.unit.NamedUnits.JOULE;
+import static com.github.jxen.measure.unit.NamedUnits.JOULE_PER_KELVIN;
 import static com.github.jxen.measure.unit.NamedUnits.JOULE_SECOND;
+import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
 
 import com.github.jxen.measure.annotation.AddUnit;
+import com.github.jxen.measure.quantity.Entropy;
 import java.math.BigDecimal;
 import javax.measure.quantity.Acceleration;
+import javax.measure.quantity.Dimensionless;
 import javax.measure.quantity.ElectricCharge;
 import javax.measure.quantity.Speed;
 import javax.measure.spi.SystemOfUnits;
 import si.uom.quantity.Action;
 
 /**
- * {@code NaturalUnits} class contains natural unit constants.
+ * {@code PhysicalConstants} class contains natural phusical unit constants.
  *
  * @author Denis Murashev
  *
  * @since Measure 0.2
  */
-public final class NaturalUnits {
+public final class PhysicalConstants {
 
 	/**
 	 * The speed of light in vacuum, commonly denoted {@code c}, is a universal physical constant important
@@ -54,8 +55,9 @@ public final class NaturalUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Avogadro_constant">Wikipedia: Avogadro constant</a>
 	 */
-	public static final AbstractUnit<?> AVOGADRO_CONSTANT = MOLE.inverse().multiply(new BigDecimal("6.02214076E23"))
-			.alternate("avogadro");
+	@AddUnit
+	public static final AbstractUnit<Dimensionless> AVOGADRO_CONSTANT = unit("avogadro", new ProductUnit<>(),
+			new BigDecimal("6.02214076E23"), Dimensionless.class);
 
 	/**
 	 * The Boltzmann constant (k<sub>B</sub> or k), named after its discoverer, Ludwig Boltzmann,
@@ -67,7 +69,8 @@ public final class NaturalUnits {
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Boltzmann_constant">Wikipedia: Boltzmann constant</a>
 	 */
-	public static final AbstractUnit<?> BOLTZMANN_CONSTANT = JOULE.divide(KELVIN)
+	@AddUnit
+	public static final AbstractUnit<Entropy> BOLTZMANN_CONSTANT = JOULE_PER_KELVIN
 			.multiply(new BigDecimal("1.380649E-23")).alternate("boltzmann");
 
 	/**
@@ -104,9 +107,9 @@ public final class NaturalUnits {
 	 * The instance of {@link SystemOfUnits}.
 	 */
 	public static final SystemOfUnits SYSTEM = SystemOfUnitsImpl.builder("Natural Constants")
-			.add(NaturalUnits.class)
+			.add(PhysicalConstants.class)
 			.build();
 
-	private NaturalUnits() {
+	private PhysicalConstants() {
 	}
 }

@@ -4,7 +4,7 @@ import static com.github.jxen.measure.dimension.Dimensions.DIMENSIONLESS;
 
 import com.github.jxen.math.common.Adapters;
 import com.github.jxen.measure.converter.Converters;
-import com.github.jxen.measure.quantity.Quantities;
+import com.github.jxen.measure.quantity.impl.Quantities;
 import com.github.jxen.measure.unit.AbstractUnit;
 import java.util.Map;
 import java.util.Objects;

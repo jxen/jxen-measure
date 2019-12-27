@@ -1,6 +1,6 @@
 package com.github.jxen.measure.spi;
 
-import com.github.jxen.measure.quantity.Quantities;
+import com.github.jxen.measure.quantity.impl.Quantities;
 import javax.measure.Quantity;
 import javax.measure.spi.FormatService;
 import javax.measure.spi.QuantityFactory;

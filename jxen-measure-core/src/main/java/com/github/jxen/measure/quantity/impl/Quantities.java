@@ -1,4 +1,4 @@
-package com.github.jxen.measure.quantity;
+package com.github.jxen.measure.quantity.impl;
 
 import javax.measure.Quantity;
 import javax.measure.Quantity.Scale;

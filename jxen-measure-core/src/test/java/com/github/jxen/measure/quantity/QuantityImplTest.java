@@ -3,6 +3,12 @@ package com.github.jxen.measure.quantity;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+import com.github.jxen.measure.quantity.impl.AngleAmount;
+import com.github.jxen.measure.quantity.impl.AreaAmount;
+import com.github.jxen.measure.quantity.impl.DensityAmount;
+import com.github.jxen.measure.quantity.impl.LengthAmount;
+import com.github.jxen.measure.quantity.impl.MassAmount;
+import com.github.jxen.measure.quantity.impl.Quantities;
 import com.github.jxen.measure.unit.AmpereUnits;
 import com.github.jxen.measure.unit.MeterUnits;
 import com.github.jxen.measure.unit.NamedUnits;

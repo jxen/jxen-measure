@@ -1,6 +1,6 @@
-package com.github.jxen.measure.quantity;
+package com.github.jxen.measure.quantity.impl;
 
-import static com.github.jxen.measure.quantity.Quantities.of;
+import static com.github.jxen.measure.quantity.impl.Quantities.of;
 
 import com.github.jxen.math.common.Adapters;
 import com.github.jxen.math.common.ArithmeticAware;
