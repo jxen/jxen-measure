@@ -13,6 +13,7 @@
 	<name>JXen JSR 385 (javax.measure) Parent</name>
 	<description>Java Xenon JSR 385 (javax.measure) Implementation Parent Project</description>
 	<properties>
+		<jxen-measure.version>${project.version}</jxen-measure.version>
 		<jxen-math.version>0.3</jxen-math.version>
 		<unit-api.version>2.0</unit-api.version>
 		<si-quantity.version>2.0.1</si-quantity.version>
@@ -26,6 +27,7 @@
 		<module>jxen-measure-misc</module>
 		<module>jxen-measure-misc-en</module>
 		<module>jxen-measure-misc-ru</module>
+		<module>jxen-measure-data</module>
 		<module>jxen-currency</module>
 		<module>jxen-measure-all</module>
 	</modules>
@@ -39,42 +41,47 @@
 			<dependency>
 				<groupId>com.github.jxen.sdk</groupId>
 				<artifactId>jxen-measure-core</artifactId>
-				<version>${project.version}</version>
+				<version>${jxen-measure.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.jxen.sdk</groupId>
 				<artifactId>jxen-measure-core-en</artifactId>
-				<version>${project.version}</version>
+				<version>${jxen-measure.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.jxen.sdk</groupId>
 				<artifactId>jxen-measure-core-ru</artifactId>
-				<version>${project.version}</version>
+				<version>${jxen-measure.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.jxen.sdk</groupId>
+				<artifactId>jxen-measure-data</artifactId>
+				<version>${jxen-measure.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.jxen.sdk</groupId>
 				<artifactId>jxen-measure-misc</artifactId>
-				<version>${project.version}</version>
+				<version>${jxen-measure.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.jxen.sdk</groupId>
 				<artifactId>jxen-measure-misc-en</artifactId>
-				<version>${project.version}</version>
+				<version>${jxen-measure.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.jxen.sdk</groupId>
 				<artifactId>jxen-measure-misc-ru</artifactId>
-				<version>${project.version}</version>
+				<version>${jxen-measure.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.jxen.sdk</groupId>
 				<artifactId>jxen-currency</artifactId>
-				<version>${project.version}</version>
+				<version>${jxen-measure.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.jxen.sdk</groupId>
 				<artifactId>jxen-measure-all</artifactId>
-				<version>${project.version}</version>
+				<version>${jxen-measure.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>javax.measure</groupId>

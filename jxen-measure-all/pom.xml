@@ -26,6 +26,10 @@
 		</dependency>
 		<dependency>
 			<groupId>com.github.jxen.sdk</groupId>
+			<artifactId>jxen-measure-data</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.jxen.sdk</groupId>
 			<artifactId>jxen-measure-misc</artifactId>
 		</dependency>
 		<dependency>
