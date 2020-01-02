@@ -1,26 +1,38 @@
 package com.github.jxen.measure.spi;
 
-import static com.github.jxen.measure.unit.Si.SYSTEM;
-
+import com.github.jxen.measure.unit.PhysicalConstants;
+import com.github.jxen.measure.unit.Si;
 import java.util.Collection;
-import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import javax.measure.spi.SystemOfUnits;
 import javax.measure.spi.SystemOfUnitsService;
 
 class DefaultSystemOfUnitsService implements SystemOfUnitsService {
 
+	private final Map<String, SystemOfUnits> systems = new HashMap<>();
+
+	DefaultSystemOfUnitsService() {
+		add(Si.SYSTEM);
+		add(PhysicalConstants.SYSTEM);
+	}
+
 	@Override
 	public SystemOfUnits getSystemOfUnits(String name) {
-		return SYSTEM.getName().equals(name) ? SYSTEM : null;
+		return systems.get(name);
 	}
 
 	@Override
 	public SystemOfUnits getSystemOfUnits() {
-		return SYSTEM;
+		return Si.SYSTEM;
 	}
 
 	@Override
 	public Collection<SystemOfUnits> getAvailableSystemsOfUnits() {
-		return Collections.singleton(SYSTEM);
+		return systems.values();
+	}
+
+	final void add(SystemOfUnits system) {
+		systems.put(system.getName(), system);
 	}
 }
