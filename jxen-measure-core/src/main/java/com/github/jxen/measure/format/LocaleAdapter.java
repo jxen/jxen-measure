@@ -14,7 +14,9 @@ public interface LocaleAdapter {
 	 * @param number numeric value
 	 * @return updated name
 	 */
-	String name(String name, Number number);
+	default String name(String name, Number number) {
+		return name;
+	}
 
 	/**
 	 * @param suffix unit name suffix

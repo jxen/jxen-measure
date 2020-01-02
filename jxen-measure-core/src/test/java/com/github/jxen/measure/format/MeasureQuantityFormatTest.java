@@ -72,26 +72,14 @@ class MeasureQuantityFormatTest {
 	}
 
 	@Test
-	void testFormatFull2() {
-		QuantityFormat format = new MeasureQuantityFormat(new RationalFormat(), new FullUnitFormat());
-		assertEquals("2\u202Fhectometers", format.format(new LengthAmount(Rational.TWO, MetricPrefix.hecto(METER))));
-	}
-
-	@Test
-	void testFormatFull3() {
-		QuantityFormat format = new MeasureQuantityFormat(new RationalFormat(), new FullUnitFormat());
-		assertEquals("2\u202Fmeter\u2011meters", format.format(Quantities.of(2, METER.multiply(METER))));
-	}
-
-	@Test
 	void testFormatList() {
-		MeasureQuantityFormat format = new MeasureQuantityFormat(new FullUnitFormat());
+		MeasureQuantityFormat format = new MeasureQuantityFormat(new DefaultUnitFormat());
 		Unit<Length> cm = centi(METER);
 		QuantityDecomposer<Length> decomposer = new QuantityDecomposer<>(asList(METER, cm));
 		Quantity<Length> length = of(1.25, METER);
 		List<Quantity<Length>> list = decomposer.decompose(length);
 		String actual = format.format(list);
-		String expected = "1\u202Fmeter 25\u202Fcentimeters";
+		String expected = "1\u202Fm 25\u202Fcm";
 		assertEquals(expected, actual);
 	}
 

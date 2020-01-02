@@ -1,12 +1,13 @@
-package com.github.jxen.measure.format;
+package com.github.jxen.measure.spi.adapter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.github.jxen.measure.format.LocaleAdapter;
 import org.junit.jupiter.api.Test;
 
-class DefaultLocaleAdapterTest {
+class EnLocaleAdapterTest {
 
-	private LocaleAdapter adapter = new DefaultLocaleAdapter();
+	private LocaleAdapter adapter = new EnLocaleAdapter();
 
 	@Test
 	void testNameHalf() {

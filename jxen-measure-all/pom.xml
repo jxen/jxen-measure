@@ -18,11 +18,19 @@
 		</dependency>
 		<dependency>
 			<groupId>com.github.jxen.sdk</groupId>
+			<artifactId>jxen-measure-core-en</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.jxen.sdk</groupId>
 			<artifactId>jxen-measure-core-ru</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.github.jxen.sdk</groupId>
 			<artifactId>jxen-measure-misc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.jxen.sdk</groupId>
+			<artifactId>jxen-measure-misc-en</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.github.jxen.sdk</groupId>

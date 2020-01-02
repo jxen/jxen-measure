@@ -3,17 +3,18 @@ package com.github.jxen.measure.spi.adapter;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.util.Locale;
 import org.junit.jupiter.api.Test;
 
-class RuLocaleServiceTest {
+class EnLocaleServiceTest {
 
 	@Test
 	void testGetLocale() {
-		assertEquals(RuLocaleService.RU, new RuLocaleService().getLocale());
+		assertEquals(Locale.ENGLISH, new EnLocaleService().getLocale());
 	}
 
 	@Test
 	void testGetAdapter() {
-		assertNotNull(new RuLocaleService().getAdapter());
+		assertNotNull(new EnLocaleService().getAdapter());
 	}
 }

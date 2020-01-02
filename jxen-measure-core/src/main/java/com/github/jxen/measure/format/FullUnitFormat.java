@@ -6,9 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Optional;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.ServiceLoader;
+import java.util.stream.Stream;
 
 /**
  * {@code FullUnitFormat} class is extension of {@link MeasureUnitFormat}.
@@ -19,11 +20,13 @@ import java.util.ServiceLoader;
  */
 public class FullUnitFormat extends MeasureUnitFormat {
 
-	private static final LocaleAdapter DEFAULT_ADAPTER = new DefaultLocaleAdapter();
+	private static final LocaleAdapter DEFAULT_ADAPTER = new LocaleAdapter() {
+	};
 
 	private static final Map<Locale, LocaleAdapter> ADAPTERS = new HashMap<>();
 
 	static {
+		ADAPTERS.put(Locale.ROOT, DEFAULT_ADAPTER);
 		for (LocaleService service : ServiceLoader.load(LocaleService.class)) {
 			ADAPTERS.putIfAbsent(service.getLocale(), service.getAdapter());
 		}
@@ -31,7 +34,21 @@ public class FullUnitFormat extends MeasureUnitFormat {
 
 	@Override
 	protected UnitNameHelper.Formatter getFormatter(List<ResourceBundle> bundles) {
-		LocaleAdapter adapter = Optional.ofNullable(ADAPTERS.get(Locale.getDefault())).orElse(DEFAULT_ADAPTER);
+		LocaleAdapter adapter = ADAPTERS.get(Locale.getDefault());
+		if (Objects.isNull(adapter)) {
+			adapter = stream(Locale.getDefault())
+					.filter(ADAPTERS::containsKey)
+					.map(ADAPTERS::get).findFirst().orElse(DEFAULT_ADAPTER);
+			ADAPTERS.put(Locale.getDefault(), adapter);
+		}
 		return new FullFormatter(adapter, bundles);
+	}
+
+	private static Stream<Locale> stream(Locale locale) {
+		return Stream.of(new Locale(locale.getLanguage(), locale.getCountry(), locale.getVariant()),
+				new Locale(locale.getLanguage(), locale.getCountry()),
+				new Locale(locale.getLanguage()),
+				Locale.ROOT)
+				.distinct();
 	}
 }

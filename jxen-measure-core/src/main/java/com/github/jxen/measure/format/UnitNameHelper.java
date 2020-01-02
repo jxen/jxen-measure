@@ -127,6 +127,7 @@ public final class UnitNameHelper {
 	abstract static class Formatter {
 
 		private static final String PREFIX = "prefix.";
+		private static final String UNIT = "unit.";
 		private static final String SUFFIX = "suffix.";
 
 		private final LocaleAdapter adapter;
@@ -144,12 +145,12 @@ public final class UnitNameHelper {
 			if (Objects.nonNull(part.prefix)) {
 				builder.append(getString(PREFIX + part.prefix));
 			}
-			builder.append(getString("unit." + adapter.name(part.name, value)));
+			builder.append(getString(UNIT + adapter.name(part.name, value), UNIT + part.name));
 			if (Objects.isNull(part.suffix)) {
 				return builder.toString();
 			}
-			return MessageFormat.format(getString(SUFFIX + adapter.suffix(part.suffix, part.name, value)),
-					builder.toString());
+			String format = getString(SUFFIX + adapter.suffix(part.suffix, part.name, value), SUFFIX + part.suffix);
+			return MessageFormat.format(format, builder.toString());
 		}
 
 		String formatNumerator(Number value, List<Part> parts) {
@@ -169,6 +170,18 @@ public final class UnitNameHelper {
 				return name;
 			}
 			return MessageFormat.format(getString(SUFFIX + part.suffix + ".denom"), name);
+		}
+
+		String getString(String key, String defaultKey) {
+			for (ResourceBundle bundle : bundles) {
+				if (bundle.containsKey(key)) {
+					return bundle.getString(key);
+				}
+				if (bundle.containsKey(defaultKey)) {
+					return bundle.getString(defaultKey);
+				}
+			}
+			return String.format("[%s,%s]", key, defaultKey);
 		}
 
 		String getString(String key) {

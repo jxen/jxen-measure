@@ -13,8 +13,11 @@ import java.util.ResourceBundle;
  */
 public class DefaultUnitFormat extends MeasureUnitFormat {
 
+	private static final LocaleAdapter DEFAULT_ADAPTER = new LocaleAdapter() {
+	};
+
 	@Override
 	protected UnitNameHelper.Formatter getFormatter(List<ResourceBundle> bundles) {
-		return new DefaultFormatter((n, v) -> n, bundles);
+		return new DefaultFormatter(DEFAULT_ADAPTER, bundles);
 	}
 }

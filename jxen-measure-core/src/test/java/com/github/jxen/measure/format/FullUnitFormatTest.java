@@ -46,7 +46,12 @@ class FullUnitFormatTest {
 
 	@Test
 	void testFormatUnknown() {
-		assertEquals("[unit.unknown]", new FullUnitFormat().format(METER.alternate("unknown")));
+		assertEquals("[unit.unknown,unit.unknown]", new FullUnitFormat().format(METER.alternate("unknown")));
+	}
+
+	@Test
+	void testFormatUnknownPrefix() {
+		assertEquals("[prefix.unknown]meter", new FullUnitFormat().format(METER.alternate("unknown:meter")));
 	}
 
 	@Test
