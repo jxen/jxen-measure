@@ -3,6 +3,7 @@ package com.github.jxen.measure.spi;
 import com.github.jxen.measure.misc.ApothecariesUnits;
 import com.github.jxen.measure.misc.CgsUnits;
 import com.github.jxen.measure.misc.ImperialUnits;
+import com.github.jxen.measure.misc.InformationUnits;
 import com.github.jxen.measure.misc.LegacyUnits;
 import com.github.jxen.measure.misc.RussianUnits;
 import com.github.jxen.measure.misc.TemperatureUnits;
@@ -20,5 +21,6 @@ class MiscSystemOfUnitsService extends DefaultSystemOfUnitsService {
 		add(TemperatureUnits.SYSTEM);
 		add(CgsUnits.SYSTEM);
 		add(LegacyUnits.SYSTEM);
+		add(InformationUnits.SYSTEM);
 	}
 }
