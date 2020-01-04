@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.github.jxen.measure.converter.Converters;
 import com.github.jxen.measure.dimension.Dimensions;
-import com.github.jxen.measure.unit.MetricUnits;
+import com.github.jxen.measure.system.MetricUnits;
 import org.junit.jupiter.api.Test;
 
 class CurrencyUnitTest {

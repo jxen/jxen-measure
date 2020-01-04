@@ -1,8 +1,8 @@
 package com.github.jxen.measure.misc;
 
 import static com.github.jxen.measure.misc.ImperialUnits.CUBIC_INCH;
-import static com.github.jxen.measure.unit.MetricUnits.KILOGRAM;
-import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
+import static com.github.jxen.measure.system.MetricUnits.KILOGRAM;
+import static com.github.jxen.measure.unit.UnitUtil.unit;
 
 import com.github.jxen.math.rational.BigRational;
 import com.github.jxen.math.rational.Rational;

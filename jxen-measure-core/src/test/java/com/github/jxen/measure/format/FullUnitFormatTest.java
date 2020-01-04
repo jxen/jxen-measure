@@ -1,11 +1,11 @@
 package com.github.jxen.measure.format;
 
-import static com.github.jxen.measure.unit.MeterUnits.METER_PER_SECOND;
-import static com.github.jxen.measure.unit.MeterUnits.METER_PER_SECOND_SQUARED;
+import static com.github.jxen.measure.system.MeterUnits.METER_PER_SECOND;
+import static com.github.jxen.measure.system.MeterUnits.METER_PER_SECOND_SQUARED;
 import static com.github.jxen.measure.unit.MetricPrefix.kilo;
 import static com.github.jxen.measure.unit.MetricPrefix.milli;
-import static com.github.jxen.measure.unit.MetricUnits.METER;
-import static com.github.jxen.measure.unit.MetricUnits.SECOND;
+import static com.github.jxen.measure.system.MetricUnits.METER;
+import static com.github.jxen.measure.system.MetricUnits.SECOND;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Locale;

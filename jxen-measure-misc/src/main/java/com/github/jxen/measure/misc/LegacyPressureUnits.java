@@ -2,10 +2,10 @@ package com.github.jxen.measure.misc;
 
 import static com.github.jxen.measure.misc.CgsUnits.CENTIMETER;
 import static com.github.jxen.measure.misc.CgsUnits.GRAM_PER_CUBIC_CENTIMETER;
-import static com.github.jxen.measure.unit.MetricUnits.METER;
-import static com.github.jxen.measure.unit.NamedUnits.PASCAL;
-import static com.github.jxen.measure.unit.PhysicalConstants.STANDARD_GRAVITY;
-import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
+import static com.github.jxen.measure.system.MetricUnits.METER;
+import static com.github.jxen.measure.system.NamedUnits.PASCAL;
+import static com.github.jxen.measure.system.PhysicalConstants.STANDARD_GRAVITY;
+import static com.github.jxen.measure.unit.UnitUtil.unit;
 
 import com.github.jxen.measure.annotation.AddUnit;
 import com.github.jxen.measure.unit.AbstractUnit;

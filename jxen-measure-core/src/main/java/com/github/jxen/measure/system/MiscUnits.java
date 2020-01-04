@@ -1,17 +1,18 @@
-package com.github.jxen.measure.unit;
+package com.github.jxen.measure.system;
 
-import static com.github.jxen.measure.unit.MeterUnits.SQUARE_METER;
-import static com.github.jxen.measure.unit.MetricUnits.CANDELA;
-import static com.github.jxen.measure.unit.MetricUnits.KELVIN;
-import static com.github.jxen.measure.unit.MetricUnits.KILOGRAM;
-import static com.github.jxen.measure.unit.MetricUnits.METER;
-import static com.github.jxen.measure.unit.MetricUnits.MOLE;
-import static com.github.jxen.measure.unit.MetricUnits.SECOND;
-import static com.github.jxen.measure.unit.NamedUnits.JOULE;
-import static com.github.jxen.measure.unit.RadianUnits.STERADIAN;
-import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
+import static com.github.jxen.measure.system.MeterUnits.SQUARE_METER;
+import static com.github.jxen.measure.system.MetricUnits.CANDELA;
+import static com.github.jxen.measure.system.MetricUnits.KELVIN;
+import static com.github.jxen.measure.system.MetricUnits.KILOGRAM;
+import static com.github.jxen.measure.system.MetricUnits.METER;
+import static com.github.jxen.measure.system.MetricUnits.MOLE;
+import static com.github.jxen.measure.system.MetricUnits.SECOND;
+import static com.github.jxen.measure.system.NamedUnits.JOULE;
+import static com.github.jxen.measure.system.RadianUnits.STERADIAN;
+import static com.github.jxen.measure.unit.UnitUtil.unit;
 
 import com.github.jxen.measure.annotation.AddUnit;
+import com.github.jxen.measure.unit.AbstractUnit;
 import java.math.BigDecimal;
 import javax.measure.quantity.CatalyticActivity;
 import javax.measure.quantity.Illuminance;

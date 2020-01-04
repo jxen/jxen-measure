@@ -2,8 +2,8 @@ package com.github.jxen.measure.misc;
 
 import static com.github.jxen.measure.misc.ImperialUnits.FAHRENHEIT;
 import static com.github.jxen.measure.misc.ImperialUnits.RANKINE;
-import static com.github.jxen.measure.unit.MetricUnits.KELVIN;
-import static com.github.jxen.measure.unit.MiscUnits.CELSIUS;
+import static com.github.jxen.measure.system.MetricUnits.KELVIN;
+import static com.github.jxen.measure.system.MiscUnits.CELSIUS;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.github.jxen.measure.quantity.impl.Quantities;

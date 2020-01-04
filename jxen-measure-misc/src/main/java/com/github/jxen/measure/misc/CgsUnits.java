@@ -1,16 +1,16 @@
 package com.github.jxen.measure.misc;
 
-import static com.github.jxen.measure.unit.NamedUnits.JOULE;
-import static com.github.jxen.measure.unit.NamedUnits.NEWTON;
-import static com.github.jxen.measure.unit.NamedUnits.PASCAL;
-import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
+import static com.github.jxen.measure.system.NamedUnits.JOULE;
+import static com.github.jxen.measure.system.NamedUnits.NEWTON;
+import static com.github.jxen.measure.system.NamedUnits.PASCAL;
+import static com.github.jxen.measure.unit.UnitUtil.unit;
 
 import com.github.jxen.math.rational.Rational;
 import com.github.jxen.measure.annotation.AddUnit;
+import com.github.jxen.measure.system.MeterUnits;
+import com.github.jxen.measure.system.MetricUnits;
+import com.github.jxen.measure.system.NamedUnits;
 import com.github.jxen.measure.unit.AbstractUnit;
-import com.github.jxen.measure.unit.MeterUnits;
-import com.github.jxen.measure.unit.MetricUnits;
-import com.github.jxen.measure.unit.NamedUnits;
 import com.github.jxen.measure.unit.SystemOfUnitsImpl;
 import javax.measure.quantity.Acceleration;
 import javax.measure.quantity.Energy;

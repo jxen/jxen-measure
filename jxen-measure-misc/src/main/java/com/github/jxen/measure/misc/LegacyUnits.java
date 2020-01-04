@@ -1,18 +1,18 @@
 package com.github.jxen.measure.misc;
 
 import static com.github.jxen.measure.misc.CgsUnits.GRAM;
-import static com.github.jxen.measure.unit.MeterUnits.SQUARE_METER;
-import static com.github.jxen.measure.unit.MetricUnits.KILOGRAM;
-import static com.github.jxen.measure.unit.MetricUnits.METER;
-import static com.github.jxen.measure.unit.NamedUnits.JOULE;
-import static com.github.jxen.measure.unit.NamedUnits.WATT;
-import static com.github.jxen.measure.unit.NonSiUnits.ASTRONOMICAL_UNIT;
-import static com.github.jxen.measure.unit.NonSiUnits.TONNE;
-import static com.github.jxen.measure.unit.PhysicalConstants.SPEED_OF_LIGHT;
-import static com.github.jxen.measure.unit.PhysicalConstants.STANDARD_GRAVITY;
-import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
-import static com.github.jxen.measure.unit.TimeUnits.HOUR;
-import static com.github.jxen.measure.unit.TimeUnits.JULIAN_YEAR;
+import static com.github.jxen.measure.system.MeterUnits.SQUARE_METER;
+import static com.github.jxen.measure.system.MetricUnits.KILOGRAM;
+import static com.github.jxen.measure.system.MetricUnits.METER;
+import static com.github.jxen.measure.system.NamedUnits.JOULE;
+import static com.github.jxen.measure.system.NamedUnits.WATT;
+import static com.github.jxen.measure.system.NonSiUnits.ASTRONOMICAL_UNIT;
+import static com.github.jxen.measure.system.NonSiUnits.TONNE;
+import static com.github.jxen.measure.system.PhysicalConstants.SPEED_OF_LIGHT;
+import static com.github.jxen.measure.system.PhysicalConstants.STANDARD_GRAVITY;
+import static com.github.jxen.measure.system.TimeUnits.HOUR;
+import static com.github.jxen.measure.system.TimeUnits.JULIAN_YEAR;
+import static com.github.jxen.measure.unit.UnitUtil.unit;
 
 import com.github.jxen.math.rational.Rational;
 import com.github.jxen.measure.annotation.AddUnit;

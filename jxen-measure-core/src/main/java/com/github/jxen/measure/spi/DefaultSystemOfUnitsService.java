@@ -1,7 +1,8 @@
 package com.github.jxen.measure.spi;
 
-import com.github.jxen.measure.unit.PhysicalConstants;
-import com.github.jxen.measure.unit.Si;
+import com.github.jxen.measure.system.MathConstants;
+import com.github.jxen.measure.system.PhysicalConstants;
+import com.github.jxen.measure.system.Si;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,6 +15,7 @@ class DefaultSystemOfUnitsService implements SystemOfUnitsService {
 
 	DefaultSystemOfUnitsService() {
 		add(Si.SYSTEM);
+		add(MathConstants.SYSTEM);
 		add(PhysicalConstants.SYSTEM);
 	}
 

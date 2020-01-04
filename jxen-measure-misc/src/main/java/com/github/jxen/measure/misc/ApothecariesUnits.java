@@ -1,6 +1,6 @@
 package com.github.jxen.measure.misc;
 
-import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
+import static com.github.jxen.measure.unit.UnitUtil.unit;
 
 import com.github.jxen.math.rational.Rational;
 import com.github.jxen.measure.annotation.AddUnit;

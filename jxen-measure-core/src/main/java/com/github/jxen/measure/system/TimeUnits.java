@@ -1,9 +1,10 @@
-package com.github.jxen.measure.unit;
+package com.github.jxen.measure.system;
 
-import static com.github.jxen.measure.unit.MetricUnits.SECOND;
-import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
+import static com.github.jxen.measure.system.MetricUnits.SECOND;
+import static com.github.jxen.measure.unit.UnitUtil.unit;
 
 import com.github.jxen.measure.annotation.AddUnit;
+import com.github.jxen.measure.unit.AbstractUnit;
 import java.math.BigDecimal;
 import javax.measure.quantity.Time;
 

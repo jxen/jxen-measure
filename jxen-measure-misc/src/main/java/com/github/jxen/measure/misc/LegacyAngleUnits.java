@@ -1,10 +1,10 @@
 package com.github.jxen.measure.misc;
 
-import static com.github.jxen.measure.unit.MetricUnits.SECOND;
-import static com.github.jxen.measure.unit.NonSiUnits.DEGREE_ANGLE;
-import static com.github.jxen.measure.unit.RadianUnits.STERADIAN;
-import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
-import static com.github.jxen.measure.unit.TimeUnits.MINUTE;
+import static com.github.jxen.measure.system.MetricUnits.SECOND;
+import static com.github.jxen.measure.system.NonSiUnits.DEGREE_ANGLE;
+import static com.github.jxen.measure.system.RadianUnits.STERADIAN;
+import static com.github.jxen.measure.system.TimeUnits.MINUTE;
+import static com.github.jxen.measure.unit.UnitUtil.unit;
 
 import com.github.jxen.math.rational.Rational;
 import com.github.jxen.measure.annotation.AddUnit;

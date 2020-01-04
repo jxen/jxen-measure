@@ -1,14 +1,15 @@
-package com.github.jxen.measure.unit;
+package com.github.jxen.measure.system;
 
-import static com.github.jxen.measure.unit.MetricUnits.AMPERE;
-import static com.github.jxen.measure.unit.MetricUnits.KILOGRAM;
-import static com.github.jxen.measure.unit.MetricUnits.METER;
-import static com.github.jxen.measure.unit.MetricUnits.SECOND;
-import static com.github.jxen.measure.unit.NamedUnits.NEWTON;
-import static com.github.jxen.measure.unit.NamedUnits.WATT;
-import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
+import static com.github.jxen.measure.system.MetricUnits.AMPERE;
+import static com.github.jxen.measure.system.MetricUnits.KILOGRAM;
+import static com.github.jxen.measure.system.MetricUnits.METER;
+import static com.github.jxen.measure.system.MetricUnits.SECOND;
+import static com.github.jxen.measure.system.NamedUnits.NEWTON;
+import static com.github.jxen.measure.system.NamedUnits.WATT;
+import static com.github.jxen.measure.unit.UnitUtil.unit;
 
 import com.github.jxen.measure.annotation.AddUnit;
+import com.github.jxen.measure.unit.AbstractUnit;
 import javax.measure.quantity.ElectricCapacitance;
 import javax.measure.quantity.ElectricCharge;
 import javax.measure.quantity.ElectricConductance;

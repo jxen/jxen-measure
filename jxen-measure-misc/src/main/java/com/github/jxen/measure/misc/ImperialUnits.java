@@ -1,18 +1,18 @@
 package com.github.jxen.measure.misc;
 
+import static com.github.jxen.measure.system.MetricUnits.METER;
+import static com.github.jxen.measure.system.MetricUnits.SECOND;
+import static com.github.jxen.measure.system.NamedUnits.GRAM;
+import static com.github.jxen.measure.system.NonSiUnits.LITER;
+import static com.github.jxen.measure.system.TimeUnits.HOUR;
 import static com.github.jxen.measure.unit.MetricPrefix.milli;
-import static com.github.jxen.measure.unit.MetricUnits.METER;
-import static com.github.jxen.measure.unit.MetricUnits.SECOND;
-import static com.github.jxen.measure.unit.NamedUnits.GRAM;
-import static com.github.jxen.measure.unit.NonSiUnits.LITER;
-import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
-import static com.github.jxen.measure.unit.TimeUnits.HOUR;
+import static com.github.jxen.measure.unit.UnitUtil.unit;
 
 import com.github.jxen.math.rational.BigRational;
 import com.github.jxen.math.rational.Rational;
 import com.github.jxen.measure.annotation.AddUnit;
+import com.github.jxen.measure.system.PhysicalConstants;
 import com.github.jxen.measure.unit.AbstractUnit;
-import com.github.jxen.measure.unit.PhysicalConstants;
 import com.github.jxen.measure.unit.SystemOfUnitsImpl;
 import java.math.BigDecimal;
 import javax.measure.quantity.Acceleration;

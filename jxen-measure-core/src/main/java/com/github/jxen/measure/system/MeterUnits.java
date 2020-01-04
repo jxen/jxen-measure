@@ -1,11 +1,13 @@
-package com.github.jxen.measure.unit;
+package com.github.jxen.measure.system;
 
-import static com.github.jxen.measure.unit.MetricUnits.METER;
-import static com.github.jxen.measure.unit.MetricUnits.SECOND;
-import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
-import static com.github.jxen.measure.unit.TimeUnits.HOUR;
+import static com.github.jxen.measure.system.MetricUnits.METER;
+import static com.github.jxen.measure.system.MetricUnits.SECOND;
+import static com.github.jxen.measure.system.TimeUnits.HOUR;
+import static com.github.jxen.measure.unit.UnitUtil.unit;
 
 import com.github.jxen.measure.annotation.AddUnit;
+import com.github.jxen.measure.unit.AbstractUnit;
+import com.github.jxen.measure.unit.MetricPrefix;
 import javax.measure.quantity.Acceleration;
 import javax.measure.quantity.Area;
 import javax.measure.quantity.Length;

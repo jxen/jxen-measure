@@ -1,15 +1,15 @@
 package com.github.jxen.measure.misc;
 
 import static com.github.jxen.measure.misc.CgsUnits.CENTIMETER;
-import static com.github.jxen.measure.unit.AmpereUnits.AMPERE_PER_METER;
-import static com.github.jxen.measure.unit.AmpereUnits.AMPERE_TURN;
-import static com.github.jxen.measure.unit.AmpereUnits.COULOMB;
-import static com.github.jxen.measure.unit.AmpereUnits.TESLA;
-import static com.github.jxen.measure.unit.AmpereUnits.WEBER;
-import static com.github.jxen.measure.unit.MetricUnits.CANDELA;
-import static com.github.jxen.measure.unit.MiscUnits.LUX;
-import static com.github.jxen.measure.unit.PhysicalConstants.SPEED_OF_LIGHT;
-import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
+import static com.github.jxen.measure.system.AmpereUnits.AMPERE_PER_METER;
+import static com.github.jxen.measure.system.AmpereUnits.AMPERE_TURN;
+import static com.github.jxen.measure.system.AmpereUnits.COULOMB;
+import static com.github.jxen.measure.system.AmpereUnits.TESLA;
+import static com.github.jxen.measure.system.AmpereUnits.WEBER;
+import static com.github.jxen.measure.system.MetricUnits.CANDELA;
+import static com.github.jxen.measure.system.MiscUnits.LUX;
+import static com.github.jxen.measure.system.PhysicalConstants.SPEED_OF_LIGHT;
+import static com.github.jxen.measure.unit.UnitUtil.unit;
 
 import com.github.jxen.measure.annotation.AddUnit;
 import com.github.jxen.measure.unit.AbstractUnit;

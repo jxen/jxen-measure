@@ -1,10 +1,11 @@
-package com.github.jxen.measure.unit;
+package com.github.jxen.measure.system;
 
 import static com.github.jxen.measure.dimension.Dimensions.DIMENSIONLESS;
-import static com.github.jxen.measure.unit.MetricUnits.SECOND;
-import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
+import static com.github.jxen.measure.system.MetricUnits.SECOND;
+import static com.github.jxen.measure.unit.UnitUtil.unit;
 
 import com.github.jxen.measure.annotation.AddUnit;
+import com.github.jxen.measure.unit.AbstractUnit;
 import javax.measure.quantity.Angle;
 import javax.measure.quantity.SolidAngle;
 import si.uom.quantity.AngularAcceleration;

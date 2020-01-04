@@ -2,7 +2,7 @@ package com.github.jxen.measure.quantity;
 
 import static com.github.jxen.measure.quantity.impl.Quantities.of;
 import static com.github.jxen.measure.unit.MetricPrefix.centi;
-import static com.github.jxen.measure.unit.MetricUnits.METER;
+import static com.github.jxen.measure.system.MetricUnits.METER;
 import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

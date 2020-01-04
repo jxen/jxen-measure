@@ -1,15 +1,16 @@
-package com.github.jxen.measure.unit;
+package com.github.jxen.measure.system;
 
-import static com.github.jxen.measure.unit.MetricUnits.KELVIN;
-import static com.github.jxen.measure.unit.MetricUnits.KILOGRAM;
-import static com.github.jxen.measure.unit.MetricUnits.METER;
-import static com.github.jxen.measure.unit.MetricUnits.SECOND;
-import static com.github.jxen.measure.unit.RadianUnits.STERADIAN;
-import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
+import static com.github.jxen.measure.system.MetricUnits.KELVIN;
+import static com.github.jxen.measure.system.MetricUnits.KILOGRAM;
+import static com.github.jxen.measure.system.MetricUnits.METER;
+import static com.github.jxen.measure.system.MetricUnits.SECOND;
+import static com.github.jxen.measure.system.RadianUnits.STERADIAN;
+import static com.github.jxen.measure.unit.UnitUtil.unit;
 
 import com.github.jxen.math.rational.Rational;
 import com.github.jxen.measure.annotation.AddUnit;
 import com.github.jxen.measure.quantity.Entropy;
+import com.github.jxen.measure.unit.AbstractUnit;
 import javax.measure.quantity.Energy;
 import javax.measure.quantity.Force;
 import javax.measure.quantity.Frequency;

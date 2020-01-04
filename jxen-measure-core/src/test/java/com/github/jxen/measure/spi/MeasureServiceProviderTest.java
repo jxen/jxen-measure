@@ -47,7 +47,7 @@ class MeasureServiceProviderTest {
 
 	@Test
 	void testGetSystemOfUnitsServiceGetAvailableSystemsOfUnits() {
-		assertEquals(2, service.getSystemOfUnitsService().getAvailableSystemsOfUnits().size());
+		assertEquals(3, service.getSystemOfUnitsService().getAvailableSystemsOfUnits().size());
 	}
 
 	@Test

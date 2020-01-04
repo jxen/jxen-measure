@@ -3,6 +3,7 @@ package com.github.jxen.measure.unit;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import com.github.jxen.measure.system.MetricUnits;
 import org.junit.jupiter.api.Test;
 
 class MetricPrefixTest {

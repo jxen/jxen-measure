@@ -1,16 +1,17 @@
-package com.github.jxen.measure.unit;
+package com.github.jxen.measure.system;
 
-import static com.github.jxen.measure.unit.AmpereUnits.VOLT;
-import static com.github.jxen.measure.unit.MeterUnits.CUBIC_METER;
-import static com.github.jxen.measure.unit.MeterUnits.SQUARE_METER;
-import static com.github.jxen.measure.unit.MetricUnits.KILOGRAM;
-import static com.github.jxen.measure.unit.MetricUnits.METER;
-import static com.github.jxen.measure.unit.PhysicalConstants.ELEMENTARY_CHARGE;
-import static com.github.jxen.measure.unit.RadianUnits.RADIAN;
-import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
+import static com.github.jxen.measure.system.AmpereUnits.VOLT;
+import static com.github.jxen.measure.system.MeterUnits.CUBIC_METER;
+import static com.github.jxen.measure.system.MeterUnits.SQUARE_METER;
+import static com.github.jxen.measure.system.MetricUnits.KILOGRAM;
+import static com.github.jxen.measure.system.MetricUnits.METER;
+import static com.github.jxen.measure.system.PhysicalConstants.ELEMENTARY_CHARGE;
+import static com.github.jxen.measure.system.RadianUnits.RADIAN;
+import static com.github.jxen.measure.unit.UnitUtil.unit;
 
 import com.github.jxen.math.rational.Rational;
 import com.github.jxen.measure.annotation.AddUnit;
+import com.github.jxen.measure.unit.AbstractUnit;
 import java.math.BigDecimal;
 import javax.measure.quantity.Angle;
 import javax.measure.quantity.Area;

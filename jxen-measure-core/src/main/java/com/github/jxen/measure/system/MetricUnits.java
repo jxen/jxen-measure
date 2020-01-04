@@ -1,4 +1,4 @@
-package com.github.jxen.measure.unit;
+package com.github.jxen.measure.system;
 
 import static com.github.jxen.measure.dimension.Dimensions.AMOUNT_OF_SUBSTANCE;
 import static com.github.jxen.measure.dimension.Dimensions.ELECTRIC_CURRENT;
@@ -7,9 +7,10 @@ import static com.github.jxen.measure.dimension.Dimensions.LUMINOUS_INTENSITY;
 import static com.github.jxen.measure.dimension.Dimensions.MASS;
 import static com.github.jxen.measure.dimension.Dimensions.TEMPERATURE;
 import static com.github.jxen.measure.dimension.Dimensions.TIME;
-import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
+import static com.github.jxen.measure.unit.UnitUtil.unit;
 
 import com.github.jxen.measure.annotation.AddUnit;
+import com.github.jxen.measure.unit.AbstractUnit;
 import javax.measure.quantity.AmountOfSubstance;
 import javax.measure.quantity.ElectricCurrent;
 import javax.measure.quantity.Length;

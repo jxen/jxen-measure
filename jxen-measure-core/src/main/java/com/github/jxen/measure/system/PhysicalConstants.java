@@ -1,14 +1,17 @@
-package com.github.jxen.measure.unit;
+package com.github.jxen.measure.system;
 
-import static com.github.jxen.measure.unit.AmpereUnits.COULOMB;
-import static com.github.jxen.measure.unit.MeterUnits.METER_PER_SECOND;
-import static com.github.jxen.measure.unit.MeterUnits.METER_PER_SECOND_SQUARED;
-import static com.github.jxen.measure.unit.NamedUnits.JOULE_PER_KELVIN;
-import static com.github.jxen.measure.unit.NamedUnits.JOULE_SECOND;
-import static com.github.jxen.measure.unit.SystemOfUnitsImpl.unit;
+import static com.github.jxen.measure.system.AmpereUnits.COULOMB;
+import static com.github.jxen.measure.system.MathConstants.UNIT;
+import static com.github.jxen.measure.system.MeterUnits.METER_PER_SECOND;
+import static com.github.jxen.measure.system.MeterUnits.METER_PER_SECOND_SQUARED;
+import static com.github.jxen.measure.system.NamedUnits.JOULE_PER_KELVIN;
+import static com.github.jxen.measure.system.NamedUnits.JOULE_SECOND;
+import static com.github.jxen.measure.unit.UnitUtil.unit;
 
 import com.github.jxen.measure.annotation.AddUnit;
 import com.github.jxen.measure.quantity.Entropy;
+import com.github.jxen.measure.unit.AbstractUnit;
+import com.github.jxen.measure.unit.SystemOfUnitsImpl;
 import java.math.BigDecimal;
 import javax.measure.quantity.Acceleration;
 import javax.measure.quantity.Dimensionless;
@@ -18,7 +21,7 @@ import javax.measure.spi.SystemOfUnits;
 import si.uom.quantity.Action;
 
 /**
- * {@code PhysicalConstants} class contains natural phusical unit constants.
+ * {@code PhysicalConstants} class contains natural physical unit constants.
  *
  * @author Denis Murashev
  *
@@ -56,7 +59,7 @@ public final class PhysicalConstants {
 	 * @see <a href="https://en.wikipedia.org/wiki/Avogadro_constant">Wikipedia: Avogadro constant</a>
 	 */
 	@AddUnit
-	public static final AbstractUnit<Dimensionless> AVOGADRO_CONSTANT = unit("avogadro", new ProductUnit<>(),
+	public static final AbstractUnit<Dimensionless> AVOGADRO_CONSTANT = unit("avogadro", UNIT,
 			new BigDecimal("6.02214076E23"), Dimensionless.class);
 
 	/**
