@@ -204,7 +204,7 @@ public final class UnitNameHelper {
 		String format(Number value, String unit) {
 			StringBuilder builder = new StringBuilder();
 			UnitName name = parse(unit);
-			final String bullet = "\u2022"; // bullet symbol
+			final String bullet = "\u00B7"; // middle dot
 			builder.append(name.numerator.stream().map(p -> format(value, p)).collect(joining(bullet)));
 			if (!name.denominator.isEmpty()) {
 				builder.append('\u2044'); // fraction slash

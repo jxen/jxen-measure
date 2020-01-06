@@ -75,10 +75,11 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements Quantit
 		return factory().apply(adapter.multiply(multiplier), unit);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public Quantity<Q> to(Unit<Q> unit) {
+	public Q to(Unit<Q> unit) {
 		if (unit.equals(getUnit())) {
-			return this;
+			return (Q) this;
 		}
 		if (unit instanceof AbstractUnit) {
 			return factory().apply(adjust(unit), (AbstractUnit<Q>) unit);
@@ -98,9 +99,9 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements Quantit
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public <T extends Quantity<T>> Quantity<T> asType(Class<T> type) {
+	public <T extends Quantity<T>> T asType(Class<T> type) {
 		// TODO Check dimension
-		return (Quantity<T>) this;
+		return (T) this;
 	}
 
 	@Override

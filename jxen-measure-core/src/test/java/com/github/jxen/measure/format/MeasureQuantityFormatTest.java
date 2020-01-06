@@ -62,7 +62,7 @@ class MeasureQuantityFormatTest {
 	@Test
 	void testFormatShort4() {
 		QuantityFormat format = new MeasureQuantityFormat(new RationalFormat(), new DefaultUnitFormat());
-		assertEquals("2\u202Fm\u2022m", format.format(Quantities.of(2, METER.multiply(METER))));
+		assertEquals("2\u202Fm\u00B7m", format.format(Quantities.of(2, METER.multiply(METER))));
 	}
 
 	@Test
