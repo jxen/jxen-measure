@@ -1,30 +1,50 @@
 package com.github.jxen.measure.data;
 
 import com.github.jxen.measure.quantity.impl.Quantities;
+import com.github.jxen.measure.spi.SubstanceService;
 import com.github.jxen.measure.unit.AbstractUnit;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.ServiceLoader;
 import javax.measure.MeasurementException;
 import javax.measure.Quantity;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.error.YAMLException;
 
 final class YamlUtil {
 
+	private static final Logger LOG = LogManager.getLogger(YamlUtil.class);
+
 	private YamlUtil() {
 	}
 
-	static <Q extends Quantity<Q>> Map<Substance, Quantity<Q>> fill(Map<Substance, Quantity<Q>> map, Class<?> type,
-			AbstractUnit<Q> unit) {
-		try (InputStream inputStream = type.getResourceAsStream(type.getSimpleName() + ".yaml")) {
+	static <Q extends Quantity<Q>> Map<Substance<?>, Quantity<Q>> fill(Class<?> type, AbstractUnit<Q> unit) {
+		Map<Substance<?>, Quantity<Q>> map = new HashMap<>();
+		for (SubstanceService<?> service : ServiceLoader.load(SubstanceService.class)) {
+			fill(map, service.getEnumClass(), type, unit);
+		}
+		return map;
+	}
+
+	private static <Q extends Quantity<Q>> void fill(Map<Substance<?>, Quantity<Q>> map,
+			Class<? extends Enum> enumClass, Class<?> type, AbstractUnit<Q> unit) {
+		String name = enumClass.getSimpleName() + "_" + type.getSimpleName() + ".yaml";
+		try (InputStream inputStream = type.getResourceAsStream(name)) {
+			if (Objects.isNull(inputStream)) {
+				LOG.warn(() -> "No data for " + enumClass);
+				return;
+			}
 			Map<String, Map<String, Number>> data = new Yaml().load(inputStream);
 			Map<String, Number> substances = data.get("substances");
 			if (Objects.nonNull(substances)) {
 				substances.forEach((key, value) -> {
-					Substance s = Substance.valueOf(key);
+					Substance<?> s = (Substance<?>) Enum.valueOf(enumClass, key);
 					BigDecimal v = BigDecimal.valueOf(value.doubleValue());
 					map.put(s, Quantities.of(v, unit));
 				});
@@ -32,6 +52,5 @@ final class YamlUtil {
 		} catch (IOException | YAMLException e) {
 			throw new MeasurementException("Unable to read data", e);
 		}
-		return map;
 	}
 }

@@ -4,15 +4,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-class SubstanceTest {
+class MetalTest {
 
 	@Test
 	void testCode() {
-		assertEquals("Au", Substance.GOLD.getCode());
+		assertEquals("Au", Metal.GOLD.getCode());
 	}
 
 	@Test
 	void testName() {
-		assertEquals("gold", Substance.GOLD.getName());
+		assertEquals("gold", Metal.GOLD.getName());
 	}
 }

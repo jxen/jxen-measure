@@ -8,6 +8,6 @@ class DensitiesTest {
 
 	@Test
 	void testGet() {
-		assertNotNull(Densities.get(Substance.GOLD));
+		assertNotNull(Densities.get(Metal.GOLD));
 	}
 }
