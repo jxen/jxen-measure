@@ -32,8 +32,8 @@ final class YamlUtil {
 		return map;
 	}
 
-	private static <Q extends Quantity<Q>> void fill(Map<Substance<?>, Quantity<Q>> map,
-			Class<? extends Enum> enumClass, Class<?> type, AbstractUnit<Q> unit) {
+	private static <T extends Enum<T> & Substance<T>, Q extends Quantity<Q>> void fill(Map<? super T, Quantity<Q>> map,
+			Class<T> enumClass, Class<?> type, AbstractUnit<Q> unit) {
 		String name = enumClass.getSimpleName() + "_" + type.getSimpleName() + ".yaml";
 		try (InputStream inputStream = type.getResourceAsStream(name)) {
 			if (Objects.isNull(inputStream)) {
@@ -44,9 +44,8 @@ final class YamlUtil {
 			Map<String, Number> substances = data.get("substances");
 			if (Objects.nonNull(substances)) {
 				substances.forEach((key, value) -> {
-					Substance<?> s = (Substance<?>) Enum.valueOf(enumClass, key);
 					BigDecimal v = BigDecimal.valueOf(value.doubleValue());
-					map.put(s, Quantities.of(v, unit));
+					map.put(Enum.valueOf(enumClass, key), Quantities.of(v, unit));
 				});
 			}
 		} catch (IOException | YAMLException e) {

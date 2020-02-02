@@ -1,5 +1,7 @@
 package com.github.jxen.measure.spi;
 
+import com.github.jxen.measure.data.Substance;
+
 /**
  * {@code LocaleService} interface is SPI for Locale support service for Measure project.
  *
@@ -9,7 +11,7 @@ package com.github.jxen.measure.spi;
  *
  * @since Measure 0.6
  */
-public interface SubstanceService<T extends Enum<T>> {
+public interface SubstanceService<T extends Enum<T> & Substance<T>> {
 
 	/**
 	 * @return supported substance enum class
