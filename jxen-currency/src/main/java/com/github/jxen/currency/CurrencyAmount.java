@@ -37,9 +37,9 @@ public class CurrencyAmount extends AbstractQuantity<Currency> implements Curren
 		}
 		if (unit instanceof CurrencyUnit) {
 			Number one = Adapters.lookup(value).div(value);
-			Number min = Adapters.lookup(one).multiply(((CurrencyUnit) unit).getMinimal());
-			long n = Math.round(Adapters.lookup(value).div(min).doubleValue());
-			return Adapters.lookup(min).multiply(n);
+			Number min = ((CurrencyUnit) unit).getMinimal();
+			long n = Math.round(value.doubleValue() / min.doubleValue());
+			return Adapters.lookup(one).multiply(Adapters.lookup(min).multiply(n));
 		}
 		return value;
 	}
