@@ -1,18 +1,16 @@
 package com.github.jxen.measure.converter;
 
 import com.github.jxen.math.common.Adapters;
-import com.github.jxen.math.common.ArithmeticAware;
+import com.github.jxen.math.rational.BigRational;
 import java.util.Objects;
 import javax.measure.UnitConverter;
 
 final class MultiplyConverter extends AbstractConverter {
 
-	private final Number factor;
-	private final ArithmeticAware<?> adapter;
+	private final BigRational factor;
 
 	MultiplyConverter(Number factor) {
-		this.factor = factor;
-		adapter = Adapters.lookup(factor);
+		this.factor = BigRational.ONE.multiply(factor);
 	}
 
 	@Override
@@ -22,7 +20,7 @@ final class MultiplyConverter extends AbstractConverter {
 
 	@Override
 	public UnitConverter inverse() {
-		return new MultiplyConverter(adapter.reciprocal());
+		return new MultiplyConverter(factor.reciprocal());
 	}
 
 	@Override
@@ -39,7 +37,7 @@ final class MultiplyConverter extends AbstractConverter {
 	public UnitConverter concatenate(UnitConverter converter) {
 		if (converter instanceof MultiplyConverter) {
 			MultiplyConverter c = (MultiplyConverter) converter;
-			Number f = adapter.multiply(c.factor);
+			Number f = factor.multiply(c.factor);
 			return f.doubleValue() == 1 ? Converters.IDENTITY : new MultiplyConverter(f);
 		}
 		return super.concatenate(converter);
