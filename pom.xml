@@ -17,7 +17,7 @@
 		<jxen-math.version>0.4</jxen-math.version>
 		<unit-api.version>2.0</unit-api.version>
 		<si-quantity.version>2.0.1</si-quantity.version>
-		<systems-quantity.version>2.0</systems-quantity.version>
+		<systems-quantity.version>2.0.1</systems-quantity.version>
 		<snakeyaml.version>1.25</snakeyaml.version>
 	</properties>
 	<modules>

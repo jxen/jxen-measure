@@ -366,10 +366,18 @@ public final class ImperialUnits {
 	 *
 	 * <p>It is nominally based upon the mass of a single virtual ideal seed of a cereal.
 	 *
-	 * @see <a href="https://en.wikipedia.org/wiki/Grain_(unit)">Wikipedia: Grain_(unit)</a>
+	 * @see <a href="https://en.wikipedia.org/wiki/Grain_(unit)">Wikipedia: Grain (unit)</a>
 	 */
 	@AddUnit
 	public static final AbstractUnit<Mass> GRAIN = unit("grain", GRAM, new BigDecimal("0.06479891"), Mass.class);
+
+	/**
+	 * <p>The carat ({@code ct}), is a unit of mass used for measuring gemstones and pearls.
+	 *
+	 * @see <a href="https://en.wikipedia.org/wiki/Carat_(mass)">Wikipedia: Carat (mass)</a>
+	 */
+	@AddUnit
+	public static final AbstractUnit<Mass> CARAT = unit("carat", GRAIN, new BigRational(320, 101), Mass.class);
 
 	/**
 	 * <p>The pound or pound-mass is a unit of mass used in the imperial, United States customary
@@ -466,9 +474,7 @@ public final class ImperialUnits {
 	///////////////////////// Acceleration British Imperial Units /////////////////////////
 
 	/**
-	 * <p>The SI unit for acceleration quantities (standard name m/s&sup2;).
-	 *
-	 * @see <a href="https://en.wikipedia.org/wiki/Metre_per_second_squared">Wikipedia: Metre per second squared</a>
+	 * <p>The unit for acceleration quantities (standard name ft/s&sup2;).
 	 */
 	@AddUnit
 	public static final AbstractUnit<Acceleration> FOOT_PER_SECOND_SQUARED = unit(FOOT.divide(SECOND.pow(2)),

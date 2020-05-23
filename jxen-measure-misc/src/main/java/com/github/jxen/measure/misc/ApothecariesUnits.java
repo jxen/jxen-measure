@@ -60,7 +60,8 @@ public final class ApothecariesUnits {
 	public static final AbstractUnit<Mass> POUND = unit(TroyUnits.POUND.alternate("pound^apothecary"), Mass.class);
 
 	/**
-	 * Fluid ounce.
+	 * <p>A fluid ounce (abbreviated {@code fl oz}, or {@code oz fl}) is a unit of volume (also called capacity)
+	 * typically used for measuring liquids.
 	 *
 	 * @see ImperialUnits#FLUID_OUNCE
 	 */
@@ -68,8 +69,7 @@ public final class ApothecariesUnits {
 	public static final AbstractUnit<Volume> FLUID_OUNCE = unit(ImperialUnits.FLUID_OUNCE, Volume.class);
 
 	/**
-	 * <p>A fluid ounce (abbreviated {@code fl oz}, or {@code oz fl}) is a unit of volume (also called capacity)
-	 * typically used for measuring liquids.
+	 * <p>The fluid dram (or fluid drachm in British spelling) is defined as <sup>1</sup>/<sub>8</sub> of a fluid ounce.
 	 *
 	 * @see <a href="https://en.wikipedia.org/wiki/Dram_(unit)#Dram_(volume)">Wikipedia: Dram (volume)</a>
 	 */
@@ -78,9 +78,7 @@ public final class ApothecariesUnits {
 			Volume.class);
 
 	/**
-	 * <p>The fluid dram (or fluid drachm in British spelling) is defined as <sup>1</sup>/<sub>8</sub> of a fluid ounce.
-	 *
-	 * @see <a href="https://en.wikipedia.org/wiki/Dram_(unit)#Dram_(volume)">Wikipedia: Dram (volume)</a>
+	 * Fluid scruple.
 	 */
 	@AddUnit
 	public static final AbstractUnit<Volume> FLUID_SCRUPLE = unit("scruple^fluid", FLUID_DRAM, Rational.ONE_THIRD,
