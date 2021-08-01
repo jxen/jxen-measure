@@ -9,22 +9,26 @@ package com.github.jxen.measure.format;
  */
 public interface LocaleAdapter {
 
-	/**
-	 * @param name   unit name
-	 * @param number numeric value
-	 * @return updated name
-	 */
-	default String name(String name, Number number) {
-		return name;
-	}
+  /**
+   * Provides name.
+   *
+   * @param name   unit name
+   * @param number numeric value
+   * @return updated name
+   */
+  default String name(String name, Number number) {
+    return name;
+  }
 
-	/**
-	 * @param suffix unit name suffix
-	 * @param name   unit name
-	 * @param number numeric value
-	 * @return updated suffix
-	 */
-	default String suffix(String suffix, String name, Number number) {
-		return suffix;
-	}
+  /**
+   * Provides suffix.
+   *
+   * @param suffix unit name suffix
+   * @param name   unit name
+   * @param number numeric value
+   * @return updated suffix
+   */
+  default String suffix(String suffix, String name, Number number) {
+    return suffix;
+  }
 }

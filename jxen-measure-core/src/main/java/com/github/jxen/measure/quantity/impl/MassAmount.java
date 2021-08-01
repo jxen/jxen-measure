@@ -14,16 +14,18 @@ import javax.measure.quantity.Mass;
  */
 public class MassAmount extends AbstractQuantity<Mass> implements Mass {
 
-	/**
-	 * @param number value
-	 * @param unit   unit
-	 */
-	public MassAmount(Number number, AbstractUnit<Mass> unit) {
-		super(number, unit);
-	}
+  /**
+   * Initializes instance with value and unit.
+   *
+   * @param number value
+   * @param unit   unit
+   */
+  public MassAmount(Number number, AbstractUnit<Mass> unit) {
+    super(number, unit);
+  }
 
-	@Override
-	protected BiFunction<Number, AbstractUnit<Mass>, Mass> factory() {
-		return MassAmount::new;
-	}
+  @Override
+  protected BiFunction<Number, AbstractUnit<Mass>, Mass> factory() {
+    return MassAmount::new;
+  }
 }

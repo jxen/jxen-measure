@@ -21,48 +21,41 @@ import javax.measure.UnitConverter;
  */
 final class BaseUnit<Q extends Quantity<Q>> extends AbstractUnit<Q> {
 
-	private transient Dimension dimension;
+  private transient Dimension dimension;
 
-	/**
-	 * @param name      unit name
-	 * @param dimension unit dimension
-	 */
-	BaseUnit(String name, Dimension dimension) {
-		super(name);
-		this.dimension = Optional.ofNullable(dimension).orElse(Dimensions.DIMENSIONLESS);
-	}
+  BaseUnit(String name, Dimension dimension) {
+    super(name);
+    this.dimension = Optional.ofNullable(dimension).orElse(Dimensions.DIMENSIONLESS);
+  }
 
-	/**
-	 * @param name unit name
-	 */
-	BaseUnit(String name) {
-		this(name, Dimensions.DIMENSIONLESS);
-	}
+  BaseUnit(String name) {
+    this(name, Dimensions.DIMENSIONLESS);
+  }
 
-	@Override
-	public UnitConverter getSystemConverter() {
-		return Converters.IDENTITY;
-	}
+  @Override
+  public UnitConverter getSystemConverter() {
+    return Converters.IDENTITY;
+  }
 
-	@Override
-	public Dimension getDimension() {
-		return dimension;
-	}
+  @Override
+  public Dimension getDimension() {
+    return dimension;
+  }
 
-	@Override
-	public Map<? extends Unit<?>, Integer> getBaseUnits() {
-		Map<Unit<Q>, Integer> map = new HashMap<>();
-		map.put(this, 1);
-		return map;
-	}
+  @Override
+  public Map<? extends Unit<?>, Integer> getBaseUnits() {
+    Map<Unit<Q>, Integer> map = new HashMap<>();
+    map.put(this, 1);
+    return map;
+  }
 
-	@Override
-	public boolean isSystemUnit() {
-		return true;
-	}
+  @Override
+  public boolean isSystemUnit() {
+    return true;
+  }
 
-	@Override
-	public AbstractUnit<Q> toSystemUnit() {
-		return this;
-	}
+  @Override
+  public AbstractUnit<Q> toSystemUnit() {
+    return this;
+  }
 }

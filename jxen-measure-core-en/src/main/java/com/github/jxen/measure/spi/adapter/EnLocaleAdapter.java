@@ -11,11 +11,11 @@ import com.github.jxen.measure.format.LocaleAdapter;
  */
 class EnLocaleAdapter implements LocaleAdapter {
 
-	@Override
-	public String name(String name, Number number) {
-		if (Math.abs(number.doubleValue()) <= 1) {
-			return name;
-		}
-		return name + ".plural";
-	}
+  @Override
+  public String name(String name, Number number) {
+    if (Math.abs(number.doubleValue()) <= 1) {
+      return name;
+    }
+    return name + ".plural";
+  }
 }

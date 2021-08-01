@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 
 class DensitiesTest {
 
-	@Test
-	void testGet() {
-		assertNotNull(Densities.get(Metal.GOLD));
-	}
+  @Test
+  void testGet() {
+    assertNotNull(Densities.get(Metal.GOLD));
+  }
 }

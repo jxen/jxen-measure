@@ -17,43 +17,41 @@ import javax.measure.UnitConverter;
  */
 final class TransformedUnit<Q extends Quantity<Q>> extends AbstractUnit<Q> {
 
-	private final AbstractUnit<Q> parent;
-	private final UnitConverter converter;
+  private final AbstractUnit<Q> parent;
+  private final UnitConverter converter;
 
-	/**
-	 * @param parent parent unit
-	 * @param converter converter
-	 */
-	TransformedUnit(AbstractUnit<Q> parent, UnitConverter converter) {
-		super(null);
-		this.parent = parent;
-		this.converter = converter;
-	}
+  TransformedUnit(AbstractUnit<Q> parent, UnitConverter converter) {
+    super(null);
+    this.parent = parent;
+    this.converter = converter;
+  }
 
-	@Override
-	public Dimension getDimension() {
-		return parent.getDimension();
-	}
+  @Override
+  public Dimension getDimension() {
+    return parent.getDimension();
+  }
 
-	@Override
-	public UnitConverter getSystemConverter() {
-		return parent.getSystemConverter().concatenate(converter);
-	}
+  @Override
+  public UnitConverter getSystemConverter() {
+    return parent.getSystemConverter().concatenate(converter);
+  }
 
-	@Override
-	public AbstractUnit<Q> toSystemUnit() {
-		return parent.getSystemUnit();
-	}
+  @Override
+  public AbstractUnit<Q> toSystemUnit() {
+    return parent.getSystemUnit();
+  }
 
-	@Override
-	public Map<? extends Unit<?>, Integer> getBaseUnits() {
-		return parent.getBaseUnits();
-	}
+  @Override
+  public Map<? extends Unit<?>, Integer> getBaseUnits() {
+    return parent.getBaseUnits();
+  }
 
-	/**
-	 * @return converter
-	 */
-	public UnitConverter getConverter() {
-		return converter;
-	}
+  /**
+   * Provides converter used.
+   *
+   * @return converter
+   */
+  public UnitConverter getConverter() {
+    return converter;
+  }
 }

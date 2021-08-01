@@ -14,16 +14,18 @@ import javax.measure.quantity.Length;
  */
 public class LengthAmount extends AbstractQuantity<Length> implements Length {
 
-	/**
-	 * @param number value
-	 * @param unit   unit
-	 */
-	public LengthAmount(Number number, AbstractUnit<Length> unit) {
-		super(number, unit);
-	}
+  /**
+   * Initializes instance with value and unit.
+   *
+   * @param number value
+   * @param unit   unit
+   */
+  public LengthAmount(Number number, AbstractUnit<Length> unit) {
+    super(number, unit);
+  }
 
-	@Override
-	protected BiFunction<Number, AbstractUnit<Length>, Length> factory() {
-		return LengthAmount::new;
-	}
+  @Override
+  protected BiFunction<Number, AbstractUnit<Length>, Length> factory() {
+    return LengthAmount::new;
+  }
 }

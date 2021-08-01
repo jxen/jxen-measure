@@ -9,21 +9,21 @@ import org.junit.jupiter.api.Test;
 
 class CurrencySystemTest {
 
-	private final CurrencySystem system = new CurrencySystem(SYSTEM_UNIT,
-			new CurrencyUnit("test", SYSTEM_UNIT, 0.5));
+  private final CurrencySystem system = new CurrencySystem(SYSTEM_UNIT,
+      new CurrencyUnit("test", SYSTEM_UNIT, 0.5));
 
-	@Test
-	void testGetBaseUnit() {
-		assertEquals(SYSTEM_UNIT, system.getBaseUnit());
-	}
+  @Test
+  void testGetBaseUnit() {
+    assertEquals(SYSTEM_UNIT, system.getBaseUnit());
+  }
 
-	@Test
-	void testForCode() {
-		assertEquals("test", system.forCode("test").getName());
-	}
+  @Test
+  void testForCode() {
+    assertEquals("test", system.forCode("test").getName());
+  }
 
-	@Test
-	void testForCodeFailure() {
-		assertThrows(MeasurementException.class, () -> system.forCode("unknown"));
-	}
+  @Test
+  void testForCodeFailure() {
+    assertThrows(MeasurementException.class, () -> system.forCode("unknown"));
+  }
 }

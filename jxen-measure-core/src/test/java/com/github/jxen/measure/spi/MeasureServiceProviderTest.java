@@ -15,78 +15,78 @@ import org.junit.jupiter.api.Test;
 
 class MeasureServiceProviderTest {
 
-	private ServiceProvider service;
+  private ServiceProvider service;
 
-	@BeforeEach
-	void setUp() {
-		Iterator<ServiceProvider> it = ServiceLoader.load(ServiceProvider.class).iterator();
-		if (it.hasNext()) {
-			service = it.next();
-		}
-	}
+  @BeforeEach
+  void setUp() {
+    Iterator<ServiceProvider> it = ServiceLoader.load(ServiceProvider.class).iterator();
+    if (it.hasNext()) {
+      service = it.next();
+    }
+  }
 
-	@Test
-	void testInstance() {
-		assertNotNull(service);
-	}
+  @Test
+  void testInstance() {
+    assertNotNull(service);
+  }
 
-	@Test
-	void testGetSystemOfUnitsService() {
-		assertNotNull(service.getSystemOfUnitsService());
-	}
+  @Test
+  void testGetSystemOfUnitsService() {
+    assertNotNull(service.getSystemOfUnitsService());
+  }
 
-	@Test
-	void testGetSystemOfUnitsServiceGetSystemOfUnitsSi() {
-		assertNotNull(service.getSystemOfUnitsService().getSystemOfUnits("SI"));
-	}
+  @Test
+  void testGetSystemOfUnitsServiceGetSystemOfUnitsSi() {
+    assertNotNull(service.getSystemOfUnitsService().getSystemOfUnits("SI"));
+  }
 
-	@Test
-	void testGetSystemOfUnitsServiceGetSystemOfUnitsUnknown() {
-		assertNull(service.getSystemOfUnitsService().getSystemOfUnits("Unknown"));
-	}
+  @Test
+  void testGetSystemOfUnitsServiceGetSystemOfUnitsUnknown() {
+    assertNull(service.getSystemOfUnitsService().getSystemOfUnits("Unknown"));
+  }
 
-	@Test
-	void testGetSystemOfUnitsServiceGetAvailableSystemsOfUnits() {
-		assertEquals(3, service.getSystemOfUnitsService().getAvailableSystemsOfUnits().size());
-	}
+  @Test
+  void testGetSystemOfUnitsServiceGetAvailableSystemsOfUnits() {
+    assertEquals(3, service.getSystemOfUnitsService().getAvailableSystemsOfUnits().size());
+  }
 
-	@Test
-	void testGetFormatService() {
-		assertNotNull(service.getFormatService());
-	}
+  @Test
+  void testGetFormatService() {
+    assertNotNull(service.getFormatService());
+  }
 
-	@Test
-	void testGetFormatServiceGetQuantityFormat() {
-		assertNotNull(service.getFormatService().getQuantityFormat());
-	}
+  @Test
+  void testGetFormatServiceGetQuantityFormat() {
+    assertNotNull(service.getFormatService().getQuantityFormat());
+  }
 
-	@Test
-	void testGetFormatServiceGetQuantityFormatNamed() {
-		assertNotNull(service.getFormatService().getQuantityFormat("full"));
-	}
+  @Test
+  void testGetFormatServiceGetQuantityFormatNamed() {
+    assertNotNull(service.getFormatService().getQuantityFormat("full"));
+  }
 
-	@Test
-	void testGetFormatServiceGetUnitFormat() {
-		assertNotNull(service.getFormatService().getUnitFormat());
-	}
+  @Test
+  void testGetFormatServiceGetUnitFormat() {
+    assertNotNull(service.getFormatService().getUnitFormat());
+  }
 
-	@Test
-	void testGetFormatServiceGetUnitFormatFull() {
-		assertNotNull(service.getFormatService().getUnitFormat("full"));
-	}
+  @Test
+  void testGetFormatServiceGetUnitFormatFull() {
+    assertNotNull(service.getFormatService().getUnitFormat("full"));
+  }
 
-	@Test
-	void testGetFormatServiceGetUnitFormatDefault() {
-		assertNotNull(service.getFormatService().getUnitFormat("default"));
-	}
+  @Test
+  void testGetFormatServiceGetUnitFormatDefault() {
+    assertNotNull(service.getFormatService().getUnitFormat("default"));
+  }
 
-	@Test
-	void testGetFormatServiceGetAvailableFormatNamesTyped() {
-		assertEquals(2, service.getFormatService().getAvailableFormatNames(FormatType.UNIT_FORMAT).size());
-	}
+  @Test
+  void testGetFormatServiceGetAvailableFormatNamesTyped() {
+    assertEquals(2, service.getFormatService().getAvailableFormatNames(FormatType.UNIT_FORMAT).size());
+  }
 
-	@Test
-	void testGetQuantityFactory() {
-		assertNotNull(service.getQuantityFactory(Length.class));
-	}
+  @Test
+  void testGetQuantityFactory() {
+    assertNotNull(service.getQuantityFactory(Length.class));
+  }
 }

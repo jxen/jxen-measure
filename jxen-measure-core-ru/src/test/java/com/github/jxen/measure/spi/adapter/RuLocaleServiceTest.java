@@ -7,13 +7,13 @@ import org.junit.jupiter.api.Test;
 
 class RuLocaleServiceTest {
 
-	@Test
-	void testGetLocale() {
-		assertEquals(RuLocaleService.RU, new RuLocaleService().getLocale());
-	}
+  @Test
+  void testGetLocale() {
+    assertEquals(RuLocaleService.RU, new RuLocaleService().getLocale());
+  }
 
-	@Test
-	void testGetAdapter() {
-		assertNotNull(new RuLocaleService().getAdapter());
-	}
+  @Test
+  void testGetAdapter() {
+    assertNotNull(new RuLocaleService().getAdapter());
+  }
 }

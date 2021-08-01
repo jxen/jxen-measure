@@ -16,22 +16,22 @@ import javax.measure.spi.SystemOfUnitsService;
  */
 public class MeasureServiceProvider extends ServiceProvider {
 
-	private static final SystemOfUnitsService SYSTEM_OF_UNIT_SERVICE = new DefaultSystemOfUnitsService();
+  private static final SystemOfUnitsService SYSTEM_OF_UNIT_SERVICE = new DefaultSystemOfUnitsService();
 
-	private static final FormatService FORMAT_SERVICE = new DefaultFormatService();
+  private static final FormatService FORMAT_SERVICE = new DefaultFormatService();
 
-	@Override
-	public SystemOfUnitsService getSystemOfUnitsService() {
-		return SYSTEM_OF_UNIT_SERVICE;
-	}
+  @Override
+  public SystemOfUnitsService getSystemOfUnitsService() {
+    return SYSTEM_OF_UNIT_SERVICE;
+  }
 
-	@Override
-	public FormatService getFormatService() {
-		return FORMAT_SERVICE;
-	}
+  @Override
+  public FormatService getFormatService() {
+    return FORMAT_SERVICE;
+  }
 
-	@Override
-	public <Q extends Quantity<Q>> QuantityFactory<Q> getQuantityFactory(Class<Q> quantity) {
-		return Quantities.getFactory(quantity);
-	}
+  @Override
+  public <Q extends Quantity<Q>> QuantityFactory<Q> getQuantityFactory(Class<Q> quantity) {
+    return Quantities.getFactory(quantity);
+  }
 }

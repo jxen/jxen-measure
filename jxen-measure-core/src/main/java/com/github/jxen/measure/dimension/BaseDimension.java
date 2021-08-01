@@ -6,69 +6,69 @@ import javax.measure.Dimension;
 
 enum BaseDimension implements Dimension {
 
-	/**
-	 * Length (L)
-	 */
-	LENGTH,
+  /**
+   * Length (L).
+   */
+  LENGTH,
 
-	/**
-	 * Mass (M).
-	 */
-	MASS,
+  /**
+   * Mass (M).
+   */
+  MASS,
 
-	/**
-	 * Time (T).
-	 */
-	TIME,
+  /**
+   * Time (T).
+   */
+  TIME,
 
-	/**
-	 * Electric current (I).
-	 */
-	ELECTRIC_CURRENT,
+  /**
+   * Electric current (I).
+   */
+  ELECTRIC_CURRENT,
 
-	/**
-	 * Temperature dimension (\Theta \u0398).
-	 */
-	TEMPERATURE,
+  /**
+   * Temperature dimension (\Theta \u0398).
+   */
+  TEMPERATURE,
 
-	/**
-	 * Amount of substance (N).
-	 */
-	AMOUNT_OF_SUBSTANCE,
+  /**
+   * Amount of substance (N).
+   */
+  AMOUNT_OF_SUBSTANCE,
 
-	/**
-	 * Luminous intensity (J).
-	 */
-	LUMINOUS_INTENSITY;
+  /**
+   * Luminous intensity (J).
+   */
+  LUMINOUS_INTENSITY;
 
-	private final Map<Dimension, Integer> base = new HashMap<>();
+  private final Map<Dimension, Integer> base = new HashMap<>();
 
-	BaseDimension() {
-		base.put(this, 1);
-	}
+  BaseDimension() {
+    base.put(this, 1);
+  }
 
-	@Override
-	public Map<? extends Dimension, Integer> getBaseDimensions() {
-		return base;
-	}
+  @Override
+  public Map<? extends Dimension, Integer> getBaseDimensions() {
+    return base;
+  }
 
-	@Override
-	public Dimension multiply(Dimension dimension) {
-		return new ProductDimension().multiply(this).multiply(dimension);
-	}
+  @Override
+  public Dimension multiply(Dimension dimension) {
+    return new ProductDimension().multiply(this).multiply(dimension);
+  }
 
-	@Override
-	public Dimension divide(Dimension dimension) {
-		return new ProductDimension().multiply(this).divide(dimension);
-	}
+  @Override
+  public Dimension divide(Dimension dimension) {
+    return new ProductDimension().multiply(this).divide(dimension);
+  }
 
-	@Override
-	public Dimension pow(int n) {
-		return new ProductDimension().multiply(this).pow(n);
-	}
+  @Override
+  public Dimension pow(int n) {
+    return new ProductDimension().multiply(this).pow(n);
+  }
 
-	@Override
-	public Dimension root(int n) {
-		throw new ArithmeticException("Unsupported operation");
-	}
+  @Override
+  public Dimension root(int n) {
+    throw new ArithmeticException("Unsupported operation");
+  }
 }

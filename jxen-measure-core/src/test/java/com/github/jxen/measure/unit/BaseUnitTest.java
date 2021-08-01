@@ -11,39 +11,39 @@ import org.junit.jupiter.api.Test;
 
 class BaseUnitTest {
 
-	@Test
-	void testSystemConverter() {
-		BaseUnit<Length> unit = new BaseUnit<>("x", Dimensions.LENGTH);
-		assertEquals(Converters.IDENTITY, unit.getSystemConverter());
-	}
+  @Test
+  void testSystemConverter() {
+    BaseUnit<Length> unit = new BaseUnit<>("x", Dimensions.LENGTH);
+    assertEquals(Converters.IDENTITY, unit.getSystemConverter());
+  }
 
-	@Test
-	void testDimension() {
-		BaseUnit<Length> unit = new BaseUnit<>("x", Dimensions.LENGTH);
-		assertEquals(Dimensions.LENGTH, unit.getDimension());
-	}
+  @Test
+  void testDimension() {
+    BaseUnit<Length> unit = new BaseUnit<>("x", Dimensions.LENGTH);
+    assertEquals(Dimensions.LENGTH, unit.getDimension());
+  }
 
-	@Test
-	void testDimensionless() {
-		BaseUnit<Length> unit = new BaseUnit<>("x", Dimensions.DIMENSIONLESS);
-		assertEquals(Dimensions.DIMENSIONLESS, unit.getDimension());
-	}
+  @Test
+  void testDimensionless() {
+    BaseUnit<Length> unit = new BaseUnit<>("x", Dimensions.DIMENSIONLESS);
+    assertEquals(Dimensions.DIMENSIONLESS, unit.getDimension());
+  }
 
-	@Test
-	void testDimensionNull() {
-		BaseUnit<Length> unit = new BaseUnit<>("x");
-		assertEquals(Dimensions.DIMENSIONLESS, unit.getDimension());
-	}
+  @Test
+  void testDimensionNull() {
+    BaseUnit<Length> unit = new BaseUnit<>("x");
+    assertEquals(Dimensions.DIMENSIONLESS, unit.getDimension());
+  }
 
-	@Test
-	void testIsSystemUnit() {
-		BaseUnit<Length> unit = new BaseUnit<>("x", Dimensions.LENGTH);
-		assertTrue(unit.isSystemUnit());
-	}
+  @Test
+  void testIsSystemUnit() {
+    BaseUnit<Length> unit = new BaseUnit<>("x", Dimensions.LENGTH);
+    assertTrue(unit.isSystemUnit());
+  }
 
-	@Test
-	void testToSystemUnit() {
-		BaseUnit<Length> unit = new BaseUnit<>("x", Dimensions.LENGTH);
-		assertSame(unit, unit.toSystemUnit());
-	}
+  @Test
+  void testToSystemUnit() {
+    BaseUnit<Length> unit = new BaseUnit<>("x", Dimensions.LENGTH);
+    assertSame(unit, unit.toSystemUnit());
+  }
 }

@@ -8,13 +8,13 @@ import org.junit.jupiter.api.Test;
 
 class EnLocaleServiceTest {
 
-	@Test
-	void testGetLocale() {
-		assertEquals(Locale.ENGLISH, new EnLocaleService().getLocale());
-	}
+  @Test
+  void testGetLocale() {
+    assertEquals(Locale.ENGLISH, new EnLocaleService().getLocale());
+  }
 
-	@Test
-	void testGetAdapter() {
-		assertNotNull(new EnLocaleService().getAdapter());
-	}
+  @Test
+  void testGetAdapter() {
+    assertNotNull(new EnLocaleService().getAdapter());
+  }
 }

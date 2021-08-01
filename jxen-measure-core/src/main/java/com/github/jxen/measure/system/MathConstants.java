@@ -18,28 +18,28 @@ import javax.measure.spi.SystemOfUnits;
  */
 public final class MathConstants {
 
-	/**
-	 * Just simple dimensionless unit.
-	 */
-	@AddUnit
-	public static final AbstractUnit<Dimensionless> UNIT = unit("unit", DIMENSIONLESS, Dimensionless.class);
+  /**
+   * Just simple dimensionless unit.
+   */
+  @AddUnit
+  public static final AbstractUnit<Dimensionless> UNIT = unit("unit", DIMENSIONLESS, Dimensionless.class);
 
-	/**
-	 * The number &pi; is a mathematical constant.
-	 * Originally defined as the ratio of a circle's circumference to its diameter.
-	 *
-	 * @see <a href="https://en.wikipedia.org/wiki/Pi">Wikipedia: Pi</a>
-	 */
-	@AddUnit
-	public static final AbstractUnit<Dimensionless> PI = unit("pi", UNIT, Math.PI, Dimensionless.class);
+  /**
+   * The number &pi; is a mathematical constant.
+   * Originally defined as the ratio of a circle's circumference to its diameter.
+   *
+   * @see <a href="https://en.wikipedia.org/wiki/Pi">Wikipedia: Pi</a>
+   */
+  @AddUnit
+  public static final AbstractUnit<Dimensionless> PI = unit("pi", UNIT, Math.PI, Dimensionless.class);
 
-	/**
-	 * The instance of {@link SystemOfUnits}.
-	 */
-	public static final SystemOfUnits SYSTEM = SystemOfUnitsImpl.builder("Math Constants")
-			.add(MathConstants.class)
-			.build();
+  /**
+   * The instance of {@link SystemOfUnits}.
+   */
+  public static final SystemOfUnits SYSTEM = SystemOfUnitsImpl.builder("Math Constants")
+      .add(MathConstants.class)
+      .build();
 
-	private MathConstants() {
-	}
+  private MathConstants() {
+  }
 }

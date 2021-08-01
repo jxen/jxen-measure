@@ -13,13 +13,13 @@ import java.util.Locale;
  */
 public class EnLocaleService implements LocaleService {
 
-	@Override
-	public Locale getLocale() {
-		return Locale.ENGLISH;
-	}
+  @Override
+  public Locale getLocale() {
+    return Locale.ENGLISH;
+  }
 
-	@Override
-	public LocaleAdapter getAdapter() {
-		return new EnLocaleAdapter();
-	}
+  @Override
+  public LocaleAdapter getAdapter() {
+    return new EnLocaleAdapter();
+  }
 }

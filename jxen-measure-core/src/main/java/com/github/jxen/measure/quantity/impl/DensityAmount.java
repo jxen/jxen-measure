@@ -14,16 +14,18 @@ import si.uom.quantity.Density;
  */
 public class DensityAmount extends AbstractQuantity<Density> implements Density {
 
-	/**
-	 * @param number number
-	 * @param unit   unit
-	 */
-	public DensityAmount(Number number, AbstractUnit<Density> unit) {
-		super(number, unit);
-	}
+  /**
+   * Initializes instance with value and unit.
+   *
+   * @param number number
+   * @param unit   unit
+   */
+  public DensityAmount(Number number, AbstractUnit<Density> unit) {
+    super(number, unit);
+  }
 
-	@Override
-	protected BiFunction<Number, AbstractUnit<Density>, Density> factory() {
-		return DensityAmount::new;
-	}
+  @Override
+  protected BiFunction<Number, AbstractUnit<Density>, Density> factory() {
+    return DensityAmount::new;
+  }
 }

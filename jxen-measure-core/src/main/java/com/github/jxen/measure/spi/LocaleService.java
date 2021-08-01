@@ -12,13 +12,17 @@ import java.util.Locale;
  */
 public interface LocaleService {
 
-	/**
-	 * @return the locale
-	 */
-	Locale getLocale();
+  /**
+   * Provides locale.
+   *
+   * @return the locale
+   */
+  Locale getLocale();
 
-	/**
-	 * @return the adapter
-	 */
-	LocaleAdapter getAdapter();
+  /**
+   * Provides adapter for locale.
+   *
+   * @return the adapter
+   */
+  LocaleAdapter getAdapter();
 }

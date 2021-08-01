@@ -13,33 +13,33 @@ import org.junit.jupiter.api.Test;
 
 class MiscFullUnitFormatTest {
 
-	@BeforeEach
-	void setUp() {
-		Locale.setDefault(Locale.US);
-	}
+  @BeforeEach
+  void setUp() {
+    Locale.setDefault(Locale.US);
+  }
 
-	@Test
-	void testFormatTroyUnits() {
-		assertEquals("troy\u202Fpound", new MiscFullUnitFormat().format(TroyUnits.POUND));
-	}
+  @Test
+  void testFormatTroyUnits() {
+    assertEquals("troy\u202Fpound", new MiscFullUnitFormat().format(TroyUnits.POUND));
+  }
 
-	@Test
-	void testFormatApothecariesUnits() {
-		assertEquals("grain", new MiscFullUnitFormat().format(ApothecariesUnits.GRAIN));
-	}
+  @Test
+  void testFormatApothecariesUnits() {
+    assertEquals("grain", new MiscFullUnitFormat().format(ApothecariesUnits.GRAIN));
+  }
 
-	@Test
-	void testFormatImperialUnits() {
-		assertEquals("inch", new MiscFullUnitFormat().format(ImperialUnits.INCH));
-	}
+  @Test
+  void testFormatImperialUnits() {
+    assertEquals("inch", new MiscFullUnitFormat().format(ImperialUnits.INCH));
+  }
 
-	@Test
-	void testFormatUsCustomaryUnits() {
-		assertEquals("inch", new MiscFullUnitFormat().format(UsCustomaryUnits.INCH));
-	}
+  @Test
+  void testFormatUsCustomaryUnits() {
+    assertEquals("inch", new MiscFullUnitFormat().format(UsCustomaryUnits.INCH));
+  }
 
-	@Test
-	void testFormatRussianUnits() {
-		assertEquals("inch", new MiscFullUnitFormat().format(RussianUnits.INCH));
-	}
+  @Test
+  void testFormatRussianUnits() {
+    assertEquals("inch", new MiscFullUnitFormat().format(RussianUnits.INCH));
+  }
 }

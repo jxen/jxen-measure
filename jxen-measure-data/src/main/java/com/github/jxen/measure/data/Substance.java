@@ -11,17 +11,17 @@ package com.github.jxen.measure.data;
  */
 public interface Substance<T extends Enum<T>> {
 
-	/**
-	 * Provides substance code. Usually it's chemical formula.
-	 *
-	 * @return the substance code
-	 */
-	String getCode();
+  /**
+   * Provides substance code. Usually it's chemical formula.
+   *
+   * @return the substance code
+   */
+  String getCode();
 
-	/**
-	 * Provides substance name.
-	 *
-	 * @return the substance name
-	 */
-	String getName();
+  /**
+   * Provides substance name.
+   *
+   * @return the substance name
+   */
+  String getName();
 }

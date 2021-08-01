@@ -12,18 +12,18 @@ import java.util.ResourceBundle;
  */
 public class SubstanceFormat {
 
-	/**
-	 * Formats given substance.
-	 *
-	 * @param substance substance
-	 * @return localized name
-	 */
-	public String format(Substance<?> substance) {
-		String key = "substance." + substance.getName();
-		return getBundle(substance).getString(key);
-	}
+  /**
+   * Formats given substance.
+   *
+   * @param substance substance
+   * @return localized name
+   */
+  public final String format(Substance<?> substance) {
+    String key = "substance." + substance.getName();
+    return getBundle(substance).getString(key);
+  }
 
-	private ResourceBundle getBundle(Substance<?> substance) {
-		return ResourceBundle.getBundle(substance.getClass().getName());
-	}
+  private ResourceBundle getBundle(Substance<?> substance) {
+    return ResourceBundle.getBundle(substance.getClass().getName());
+  }
 }

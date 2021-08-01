@@ -8,9 +8,9 @@ import org.junit.jupiter.api.Test;
 
 class SubstanceFormatTest {
 
-	@Test
-	void testFormat() {
-		Locale.setDefault(Locale.US);
-		assertEquals("gold", new SubstanceFormat().format(Metal.GOLD));
-	}
+  @Test
+  void testFormat() {
+    Locale.setDefault(Locale.US);
+    assertEquals("gold", new SubstanceFormat().format(Metal.GOLD));
+  }
 }

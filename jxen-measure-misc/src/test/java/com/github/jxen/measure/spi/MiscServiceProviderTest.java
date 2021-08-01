@@ -12,53 +12,53 @@ import org.junit.jupiter.api.Test;
 
 class MiscServiceProviderTest {
 
-	private ServiceProvider service;
+  private ServiceProvider service;
 
-	@BeforeEach
-	void setUp() {
-		Iterator<ServiceProvider> it = ServiceLoader.load(ServiceProvider.class).iterator();
-		if (it.hasNext()) {
-			service = it.next();
-		}
-	}
+  @BeforeEach
+  void setUp() {
+    Iterator<ServiceProvider> it = ServiceLoader.load(ServiceProvider.class).iterator();
+    if (it.hasNext()) {
+      service = it.next();
+    }
+  }
 
-	@Test
-	void testInstance() {
-		assertNotNull(service);
-	}
+  @Test
+  void testInstance() {
+    assertNotNull(service);
+  }
 
-	@Test
-	void testGetSystemOfUnitsService() {
-		assertNotNull(service.getSystemOfUnitsService());
-	}
+  @Test
+  void testGetSystemOfUnitsService() {
+    assertNotNull(service.getSystemOfUnitsService());
+  }
 
-	@Test
-	void testGetSystemOfUnitsDefault() {
-		assertNotNull(service.getSystemOfUnitsService().getSystemOfUnits("SI"));
-	}
+  @Test
+  void testGetSystemOfUnitsDefault() {
+    assertNotNull(service.getSystemOfUnitsService().getSystemOfUnits("SI"));
+  }
 
-	@Test
-	void testGetSystemOfUnitsNull() {
-		assertNull(service.getSystemOfUnitsService().getSystemOfUnits(null));
-	}
+  @Test
+  void testGetSystemOfUnitsNull() {
+    assertNull(service.getSystemOfUnitsService().getSystemOfUnits(null));
+  }
 
-	@Test
-	void testGetUnitFormatFull() {
-		assertNotNull(service.getFormatService().getUnitFormat("full"));
-	}
+  @Test
+  void testGetUnitFormatFull() {
+    assertNotNull(service.getFormatService().getUnitFormat("full"));
+  }
 
-	@Test
-	void testGetUnitFormatAlt() {
-		assertNotNull(service.getFormatService().getUnitFormat("alt"));
-	}
+  @Test
+  void testGetUnitFormatAlt() {
+    assertNotNull(service.getFormatService().getUnitFormat("alt"));
+  }
 
-	@Test
-	void testGetUnitFormatDefault() {
-		assertNotNull(service.getFormatService().getUnitFormat(""));
-	}
+  @Test
+  void testGetUnitFormatDefault() {
+    assertNotNull(service.getFormatService().getUnitFormat(""));
+  }
 
-	@Test
-	void testGetAvailableFormatNames() {
-		assertNotNull(service.getFormatService().getAvailableFormatNames(FormatType.QUANTITY_FORMAT));
-	}
+  @Test
+  void testGetAvailableFormatNames() {
+    assertNotNull(service.getFormatService().getAvailableFormatNames(FormatType.QUANTITY_FORMAT));
+  }
 }

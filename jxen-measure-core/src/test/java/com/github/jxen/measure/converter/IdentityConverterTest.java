@@ -13,43 +13,43 @@ import org.junit.jupiter.api.Test;
 
 class IdentityConverterTest {
 
-	@Test
-	void testIdentity() {
-		assertTrue(Converters.IDENTITY.isIdentity());
-	}
+  @Test
+  void testIdentity() {
+    assertTrue(Converters.IDENTITY.isIdentity());
+  }
 
-	@Test
-	void testLinear() {
-		assertTrue(Converters.IDENTITY.isLinear());
-	}
+  @Test
+  void testLinear() {
+    assertTrue(Converters.IDENTITY.isLinear());
+  }
 
-	@Test
-	void testInverse() {
-		UnitConverter converter = Converters.IDENTITY.inverse();
-		assertEquals(Converters.IDENTITY, converter);
-	}
+  @Test
+  void testInverse() {
+    UnitConverter converter = Converters.IDENTITY.inverse();
+    assertEquals(Converters.IDENTITY, converter);
+  }
 
-	@Test
-	void testConvertNumber() {
-		UnitConverter converter = Converters.IDENTITY;
-		assertEquals(Rational.ONE, converter.convert(Rational.ONE));
-	}
+  @Test
+  void testConvertNumber() {
+    UnitConverter converter = Converters.IDENTITY;
+    assertEquals(Rational.ONE, converter.convert(Rational.ONE));
+  }
 
-	@Test
-	void testConvertDouble() {
-		UnitConverter converter = Converters.IDENTITY;
-		assertEquals(1.0, converter.convert(1.0));
-	}
+  @Test
+  void testConvertDouble() {
+    UnitConverter converter = Converters.IDENTITY;
+    assertEquals(1.0, converter.convert(1.0));
+  }
 
-	@Test
-	void testConcatenate() {
-		UnitConverter converter = Converters.IDENTITY.concatenate(Converters.fromOffset(1));
-		assertEquals(Converters.fromOffset(1), converter);
-	}
+  @Test
+  void testConcatenate() {
+    UnitConverter converter = Converters.IDENTITY.concatenate(Converters.fromOffset(1));
+    assertEquals(Converters.fromOffset(1), converter);
+  }
 
-	@Test
-	void testConversionSteps() {
-		List<? extends UnitConverter> steps = Converters.IDENTITY.getConversionSteps();
-		assertEquals(Collections.singletonList(Converters.IDENTITY), steps);
-	}
+  @Test
+  void testConversionSteps() {
+    List<? extends UnitConverter> steps = Converters.IDENTITY.getConversionSteps();
+    assertEquals(Collections.singletonList(Converters.IDENTITY), steps);
+  }
 }

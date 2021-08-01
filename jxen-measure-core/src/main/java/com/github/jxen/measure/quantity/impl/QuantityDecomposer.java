@@ -22,62 +22,67 @@ import javax.measure.Unit;
  */
 public class QuantityDecomposer<Q extends Quantity<Q>> {
 
-	private final NavigableSet<Unit<Q>> units;
+  private final NavigableSet<Unit<Q>> units;
 
-	/**
-	 * @param units  units
-	 */
-	public QuantityDecomposer(Collection<Unit<Q>> units) {
-		this.units = new TreeSet<>(QuantityDecomposer::compare);
-		this.units.addAll(units);
-	}
+  /**
+   * Initialises instance with given collection of units.
+   *
+   * @param units  units
+   */
+  public QuantityDecomposer(Collection<Unit<Q>> units) {
+    this.units = new TreeSet<>(QuantityDecomposer::compare);
+    this.units.addAll(units);
+  }
 
-	private static <Q extends Quantity<Q>, E extends Unit<Q>> int compare(E a, E b) {
-		return Double.compare(1, Quantities.of(1, a).to(b).getValue().doubleValue());
-	}
+  private static <Q extends Quantity<Q>, E extends Unit<Q>> int compare(E a, E b) {
+    return Double.compare(1, Quantities.of(1, a).to(b).getValue().doubleValue());
+  }
 
-	/**
-	 * @return the units
-	 */
-	public NavigableSet<Unit<Q>> getUnits() {
-		return units;
-	}
+  /**
+   * Provides ordered set of units.
+   *
+   * @return the units
+   */
+  public final NavigableSet<Unit<Q>> getUnits() {
+    return units;
+  }
 
-	/**
-	 * Evaluates decomposition for given quantity.
-	 *
-	 * @param quantity quantity
-	 * @return decomposition
-	 */
-	public List<Quantity<Q>> decompose(Quantity<Q> quantity) {
-		if (quantity.getValue().doubleValue() < 0) {
-			throw new MeasurementException("Operation is not supported for negative values");
-		}
-		if (quantity.getValue().doubleValue() == 0) {
-			return Collections.emptyList();
-		}
-		List<Quantity<Q>> list = new ArrayList<>();
-		Quantity<Q> amount = quantity;
-		for (Unit<Q> u : units) {
-			Quantity<Q> q = amount.to(u);
-			if (q.getValue().doubleValue() == 0) {
-				break;
-			}
-			if (u == units.last()) {
-				if (q.getValue().doubleValue() > 0) {
-					list.add(q);
-				}
-			} else {
-				Number v = Adapters.lookup(q.getValue()).floor();
-				if (v.doubleValue() > 0) {
-					Quantity<Q> o = Quantities.of(v, u);
-					if (o.getValue().doubleValue() > 0) {
-						list.add(o);
-						amount = amount.subtract(o);
-					}
-				}
-			}
-		}
-		return list;
-	}
+  /**
+   * Evaluates decomposition for given quantity.
+   * If different implementation is required, the method can be overridden.
+   *
+   * @param quantity quantity
+   * @return decomposition
+   */
+  public List<Quantity<Q>> decompose(Quantity<Q> quantity) {
+    if (quantity.getValue().doubleValue() < 0) {
+      throw new MeasurementException("Operation is not supported for negative values");
+    }
+    if (quantity.getValue().doubleValue() == 0) {
+      return Collections.emptyList();
+    }
+    List<Quantity<Q>> list = new ArrayList<>();
+    Quantity<Q> amount = quantity;
+    for (Unit<Q> u : units) {
+      Quantity<Q> q = amount.to(u);
+      if (q.getValue().doubleValue() == 0) {
+        break;
+      }
+      if (u == units.last()) {
+        if (q.getValue().doubleValue() > 0) {
+          list.add(q);
+        }
+      } else {
+        Number v = Adapters.lookup(q.getValue()).floor();
+        if (v.doubleValue() > 0) {
+          Quantity<Q> o = Quantities.of(v, u);
+          if (o.getValue().doubleValue() > 0) {
+            list.add(o);
+            amount = amount.subtract(o);
+          }
+        }
+      }
+    }
+    return list;
+  }
 }

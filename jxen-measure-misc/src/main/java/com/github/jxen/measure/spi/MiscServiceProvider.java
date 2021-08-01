@@ -12,17 +12,17 @@ import javax.measure.spi.SystemOfUnitsService;
  */
 public class MiscServiceProvider extends MeasureServiceProvider {
 
-	private static final SystemOfUnitsService SYSTEM_OF_UNIT_SERVICE = new MiscSystemOfUnitsService();
+  private static final SystemOfUnitsService SYSTEM_OF_UNIT_SERVICE = new MiscSystemOfUnitsService();
 
-	private static final FormatService FORMAT_SERVICE = new MiscFormatService();
+  private static final FormatService FORMAT_SERVICE = new MiscFormatService();
 
-	@Override
-	public SystemOfUnitsService getSystemOfUnitsService() {
-		return SYSTEM_OF_UNIT_SERVICE;
-	}
+  @Override
+  public SystemOfUnitsService getSystemOfUnitsService() {
+    return SYSTEM_OF_UNIT_SERVICE;
+  }
 
-	@Override
-	public FormatService getFormatService() {
-		return FORMAT_SERVICE;
-	}
+  @Override
+  public FormatService getFormatService() {
+    return FORMAT_SERVICE;
+  }
 }

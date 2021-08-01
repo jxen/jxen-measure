@@ -11,18 +11,18 @@ import org.junit.jupiter.api.Test;
 
 public class ImperialUnitsTest {
 
-	@Test
-	void testRankine() {
-		assertEquals(Quantities.of(100.0, KELVIN), Quantities.of(180, RANKINE).to(KELVIN));
-	}
+  @Test
+  void testRankine() {
+    assertEquals(Quantities.of(100.0, KELVIN), Quantities.of(180, RANKINE).to(KELVIN));
+  }
 
-	@Test
-	void testFahrenheitCase1() {
-		assertEquals(0, Quantities.of(32, FAHRENHEIT).to(CELSIUS).getValue().doubleValue(), 1e-10);
-	}
+  @Test
+  void testFahrenheitCase1() {
+    assertEquals(0, Quantities.of(32, FAHRENHEIT).to(CELSIUS).getValue().doubleValue(), 1e-10);
+  }
 
-	@Test
-	void testFahrenheitCase2() {
-		assertEquals(100.0, Quantities.of(212, FAHRENHEIT).to(CELSIUS).getValue().doubleValue(), 1e-10);
-	}
+  @Test
+  void testFahrenheitCase2() {
+    assertEquals(100.0, Quantities.of(212, FAHRENHEIT).to(CELSIUS).getValue().doubleValue(), 1e-10);
+  }
 }

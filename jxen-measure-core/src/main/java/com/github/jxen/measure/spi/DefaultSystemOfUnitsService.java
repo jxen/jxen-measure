@@ -11,30 +11,30 @@ import javax.measure.spi.SystemOfUnitsService;
 
 class DefaultSystemOfUnitsService implements SystemOfUnitsService {
 
-	private final Map<String, SystemOfUnits> systems = new HashMap<>();
+  private final Map<String, SystemOfUnits> systems = new HashMap<>();
 
-	DefaultSystemOfUnitsService() {
-		add(Si.SYSTEM);
-		add(MathConstants.SYSTEM);
-		add(PhysicalConstants.SYSTEM);
-	}
+  DefaultSystemOfUnitsService() {
+    add(Si.SYSTEM);
+    add(MathConstants.SYSTEM);
+    add(PhysicalConstants.SYSTEM);
+  }
 
-	@Override
-	public SystemOfUnits getSystemOfUnits(String name) {
-		return systems.get(name);
-	}
+  @Override
+  public SystemOfUnits getSystemOfUnits(String name) {
+    return systems.get(name);
+  }
 
-	@Override
-	public SystemOfUnits getSystemOfUnits() {
-		return Si.SYSTEM;
-	}
+  @Override
+  public SystemOfUnits getSystemOfUnits() {
+    return Si.SYSTEM;
+  }
 
-	@Override
-	public Collection<SystemOfUnits> getAvailableSystemsOfUnits() {
-		return systems.values();
-	}
+  @Override
+  public Collection<SystemOfUnits> getAvailableSystemsOfUnits() {
+    return systems.values();
+  }
 
-	final void add(SystemOfUnits system) {
-		systems.put(system.getName(), system);
-	}
+  final void add(SystemOfUnits system) {
+    systems.put(system.getName(), system);
+  }
 }

@@ -11,8 +11,8 @@ import com.github.jxen.measure.format.LocaleAdapter;
  */
 public class MiscEnLocaleService extends EnLocaleService {
 
-	@Override
-	public LocaleAdapter getAdapter() {
-		return new MiscEnLocaleAdapter();
-	}
+  @Override
+  public LocaleAdapter getAdapter() {
+    return new MiscEnLocaleAdapter();
+  }
 }

@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 
 class MetalTest {
 
-	@Test
-	void testCode() {
-		assertEquals("Au", Metal.GOLD.getCode());
-	}
+  @Test
+  void testCode() {
+    assertEquals("Au", Metal.GOLD.getCode());
+  }
 
-	@Test
-	void testName() {
-		assertEquals("gold", Metal.GOLD.getName());
-	}
+  @Test
+  void testName() {
+    assertEquals("gold", Metal.GOLD.getName());
+  }
 }

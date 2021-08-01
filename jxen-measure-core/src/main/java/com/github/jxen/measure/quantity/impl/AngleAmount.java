@@ -14,16 +14,18 @@ import javax.measure.quantity.Angle;
  */
 public class AngleAmount extends AbstractQuantity<Angle> implements Angle {
 
-	/**
-	 * @param number value
-	 * @param unit   unit
-	 */
-	public AngleAmount(Number number, AbstractUnit<Angle> unit) {
-		super(number, unit);
-	}
+  /**
+   * Initializes instance with value and unit.
+   *
+   * @param number value
+   * @param unit   unit
+   */
+  public AngleAmount(Number number, AbstractUnit<Angle> unit) {
+    super(number, unit);
+  }
 
-	@Override
-	protected BiFunction<Number, AbstractUnit<Angle>, Angle> factory() {
-		return AngleAmount::new;
-	}
+  @Override
+  protected BiFunction<Number, AbstractUnit<Angle>, Angle> factory() {
+    return AngleAmount::new;
+  }
 }

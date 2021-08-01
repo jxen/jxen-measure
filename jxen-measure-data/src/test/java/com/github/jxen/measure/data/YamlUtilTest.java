@@ -8,13 +8,13 @@ import org.junit.jupiter.api.Test;
 
 class YamlUtilTest {
 
-	@Test
-	void testFillEmpty() {
-		assertDoesNotThrow(() -> YamlUtil.fill(YamlUtil.class, METER));
-	}
+  @Test
+  void testFillEmpty() {
+    assertDoesNotThrow(() -> YamlUtil.fill(YamlUtil.class, METER));
+  }
 
-	@Test
-	void testFillFailure() {
-		assertEquals(0, YamlUtil.fill(YamlUtilTest.class, METER).size());
-	}
+  @Test
+  void testFillFailure() {
+    assertEquals(0, YamlUtil.fill(YamlUtilTest.class, METER).size());
+  }
 }

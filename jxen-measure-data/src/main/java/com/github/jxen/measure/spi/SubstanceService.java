@@ -13,8 +13,10 @@ import com.github.jxen.measure.data.Substance;
  */
 public interface SubstanceService<T extends Enum<T> & Substance<T>> {
 
-	/**
-	 * @return supported substance enum class
-	 */
-	Class<T> getEnumClass();
+  /**
+   * Provides enum class.
+   *
+   * @return supported substance enum class
+   */
+  Class<T> getEnumClass();
 }

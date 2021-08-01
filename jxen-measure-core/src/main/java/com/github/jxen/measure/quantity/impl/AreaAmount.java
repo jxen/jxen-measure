@@ -14,16 +14,18 @@ import javax.measure.quantity.Area;
  */
 public class AreaAmount extends AbstractQuantity<Area> implements Area {
 
-	/**
-	 * @param number value
-	 * @param unit   unit
-	 */
-	public AreaAmount(Number number, AbstractUnit<Area> unit) {
-		super(number, unit);
-	}
+  /**
+   * Initializes instance with value and unit.
+   *
+   * @param number value
+   * @param unit   unit
+   */
+  public AreaAmount(Number number, AbstractUnit<Area> unit) {
+    super(number, unit);
+  }
 
-	@Override
-	protected BiFunction<Number, AbstractUnit<Area>, Area> factory() {
-		return AreaAmount::new;
-	}
+  @Override
+  protected BiFunction<Number, AbstractUnit<Area>, Area> factory() {
+    return AreaAmount::new;
+  }
 }

@@ -13,18 +13,18 @@ import javax.measure.UnitConverter;
  */
 abstract class AbstractConverter implements UnitConverter {
 
-	@Override
-	public boolean isIdentity() {
-		return false;
-	}
+  @Override
+  public boolean isIdentity() {
+    return false;
+  }
 
-	@Override
-	public UnitConverter concatenate(UnitConverter converter) {
-		return converter == Converters.IDENTITY ? this : new CombineConverter(this, converter);
-	}
+  @Override
+  public UnitConverter concatenate(UnitConverter converter) {
+    return converter == Converters.IDENTITY ? this : new CombineConverter(this, converter);
+  }
 
-	@Override
-	public List<? extends UnitConverter> getConversionSteps() {
-		return Collections.singletonList(this);
-	}
+  @Override
+  public List<? extends UnitConverter> getConversionSteps() {
+    return Collections.singletonList(this);
+  }
 }

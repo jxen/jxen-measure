@@ -7,5 +7,5 @@ package com.github.jxen.measure.format;
  *
  * @since Misc Units 0.1
  */
-public class MiscDefaultUnitFormat extends DefaultUnitFormat {
+public class MiscDefaultUnitFormat extends MeasureUnitFormat {
 }

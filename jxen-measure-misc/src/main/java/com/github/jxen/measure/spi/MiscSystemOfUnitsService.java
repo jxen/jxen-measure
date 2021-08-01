@@ -12,15 +12,15 @@ import com.github.jxen.measure.misc.UsCustomaryUnits;
 
 class MiscSystemOfUnitsService extends DefaultSystemOfUnitsService {
 
-	MiscSystemOfUnitsService() {
-		add(ImperialUnits.SYSTEM);
-		add(UsCustomaryUnits.SYSTEM);
-		add(TroyUnits.SYSTEM);
-		add(ApothecariesUnits.SYSTEM);
-		add(RussianUnits.SYSTEM);
-		add(TemperatureUnits.SYSTEM);
-		add(CgsUnits.SYSTEM);
-		add(LegacyUnits.SYSTEM);
-		add(InformationUnits.SYSTEM);
-	}
+  MiscSystemOfUnitsService() {
+    add(ImperialUnits.SYSTEM);
+    add(UsCustomaryUnits.SYSTEM);
+    add(TroyUnits.SYSTEM);
+    add(ApothecariesUnits.SYSTEM);
+    add(RussianUnits.SYSTEM);
+    add(TemperatureUnits.SYSTEM);
+    add(CgsUnits.SYSTEM);
+    add(LegacyUnits.SYSTEM);
+    add(InformationUnits.SYSTEM);
+  }
 }

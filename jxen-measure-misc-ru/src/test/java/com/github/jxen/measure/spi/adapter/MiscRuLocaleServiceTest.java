@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 
 class MiscRuLocaleServiceTest {
 
-	@Test
-	void testGetAdapter() {
-		assertNotNull(new MiscRuLocaleService().getAdapter());
-	}
+  @Test
+  void testGetAdapter() {
+    assertNotNull(new MiscRuLocaleService().getAdapter());
+  }
 }

@@ -13,18 +13,18 @@ import java.util.Locale;
  */
 public class RuLocaleService implements LocaleService {
 
-	/**
-	 * Russian locale.
-	 */
-	public static final Locale RU = new Locale("ru");
+  /**
+   * Russian locale.
+   */
+  public static final Locale RU = new Locale("ru");
 
-	@Override
-	public Locale getLocale() {
-		return RU;
-	}
+  @Override
+  public Locale getLocale() {
+    return RU;
+  }
 
-	@Override
-	public LocaleAdapter getAdapter() {
-		return new RuLocaleAdapter();
-	}
+  @Override
+  public LocaleAdapter getAdapter() {
+    return new RuLocaleAdapter();
+  }
 }

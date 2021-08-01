@@ -11,46 +11,46 @@ import javax.measure.Dimension;
  */
 public final class Dimensions {
 
-	/**
-	 * Dimensionless.
-	 */
-	public static final Dimension DIMENSIONLESS = new ProductDimension();
+  /**
+   * Dimensionless.
+   */
+  public static final Dimension DIMENSIONLESS = new ProductDimension();
 
-	/**
-	 * Length.
-	 */
-	public static final Dimension LENGTH = BaseDimension.LENGTH;
+  /**
+   * Length.
+   */
+  public static final Dimension LENGTH = BaseDimension.LENGTH;
 
-	/**
-	 * Mass.
-	 */
-	public static final Dimension MASS = BaseDimension.MASS;
+  /**
+   * Mass.
+   */
+  public static final Dimension MASS = BaseDimension.MASS;
 
-	/**
-	 * Time.
-	 */
-	public static final Dimension TIME = BaseDimension.TIME;
+  /**
+   * Time.
+   */
+  public static final Dimension TIME = BaseDimension.TIME;
 
-	/**
-	 * Electric current (I).
-	 */
-	public static final Dimension ELECTRIC_CURRENT = BaseDimension.ELECTRIC_CURRENT;
+  /**
+   * Electric current (I).
+   */
+  public static final Dimension ELECTRIC_CURRENT = BaseDimension.ELECTRIC_CURRENT;
 
-	/**
-	 * Temperature dimension (&Theta;).
-	 */
-	public static final Dimension TEMPERATURE = BaseDimension.TEMPERATURE;
+  /**
+   * Temperature dimension (&Theta;).
+   */
+  public static final Dimension TEMPERATURE = BaseDimension.TEMPERATURE;
 
-	/**
-	 * Amount of substance (N).
-	 */
-	public static final Dimension AMOUNT_OF_SUBSTANCE = BaseDimension.AMOUNT_OF_SUBSTANCE;
+  /**
+   * Amount of substance (N).
+   */
+  public static final Dimension AMOUNT_OF_SUBSTANCE = BaseDimension.AMOUNT_OF_SUBSTANCE;
 
-	/**
-	 * Luminous intensity (J).
-	 */
-	public static final Dimension LUMINOUS_INTENSITY = BaseDimension.LUMINOUS_INTENSITY;
+  /**
+   * Luminous intensity (J).
+   */
+  public static final Dimension LUMINOUS_INTENSITY = BaseDimension.LUMINOUS_INTENSITY;
 
-	private Dimensions() {
-	}
+  private Dimensions() {
+  }
 }

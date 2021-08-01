@@ -13,25 +13,25 @@ import org.junit.jupiter.api.Test;
 
 class AlternateUnitTest {
 
-	@Test
-	void testGetDimension() {
-		assertEquals(Dimensions.LENGTH, METER.alternate("alt").getDimension());
-	}
+  @Test
+  void testGetDimension() {
+    assertEquals(Dimensions.LENGTH, METER.alternate("alt").getDimension());
+  }
 
-	@Test
-	void testGetBaseUnit() {
-		Map<Unit<Length>, Integer> expected = new HashMap<>();
-		expected.put(METER, 1);
-		assertEquals(expected, METER.alternate("alt").getBaseUnits());
-	}
+  @Test
+  void testGetBaseUnit() {
+    Map<Unit<Length>, Integer> expected = new HashMap<>();
+    expected.put(METER, 1);
+    assertEquals(expected, METER.alternate("alt").getBaseUnits());
+  }
 
-	@Test
-	void testGetSystemUnit() {
-		assertEquals(METER, METER.alternate("alt").getSystemUnit());
-	}
+  @Test
+  void testGetSystemUnit() {
+    assertEquals(METER, METER.alternate("alt").getSystemUnit());
+  }
 
-	@Test
-	void testParent() {
-		assertTrue(METER.alternate("alt").alternate("another") instanceof AlternateUnit);
-	}
+  @Test
+  void testParent() {
+    assertTrue(METER.alternate("alt").alternate("another") instanceof AlternateUnit);
+  }
 }

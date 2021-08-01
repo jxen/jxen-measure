@@ -18,59 +18,59 @@ import org.junit.jupiter.api.Test;
 
 class QuantityDecomposerTest {
 
-	@Test
-	void testGetUnits() {
-		QuantityDecomposer<Length> decomposer = new QuantityDecomposer<>(Collections.singleton(METER));
-		Set<Unit<Length>> actual = decomposer.getUnits();
-		Set<Unit<Length>> expected = Collections.singleton(METER);
-		assertEquals(expected, actual);
-	}
+  @Test
+  void testGetUnits() {
+    QuantityDecomposer<Length> decomposer = new QuantityDecomposer<>(Collections.singleton(METER));
+    Set<Unit<Length>> actual = decomposer.getUnits();
+    Set<Unit<Length>> expected = Collections.singleton(METER);
+    assertEquals(expected, actual);
+  }
 
-	@Test
-	void testToListZero() {
-		Unit<Length> cm = centi(METER);
-		QuantityDecomposer<Length> decomposer = new QuantityDecomposer<>(asList(METER, cm));
-		Quantity<Length> length = of(0, METER);
-		List<Quantity<Length>> actual = decomposer.decompose(length);
-		List<Quantity<Length>> expected = Collections.emptyList();
-		assertEquals(expected, actual);
-	}
+  @Test
+  void testToListZero() {
+    Unit<Length> cm = centi(METER);
+    QuantityDecomposer<Length> decomposer = new QuantityDecomposer<>(asList(METER, cm));
+    Quantity<Length> length = of(0, METER);
+    List<Quantity<Length>> actual = decomposer.decompose(length);
+    List<Quantity<Length>> expected = Collections.emptyList();
+    assertEquals(expected, actual);
+  }
 
-	@Test
-	void testToListCase1() {
-		Unit<Length> cm = centi(METER);
-		QuantityDecomposer<Length> decomposer = new QuantityDecomposer<>(asList(METER, cm));
-		Quantity<Length> length = of(1.25, METER);
-		List<Quantity<Length>> actual = decomposer.decompose(length);
-		List<Quantity<Length>> expected = asList(of(1.0, METER), of(25.0, cm));
-		assertEquals(expected, actual);
-	}
+  @Test
+  void testToListCase1() {
+    Unit<Length> cm = centi(METER);
+    QuantityDecomposer<Length> decomposer = new QuantityDecomposer<>(asList(METER, cm));
+    Quantity<Length> length = of(1.25, METER);
+    List<Quantity<Length>> actual = decomposer.decompose(length);
+    List<Quantity<Length>> expected = asList(of(1.0, METER), of(25.0, cm));
+    assertEquals(expected, actual);
+  }
 
-	@Test
-	void testToListCase2() {
-		Unit<Length> cm = centi(METER);
-		QuantityDecomposer<Length> decomposer = new QuantityDecomposer<>(asList(METER, cm));
-		Quantity<Length> length = of(1, METER);
-		List<Quantity<Length>> actual = decomposer.decompose(length);
-		List<Quantity<Length>> expected = Collections.singletonList(of(1.0, METER));
-		assertEquals(expected, actual);
-	}
+  @Test
+  void testToListCase2() {
+    Unit<Length> cm = centi(METER);
+    QuantityDecomposer<Length> decomposer = new QuantityDecomposer<>(asList(METER, cm));
+    Quantity<Length> length = of(1, METER);
+    List<Quantity<Length>> actual = decomposer.decompose(length);
+    List<Quantity<Length>> expected = Collections.singletonList(of(1.0, METER));
+    assertEquals(expected, actual);
+  }
 
-	@Test
-	void testToListCase3() {
-		Unit<Length> cm = centi(METER);
-		QuantityDecomposer<Length> decomposer = new QuantityDecomposer<>(asList(METER, cm));
-		Quantity<Length> length = of(0.25, METER);
-		List<Quantity<Length>> actual = decomposer.decompose(length);
-		List<Quantity<Length>> expected = Collections.singletonList(of(25.0, cm));
-		assertEquals(expected, actual);
-	}
+  @Test
+  void testToListCase3() {
+    Unit<Length> cm = centi(METER);
+    QuantityDecomposer<Length> decomposer = new QuantityDecomposer<>(asList(METER, cm));
+    Quantity<Length> length = of(0.25, METER);
+    List<Quantity<Length>> actual = decomposer.decompose(length);
+    List<Quantity<Length>> expected = Collections.singletonList(of(25.0, cm));
+    assertEquals(expected, actual);
+  }
 
-	@Test
-	void testToListCase4() {
-		Unit<Length> cm = centi(METER);
-		QuantityDecomposer<Length> decomposer = new QuantityDecomposer<>(asList(METER, cm));
-		Quantity<Length> length = of(-1.25, METER);
-		assertThrows(MeasurementException.class, () -> decomposer.decompose(length));
-	}
+  @Test
+  void testToListCase4() {
+    Unit<Length> cm = centi(METER);
+    QuantityDecomposer<Length> decomposer = new QuantityDecomposer<>(asList(METER, cm));
+    Quantity<Length> length = of(-1.25, METER);
+    assertThrows(MeasurementException.class, () -> decomposer.decompose(length));
+  }
 }

@@ -15,33 +15,39 @@ import javax.measure.Unit;
  */
 public class CurrencySystem extends QuantityDecomposer<Currency> {
 
-	private final CurrencyUnit baseUnit;
+  private final CurrencyUnit baseUnit;
 
-	/**
-	 * @param units units
-	 */
-	public CurrencySystem(CurrencyUnit... units) {
-		super(Arrays.asList(units));
-		this.baseUnit = units[0];
-	}
+  /**
+   * Initializes currency system.
+   *
+   * @param units units
+   */
+  public CurrencySystem(CurrencyUnit... units) {
+    super(Arrays.asList(units));
+    this.baseUnit = units[0];
+  }
 
-	/**
-	 * @return the baseUnit
-	 */
-	public CurrencyUnit getBaseUnit() {
-		return baseUnit;
-	}
+  /**
+   * Provides base currency unit.
+   *
+   * @return the baseUnit
+   */
+  public final CurrencyUnit getBaseUnit() {
+    return baseUnit;
+  }
 
-	/**
-	 * @param name name
-	 * @return currency unit
-	 */
-	public CurrencyUnit forCode(String name) {
-		for (Unit<Currency> unit : getUnits()) {
-			if (unit.getName().equals(name)) {
-				return (CurrencyUnit) unit;
-			}
-		}
-		throw new MeasurementException("Unknown currency unit: " + name);
-	}
+  /**
+   * Provides unit for given code.
+   *
+   * @param name name
+   * @return currency unit
+   */
+  public final CurrencyUnit forCode(String name) {
+    for (Unit<Currency> unit : getUnits()) {
+      if (unit.getName().equals(name)) {
+        return (CurrencyUnit) unit;
+      }
+    }
+    throw new MeasurementException("Unknown currency unit: " + name);
+  }
 }

@@ -11,8 +11,8 @@ import com.github.jxen.measure.data.Metal;
  */
 public class MetalService implements SubstanceService<Metal> {
 
-	@Override
-	public Class<Metal> getEnumClass() {
-		return Metal.class;
-	}
+  @Override
+  public Class<Metal> getEnumClass() {
+    return Metal.class;
+  }
 }

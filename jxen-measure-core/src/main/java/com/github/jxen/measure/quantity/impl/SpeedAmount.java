@@ -14,16 +14,18 @@ import javax.measure.quantity.Speed;
  */
 public class SpeedAmount extends AbstractQuantity<Speed> implements Speed {
 
-	/**
-	 * @param number value
-	 * @param unit   unit
-	 */
-	public SpeedAmount(Number number, AbstractUnit<Speed> unit) {
-		super(number, unit);
-	}
+  /**
+   * Initializes instance with value and unit.
+   *
+   * @param number value
+   * @param unit   unit
+   */
+  public SpeedAmount(Number number, AbstractUnit<Speed> unit) {
+    super(number, unit);
+  }
 
-	@Override
-	protected BiFunction<Number, AbstractUnit<Speed>, Speed> factory() {
-		return SpeedAmount::new;
-	}
+  @Override
+  protected BiFunction<Number, AbstractUnit<Speed>, Speed> factory() {
+    return SpeedAmount::new;
+  }
 }

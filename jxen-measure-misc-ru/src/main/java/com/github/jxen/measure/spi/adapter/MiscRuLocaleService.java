@@ -11,8 +11,8 @@ import com.github.jxen.measure.format.LocaleAdapter;
  */
 public class MiscRuLocaleService extends RuLocaleService {
 
-	@Override
-	public LocaleAdapter getAdapter() {
-		return new MiscRuLocaleAdapter();
-	}
+  @Override
+  public LocaleAdapter getAdapter() {
+    return new MiscRuLocaleAdapter();
+  }
 }

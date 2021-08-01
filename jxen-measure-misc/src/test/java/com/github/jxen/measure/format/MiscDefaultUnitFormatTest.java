@@ -10,23 +10,23 @@ import org.junit.jupiter.api.Test;
 
 class MiscDefaultUnitFormatTest {
 
-	@BeforeEach
-	void setUp() {
-		Locale.setDefault(Locale.US);
-	}
+  @BeforeEach
+  void setUp() {
+    Locale.setDefault(Locale.US);
+  }
 
-	@Test
-	void testFormatImperialUnits() {
-		Assertions.assertEquals("in", new MiscDefaultUnitFormat().format(ImperialUnits.INCH));
-	}
+  @Test
+  void testFormatImperialUnits() {
+    Assertions.assertEquals("in", new MiscDefaultUnitFormat().format(ImperialUnits.INCH));
+  }
 
-	@Test
-	void testFormatRussianUnits() {
-		Assertions.assertEquals("in", new MiscDefaultUnitFormat().format(RussianUnits.INCH));
-	}
+  @Test
+  void testFormatRussianUnits() {
+    Assertions.assertEquals("in", new MiscDefaultUnitFormat().format(RussianUnits.INCH));
+  }
 
-	@Test
-	void testFormatTroyUnits() {
-		Assertions.assertEquals("lb\u202Ft", new MiscDefaultUnitFormat().format(TroyUnits.POUND));
-	}
+  @Test
+  void testFormatTroyUnits() {
+    Assertions.assertEquals("lb\u202Ft", new MiscDefaultUnitFormat().format(TroyUnits.POUND));
+  }
 }

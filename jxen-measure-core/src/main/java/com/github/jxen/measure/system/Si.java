@@ -15,26 +15,26 @@ import javax.measure.spi.SystemOfUnits;
  */
 public final class Si {
 
-	/////////////////////// SI System of Units ///////////////////////
+  /////////////////////// SI System of Units ///////////////////////
 
-	/**
-	 * The instance of {@link SystemOfUnits}.
-	 */
-	public static final SystemOfUnits SYSTEM = build();
+  /**
+   * The instance of {@link SystemOfUnits}.
+   */
+  public static final SystemOfUnits SYSTEM = build();
 
-	private Si() {
-	}
+  private Si() {
+  }
 
-	private static SystemOfUnits build() {
-		return SystemOfUnitsImpl.builder("SI")
-				.add(MetricUnits.class)
-				.add(TimeUnits.class)
-				.add(MeterUnits.class)
-				.add(RadianUnits.class)
-				.add(NamedUnits.class)
-				.add(AmpereUnits.class)
-				.add(MiscUnits.class)
-				.add(NonSiUnits.class)
-				.build();
-	}
+  private static SystemOfUnits build() {
+    return SystemOfUnitsImpl.builder("SI")
+        .add(MetricUnits.class)
+        .add(TimeUnits.class)
+        .add(MeterUnits.class)
+        .add(RadianUnits.class)
+        .add(NamedUnits.class)
+        .add(AmpereUnits.class)
+        .add(MiscUnits.class)
+        .add(NonSiUnits.class)
+        .build();
+  }
 }
