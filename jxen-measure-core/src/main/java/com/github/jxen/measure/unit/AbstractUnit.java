@@ -65,6 +65,11 @@ public abstract class AbstractUnit<Q extends Quantity<Q>> implements Unit<Q> {
 		return false;
 	}
 
+	@Override
+	public boolean isEquivalentTo(Unit<Q> unit) {
+		return getConverterTo(unit).isIdentity();
+	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T extends Quantity<T>> AbstractUnit<T> asType(Class<T> type) {

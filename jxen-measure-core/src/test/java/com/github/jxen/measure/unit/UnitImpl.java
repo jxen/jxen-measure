@@ -40,6 +40,11 @@ class UnitImpl<Q extends Quantity<Q>> implements Unit<Q> {
 	}
 
 	@Override
+	public boolean isEquivalentTo(Unit<Q> unit) {
+		return false;
+	}
+
+	@Override
 	public <T extends Quantity<T>> Unit<T> asType(Class<T> type) {
 		return null;
 	}

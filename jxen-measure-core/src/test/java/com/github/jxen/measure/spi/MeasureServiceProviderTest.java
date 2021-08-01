@@ -51,11 +51,6 @@ class MeasureServiceProviderTest {
 	}
 
 	@Test
-	void testGetUnitFormatService() {
-		assertThrows(UnsupportedOperationException.class, () -> service.getUnitFormatService());
-	}
-
-	@Test
 	void testGetFormatService() {
 		assertNotNull(service.getFormatService());
 	}
@@ -83,11 +78,6 @@ class MeasureServiceProviderTest {
 	@Test
 	void testGetFormatServiceGetUnitFormatDefault() {
 		assertNotNull(service.getFormatService().getUnitFormat("default"));
-	}
-
-	@Test
-	void testGetFormatServiceGetAvailableFormatNames() {
-		assertThrows(UnsupportedOperationException.class, () -> service.getFormatService().getAvailableFormatNames());
 	}
 
 	@Test

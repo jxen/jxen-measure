@@ -1,20 +1,14 @@
-package com.github.jxen.measure.quantity;
+package com.github.jxen.measure.quantity.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-import com.github.jxen.measure.quantity.impl.AngleAmount;
-import com.github.jxen.measure.quantity.impl.AreaAmount;
-import com.github.jxen.measure.quantity.impl.DensityAmount;
-import com.github.jxen.measure.quantity.impl.LengthAmount;
-import com.github.jxen.measure.quantity.impl.MassAmount;
-import com.github.jxen.measure.quantity.impl.Quantities;
 import com.github.jxen.measure.system.AmpereUnits;
 import com.github.jxen.measure.system.MeterUnits;
-import com.github.jxen.measure.system.NamedUnits;
-import com.github.jxen.measure.system.RadianUnits;
 import com.github.jxen.measure.system.MetricUnits;
 import com.github.jxen.measure.system.MiscUnits;
+import com.github.jxen.measure.system.NamedUnits;
+import com.github.jxen.measure.system.RadianUnits;
 import javax.measure.Quantity;
 import javax.measure.quantity.Angle;
 import javax.measure.quantity.Area;

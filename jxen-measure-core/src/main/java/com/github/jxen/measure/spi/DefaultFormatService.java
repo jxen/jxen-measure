@@ -40,8 +40,8 @@ class DefaultFormatService implements FormatService {
 	}
 
 	@Override
-	public Set<String> getAvailableFormatNames() {
-		throw new UnsupportedOperationException("The method is deprecated");
+	public MeasureUnitFormat getUnitFormat(String name, String variant) {
+		return variant == null || variant.isEmpty() ? getUnitFormat(name) : getUnitFormat(name + "_" + variant);
 	}
 
 	@Override

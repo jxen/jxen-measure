@@ -8,16 +8,16 @@
     <version>2</version>
   </parent>
   <artifactId>jxen-measure</artifactId>
-  <version>0.7</version>
+  <version>0.8-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>JXen JSR 385 (javax.measure) Parent</name>
   <description>Java Xenon JSR 385 (javax.measure) Implementation Parent Project</description>
   <properties>
     <jxen-measure.version>${project.version}</jxen-measure.version>
     <jxen-math.version>0.4</jxen-math.version>
-    <unit-api.version>2.0</unit-api.version>
-    <si-quantity.version>2.0.1</si-quantity.version>
-    <systems-quantity.version>2.0.2</systems-quantity.version>
+    <unit-api.version>2.1.3</unit-api.version>
+    <si-quantity.version>2.1</si-quantity.version>
+    <systems-quantity.version>2.1</systems-quantity.version>
     <snakeyaml.version>1.27</snakeyaml.version>
   </properties>
   <modules>

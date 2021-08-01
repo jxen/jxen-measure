@@ -120,6 +120,11 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements Quantit
 	}
 
 	@Override
+	public boolean isEquivalentTo(Quantity<Q> quantity) {
+		return compareTo(quantity) == 0;
+	}
+
+	@Override
 	public int compareTo(Quantity<Q> o) {
 		Quantity<Q> other = unit.equals(o.getUnit()) ? o : o.to(unit);
 		return Double.compare(value.doubleValue(), other.getValue().doubleValue());
