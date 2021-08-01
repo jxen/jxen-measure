@@ -2,13 +2,47 @@ package com.github.jxen.measure.quantity.impl;
 
 import static com.github.jxen.measure.system.MetricUnits.METER;
 import static com.github.jxen.measure.unit.MetricPrefix.kilo;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.github.jxen.math.rational.BigRational;
 import com.github.jxen.math.rational.Rational;
+import javax.measure.Quantity.Scale;
+import javax.measure.quantity.Length;
+import javax.measure.spi.QuantityFactory;
 import org.junit.jupiter.api.Test;
 
-class QuantiesTest {
+class QuantitiesTest {
+
+	@Test
+	void testGetFactory() {
+		QuantityFactory<Length> factory = Quantities.getFactory(Length.class);
+		assertAll(
+				() -> assertThrows(UnsupportedOperationException.class, () -> factory.create(1, METER, Scale.ABSOLUTE)),
+				() -> assertEquals(1, factory.create(1, METER).getValue()),
+				() -> assertEquals(METER, factory.create(1, METER).getUnit())
+		);
+	}
+
+	@Test
+	void testIsZero() {
+		LengthAmount length = new LengthAmount(0, kilo(METER));
+		assertTrue(Quantities.isZero(length));
+	}
+
+	@Test
+	void testIsPositive() {
+		LengthAmount length = new LengthAmount(1, kilo(METER));
+		assertTrue(Quantities.isPositive(length));
+	}
+
+	@Test
+	void testIsNegative() {
+		LengthAmount length = new LengthAmount(-1, kilo(METER));
+		assertTrue(Quantities.isNegative(length));
+	}
 
 	@Test
 	void testToDouble() {

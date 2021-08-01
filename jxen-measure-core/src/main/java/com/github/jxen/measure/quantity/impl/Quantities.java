@@ -62,12 +62,45 @@ public final class Quantities {
 
 	/**
 	 * @param quantity quantity
+	 * @return {@code true} if quantity is zero
+	 */
+	public static boolean isZero(Quantity<?> quantity) {
+		return quantity.getValue().doubleValue() == 0.0;
+	}
+
+	/**
+	 * @param quantity quantity
+	 * @return {@code true} if quantity is positive
+	 */
+	public static boolean isPositive(Quantity<?> quantity) {
+		return quantity.getValue().doubleValue() > 0.0;
+	}
+
+	/**
+	 * @param quantity quantity
+	 * @return {@code true} if quantity is negative
+	 */
+	public static boolean isNegative(Quantity<?> quantity) {
+		return quantity.getValue().doubleValue() < 0.0;
+	}
+
+	/**
+	 * @param quantity quantity
 	 * @param unit     unit
 	 * @param <Q> quantity type
 	 * @return double value
 	 */
 	public static <Q extends Quantity<Q>> double toDouble(Quantity<Q> quantity, Unit<Q> unit) {
-		return quantity.to(unit).getValue().doubleValue();
+		return toDouble(quantity.to(unit));
+	}
+
+	/**
+	 * @param quantity quantity
+	 * @param <Q> quantity type
+	 * @return double value
+	 */
+	public static <Q extends Quantity<Q>> double toDouble(Quantity<Q> quantity) {
+		return quantity.getValue().doubleValue();
 	}
 
 	/**
@@ -77,7 +110,16 @@ public final class Quantities {
 	 * @return float value
 	 */
 	public static <Q extends Quantity<Q>> float toFloat(Quantity<Q> quantity, Unit<Q> unit) {
-		return quantity.to(unit).getValue().floatValue();
+		return toFloat(quantity.to(unit));
+	}
+
+	/**
+	 * @param quantity quantity
+	 * @param <Q> quantity type
+	 * @return float value
+	 */
+	public static <Q extends Quantity<Q>> float toFloat(Quantity<Q> quantity) {
+		return quantity.getValue().floatValue();
 	}
 
 	/**
@@ -87,7 +129,16 @@ public final class Quantities {
 	 * @return long value
 	 */
 	public static <Q extends Quantity<Q>> long toLong(Quantity<Q> quantity, Unit<Q> unit) {
-		return quantity.to(unit).getValue().longValue();
+		return toLong(quantity.to(unit));
+	}
+
+	/**
+	 * @param quantity quantity
+	 * @param <Q> quantity type
+	 * @return long value
+	 */
+	public static <Q extends Quantity<Q>> long toLong(Quantity<Q> quantity) {
+		return quantity.getValue().longValue();
 	}
 
 	/**
@@ -97,7 +148,16 @@ public final class Quantities {
 	 * @return int value
 	 */
 	public static <Q extends Quantity<Q>> long toInt(Quantity<Q> quantity, Unit<Q> unit) {
-		return quantity.to(unit).getValue().intValue();
+		return toInt(quantity.to(unit));
+	}
+
+	/**
+	 * @param quantity quantity
+	 * @param <Q> quantity type
+	 * @return int value
+	 */
+	public static <Q extends Quantity<Q>> long toInt(Quantity<Q> quantity) {
+		return quantity.getValue().intValue();
 	}
 
 	/**
@@ -107,7 +167,16 @@ public final class Quantities {
 	 * @return Rational value
 	 */
 	public static <Q extends Quantity<Q>> Rational toRational(Quantity<Q> quantity, Unit<Q> unit) {
-		return Rational.valueOf(quantity.to(unit).getValue());
+		return toRational(quantity.to(unit));
+	}
+
+	/**
+	 * @param quantity quantity
+	 * @param <Q> quantity type
+	 * @return Rational value
+	 */
+	public static <Q extends Quantity<Q>> Rational toRational(Quantity<Q> quantity) {
+		return Rational.valueOf(quantity.getValue());
 	}
 
 	/**
@@ -117,6 +186,15 @@ public final class Quantities {
 	 * @return BigRational value
 	 */
 	public static <Q extends Quantity<Q>> BigRational toBigRational(Quantity<Q> quantity, Unit<Q> unit) {
-		return BigRational.valueOf(quantity.to(unit).getValue());
+		return toBigRational(quantity.to(unit));
+	}
+
+	/**
+	 * @param quantity quantity
+	 * @param <Q> quantity type
+	 * @return BigRational value
+	 */
+	public static <Q extends Quantity<Q>> BigRational toBigRational(Quantity<Q> quantity) {
+		return BigRational.valueOf(quantity.getValue());
 	}
 }
