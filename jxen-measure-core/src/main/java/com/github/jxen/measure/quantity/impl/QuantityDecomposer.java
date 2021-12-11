@@ -68,7 +68,7 @@ public class QuantityDecomposer<Q extends Quantity<Q>> {
       if (q.getValue().doubleValue() == 0) {
         break;
       }
-      if (u == units.last()) {
+      if (units.last().equals(u)) {
         if (q.getValue().doubleValue() > 0) {
           list.add(q);
         }

@@ -20,7 +20,7 @@ abstract class AbstractConverter implements UnitConverter {
 
   @Override
   public UnitConverter concatenate(UnitConverter converter) {
-    return converter == Converters.IDENTITY ? this : new CombineConverter(this, converter);
+    return Converters.IDENTITY.equals(converter) ? this : new CombineConverter(this, converter);
   }
 
   @Override
