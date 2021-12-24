@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.github.jxen.sdk</groupId>
     <artifactId>jxen-measure</artifactId>
-    <version>0.8-SNAPSHOT</version>
+    <version>0.8</version>
   </parent>
   <artifactId>jxen-measure-core-en</artifactId>
   <packaging>jar</packaging>
