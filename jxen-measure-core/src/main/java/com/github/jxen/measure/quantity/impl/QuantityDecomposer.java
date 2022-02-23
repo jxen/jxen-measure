@@ -55,34 +55,44 @@ public class QuantityDecomposer<Q extends Quantity<Q>> {
    * @return decomposition
    */
   public List<Quantity<Q>> decompose(Quantity<Q> quantity) {
-    if (quantity.getValue().doubleValue() < 0) {
+    double value = toDouble(quantity);
+    if (value < 0) {
       throw new MeasurementException("Operation is not supported for negative values");
     }
-    if (quantity.getValue().doubleValue() == 0) {
+    if (value == 0) {
       return Collections.emptyList();
     }
     List<Quantity<Q>> list = new ArrayList<>();
     Quantity<Q> amount = quantity;
-    for (Unit<Q> u : units) {
-      Quantity<Q> q = amount.to(u);
-      if (q.getValue().doubleValue() == 0) {
+    for (Unit<Q> unit : units) {
+      if (toDouble(amount) == 0) {
         break;
       }
-      if (units.last().equals(u)) {
-        if (q.getValue().doubleValue() > 0) {
-          list.add(q);
-        }
-      } else {
-        Number v = Adapters.lookup(q.getValue()).floor();
-        if (v.doubleValue() > 0) {
-          Quantity<Q> o = Quantities.of(v, u);
-          if (o.getValue().doubleValue() > 0) {
-            list.add(o);
-            amount = amount.subtract(o);
-          }
+      amount = forUnit(unit, amount, list);
+    }
+    return list;
+  }
+
+  private Quantity<Q> forUnit(Unit<Q> unit, Quantity<Q> amount, List<Quantity<Q>> list) {
+    Quantity<Q> q = amount.to(unit);
+    if (units.last().equals(unit)) {
+      if (toDouble(q) > 0) {
+        list.add(q);
+      }
+    } else {
+      Number v = Adapters.lookup(q.getValue()).floor();
+      if (v.doubleValue() > 0) {
+        Quantity<Q> o = Quantities.of(v, unit);
+        if (toDouble(o) > 0) {
+          list.add(o);
+          return amount.subtract(o);
         }
       }
     }
-    return list;
+    return amount;
+  }
+
+  private double toDouble(Quantity<Q> quantity) {
+    return quantity.getValue().doubleValue();
   }
 }

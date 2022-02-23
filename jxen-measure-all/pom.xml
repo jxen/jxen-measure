@@ -5,12 +5,15 @@
   <parent>
     <groupId>com.github.jxen.sdk</groupId>
     <artifactId>jxen-measure</artifactId>
-    <version>0.8</version>
+    <version>0.8.1</version>
   </parent>
   <artifactId>jxen-measure-all</artifactId>
   <packaging>jar</packaging>
   <name>JXen JSR 385 (javax.measure) All Units</name>
   <description>Java Xenon JSR 385 (javax.measure) Implementation of All Units Aggregator</description>
+  <properties>
+    <maven.deploy.skip>true</maven.deploy.skip>
+  </properties>
   <build>
     <plugins>
       <plugin>
